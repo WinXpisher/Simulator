@@ -1,0 +1,14 @@
+﻿  SimulationEnvironment.cpp
+D:\MyProfile\Робочий стіл\MyProjects\cpp\Simulator\Simulator\SimulationEnvironment.h(68,12): warning C4240: nonstandard extension used: access to 'SimulationEnvironment::SimulationResult' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'SimulationEnvironment.cpp')
+  D:\MyProfile\Робочий стіл\MyProjects\cpp\Simulator\Simulator\SimulationEnvironment.h(53,12):
+  see declaration of 'SimulationEnvironment::SimulationResult'
+  
+  Simulator.cpp
+D:\MyProfile\Робочий стіл\MyProjects\cpp\Simulator\Simulator\SimulationEnvironment.h(68,12): warning C4240: nonstandard extension used: access to 'SimulationEnvironment::SimulationResult' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'Simulator.cpp')
+  D:\MyProfile\Робочий стіл\MyProjects\cpp\Simulator\Simulator\SimulationEnvironment.h(53,12):
+  see declaration of 'SimulationEnvironment::SimulationResult'
+  
+  Generating Code...
+  Simulator.vcxproj -> D:\MyProfile\Робочий стіл\MyProjects\cpp\Simulator\x64\Debug\Simulator.exe
