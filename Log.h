@@ -1,124 +1,113 @@
-#pragma once  
+#pragma once
 #include <iostream>  
-#include <fstream>  
+#include <sstream>
 #include <string>  
-#include <ctime>  
+#include <ctime>
+#include <fstream>
 #include "SimulationData.h"
+#include "SimulatorPrimitives.h" 
+#include "DistributionMethod.h"
+#include "FileManager.h"
 
-using namespace std;
-
-class LogInf
+class Logger
 {
-public:
-    LogInf(const string& filename)
-    {
-        logFile.open(filename, ios::out | ios::app);
-        if (!logFile.is_open())
-        {
-            cerr << "Error: can't open log file" << endl;
-        }
-    }
-
-    ~LogInf()
-    {
-        if (logFile.is_open())
-        {
-            logFile.close();
-        }
-    }
-
-    void logSimResult(const SimulationData& simData, DM::DMethod methodId)
-    {
-        if (logFile.is_open())
-        {
-            logFile << getCurrentTime() << " " << 
-                getSimResultString(simData, methodId) << endl;
-        }
-    }
-
-    string createMessageFromSimResult(
-        const SimulationData& simData, DM::DMethod methodId
-    )
-    {
-        return getSimResultString(simData, methodId);
-    }
-
-    void saveMessageToTxt(
-        const SimulationData& simData, 
-        DM::DMethod methodId,
-        const string& txtFilename
-    )
-    {
-        ofstream txtFile(txtFilename, ios::out | ios::app);
-        if (txtFile.is_open())
-        {
-            txtFile << getCurrentTime() << " " << 
-                getSimResultString(simData, methodId) << endl;
-            txtFile.close();
-        }
-        else
-        {
-            cerr << "Error: can't open txt file" << endl;
-        }
-    }
-
-    string formatSimResult(const SimulationData& simData, DM::DMethod methodId)
-    {
-        return getSimResultString(simData, methodId);
-    }
-
-    void logSimResultMessage(const SimulationData& simData, DM::DMethod methodId)
-    {
-        string message = createMessageFromSimResult(simData, methodId);
-        logMessage(message);
-    }
-
-    void logMessage(const string& message)
-    {
-        if (logFile.is_open())
-        {
-            logFile << getCurrentTime() << " " << message << endl;
-        }
-    }
-
 private:
-    ofstream logFile;
+    using DM = DistributionMethod;
+    FileManager fm;
+    std::string timeUnit;
 
-    string getCurrentTime()
+    std::string getDistributionMethodName(DM::DMethod dMethod)
+    {
+        std::string name;
+
+        switch (dMethod)
+        {
+        case DistributionMethod::FCFS:
+            name = "fcfs";
+            break;
+        case DistributionMethod::LIFO:
+            name = "lifo";
+            break;
+        case DistributionMethod::HPF:
+            name = "hpf";
+            break;
+        case DistributionMethod::BACKFILL:
+            name = "backfill";
+            break;
+        case DistributionMethod::SIMPLEX:
+            name = "simplex";
+            break;
+        case DistributionMethod::RR:
+            name = "rr";
+            break;
+        default:
+            name = "unknown";
+        }
+        return name;
+    }
+
+    std::string getCurrentTime()
     {
         time_t now = time(nullptr);
         tm ltm;
         localtime_s(&ltm, &now);
-        return to_string(1900 + ltm.tm_year) + "-" + to_string(1 + ltm.tm_mon) + "-" + to_string(ltm.tm_mday) + " " + to_string(ltm.tm_hour) + ":" + to_string(ltm.tm_min) + ":" + to_string(ltm.tm_sec);
+
+        std::ostringstream oss;
+        oss << std::setfill('0') << std::setw(4) << (1900 + ltm.tm_year) << "-"
+            << std::setw(2) << (1 + ltm.tm_mon) << "-"
+            << std::setw(2) << ltm.tm_mday << " "
+            << std::setw(2) << ltm.tm_hour << ":"
+            << std::setw(2) << ltm.tm_min << ":"
+            << std::setw(2) << ltm.tm_sec;
+
+        return oss.str();
+    }
+public:
+    Logger(std::string timeUnit) : fm(), timeUnit(timeUnit) {}
+	~Logger() {}
+
+    void selectDMethod(DM::DMethod dMethod)
+    {
+        fm.selectDir(getDistributionMethodName(dMethod));
     }
 
-    string getSimResultString(const SimulationData& simData, DM::DMethod methodId)
+    void logSimulationData(const SimulationData& simData)
     {
-        string methodName;
-        switch (methodId)
-        {
-        case 1:
-            methodName = "Method LIFO";
-            break;
-        case 2:
-            methodName = "Method FCFS";
-            break;
-        case 3:
-            methodName = "Method HPF";
-            break;
-        case 4:
-            methodName = "Method BACKFILL";
-            break;
-        case 5:
-            methodName = "Method SIMPLEX";
-            break;
-        default:
-            methodName = "Method RR";
-            break;
-        }
+        std::ostringstream simDataString;
+        simDataString << getCurrentTime()
+            << std::fixed << std::setprecision(0)
+            << "\t[!] Clock: " << simData.simulationClock << " " << timeUnit
+            << std::setprecision(2)
+            << " | Average waiting time: " << simData.avWaitTime << " " << timeUnit
+            << " | Resource stagnation: " << simData.resStagnation << "%\n";
+        fm.writeString("log.txt", simDataString.str());
+    }
 
-        return "Method: " + methodName + "\n" +
-            "Execution Time: " + to_string(simData.simulationClock) + "\n" +
-            "Average Wait Time: " + to_string(simData.avWaitTime) + "\n";
+    void logTaskSendingPool(const Task& task)
+    {
+        std::ostringstream stringToLog;
+        stringToLog << getCurrentTime()
+            <<"\t[SEND] Task [" << task.id << "] "
+            << "has been added to the sending pool.\n";
+        fm.writeString("log.txt", stringToLog.str());
+    }
+
+    void logTaskSentToRes(const Task& task, const Resource& res)
+    {
+        std::ostringstream stringToLog;
+        stringToLog << getCurrentTime()
+            << "\t[RUN] Task [" << task.id << "] "
+            << "started running on resource " << res.id
+            << ".\n";
+        fm.writeString("log.txt", stringToLog.str());
+    }
+
+    void logTaskPerformed(const Task& task)
+    {
+        std::ostringstream stringToLog;
+        stringToLog << getCurrentTime()
+            << "\t[PERFORMED] Task [" << task.id << "] "
+            << "has been performed.\n";
+        fm.writeString("log.txt", stringToLog.str());
     }
 };

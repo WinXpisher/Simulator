@@ -7,11 +7,14 @@
 #include "DistributionMethod.h"
 #include "TaskAnalizer.h"
 #include "SimulationData.h"
+#include "Log.h"
 using namespace std;
 
 class SimulationEnvironment
 {
 private:
+    using DM = DistributionMethod;
+
     // зм≥нн≥, €к≥ використовуютьс€ в симул€ц≥њ
     struct SimulationContext
     {
@@ -28,8 +31,8 @@ private:
     SimulationContext simContext;
 
     std::mutex dataBaseMutex;
+    Logger* logger;
 
-    using DM = DistributionMethod;
     struct SendingTask;
     vector<SendingTask> sendingPool; // пул завдань, €к≥ в≥дправл€ютьс€ на ресурс
     TaskAnalizer taskAnalizer; // об'Їкт, €кий буде анал≥зувати кожне завданн€, перед симул€ц≥Їю
@@ -104,7 +107,7 @@ public:
         float timeToSend; // час, €кий залишивс€, щоб в≥дправити завданн€
     };
 
-    SimulationEnvironment(DataBase* dataBase);
+    SimulationEnvironment(DataBase* dataBase, Logger* logger);
     ~SimulationEnvironment();
 
     // метод п≥дготовлюЇ дан≥ дл€ початку симул€ц≥њ

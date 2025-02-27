@@ -141,3 +141,19 @@ double RM::calcResourceStagnation(vector<Resource>& resources)
         return 0;
     return busyProcessors / allProcessors * 100;
 }
+
+const Resource* RM::findResourceTaskIsPerfOn(
+    const Task* task,
+    const vector<Resource>& resources
+)
+{
+    for (const Resource& res : resources)
+    {
+        for (const Task* taskOnRes : res.performingTasks)
+        {
+            if (task == taskOnRes)
+                return &res;
+        }
+    }
+    return nullptr;
+}

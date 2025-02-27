@@ -4,8 +4,8 @@
 #include "ResourceManager.h"
 
 using DM = DistributionMethod;
-SimulationEnvironment::SimulationEnvironment(DataBase* dataBase):
-    dataBase(dataBase), taskAnalizer(dataBase)
+SimulationEnvironment::SimulationEnvironment(DataBase* dataBase, Logger* logger):
+    logger(logger), dataBase(dataBase), taskAnalizer(dataBase)
 {
     
 }
@@ -62,10 +62,12 @@ void SimulationEnvironment::initTasksSimulationInfo()
 
 void SimulationEnvironment::runSimulation(const DM* dm)
 {
+    logger->selectDMethod(dm->getId());
     while (true)
     {
         {
             std::lock_guard<std::mutex> lock(dataBaseMutex);
+            
             simContext.actionTaken = false;
             // якщо ще є задачі для відправки
             if (simContext.subTasksRemain > 0)
@@ -222,6 +224,8 @@ int SimulationEnvironment::trySendTaskToResource(
         taskToBeSent->status = Task::TaskStatus::SENDING;
         resource.performingTasks.push_back(taskToBeSent);
 
+        logger->logTaskSendingPool(*taskToBeSent);
+
         // відправляємо задачу в пул задач на очікування
         SendingTask st {
             taskToBeSent,
@@ -265,6 +269,15 @@ void SimulationEnvironment::wait(int time)
 
 void SimulationEnvironment::modelWaiting(double time)
 {
+    logger->logSimulationData(
+        SimulationData
+        {
+            simulationClock,
+            getSubTaskWaitingTimeAv(),
+            getResourceStagnationAv()
+        }
+    );
+
     resourceStagnationSum +=
         ResourceManager::calcResourceStagnation(dataBase->availableResources);
     modelWaitingForSubTasks(time);
@@ -331,6 +344,15 @@ void SimulationEnvironment::waitForSendingPool(double time)
         {
             // встановлюємо статус RUNNING
             sendingPool[i].task->status = Task::TaskStatus::RUNNING;
+
+            // логуємо, що задача відправлена на ресурс
+            const Resource* resToLog =
+                ResourceManager::findResourceTaskIsPerfOn(
+                    sendingPool[i].task,
+                    dataBase->availableResources
+                );
+            if (resToLog)
+                logger->logTaskSentToRes(*sendingPool[i].task, *resToLog);
         }
     }
 
@@ -371,6 +393,7 @@ void SimulationEnvironment::waitForResources(
                 (*iter)->simulationInfo.timePerformed = (*iter)->performTime;
                 // помічаємо завдання як виконане
                 (*iter)->status = Task::TaskStatus::PERFORMED;
+                logger->logTaskPerformed(**iter);
                 finishDividedTaskIfNeed(**iter);
                 // видаляємо завдання з списку тих, які виконуються
                 iter = res.performingTasks.erase(iter);
@@ -402,6 +425,7 @@ void SimulationEnvironment::finishDividedTaskIfNeed(Task& childTask)
     }
     // якщо всі перевірки пройшли, бітьківське завдання було виконано
     parentPtr->status = Task::TaskStatus::PERFORMED;
+    logger->logTaskPerformed(*parentPtr);
 }
 
 double SimulationEnvironment::getNetworkDelay(

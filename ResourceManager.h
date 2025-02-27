@@ -45,4 +45,9 @@ public:
     );
     // розрахувати простій ресурсів в відсотках
     static double calcResourceStagnation(vector<Resource>& resources);
+    // знайти ресурс, на якому вже виконується завдання
+    static const Resource* findResourceTaskIsPerfOn(
+        const Task* task,
+        const vector<Resource>& resources
+    );
 };
