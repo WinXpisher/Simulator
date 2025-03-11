@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <filesystem>
-#include <fstream>
+#include <regex>
 
 class FileManager
 {
@@ -31,6 +31,26 @@ public:
     {
         currentDir = getProgramPath();
     }
+
+    int getNextFileNumber(const std::string& prefix, const std::string& extension) {
+        int maxNumber = 0;
+        // патерн prefix[number]extension
+        std::regex filePattern(prefix + "(\\d+)" + extension);
+
+        // проходимо по файлам поточної директорії
+        for (const auto& entry : std::filesystem::directory_iterator(currentDir)) {
+            const auto& filename = entry.path().filename().string();
+            std::smatch match;
+
+            // шукаємо файли, які відповідають патерну
+            if (std::regex_match(filename, match, filePattern)) {
+                int number = std::stoi(match[1].str());
+                maxNumber = std::max(maxNumber, number);
+            }
+        }
+
+        return maxNumber + 1;
+    }
     
     // Вибрати поточну папку для запису. Якщо dirName="",
     // вибирається папка проекту.
@@ -42,9 +62,12 @@ public:
             return true;
         }
 
-        bool isDirExists = createDirIfNotExist(dirName);
+        path currentDirCopy = currentDir;
+        currentDirCopy.append(dirName);
+
+        bool isDirExists = createDirIfNotExist(currentDirCopy.string());
         if (isDirExists)
-            currentDir.append(dirName);
+            currentDir = currentDirCopy;
         return isDirExists;
     }
 
@@ -62,6 +85,20 @@ public:
 
         fileWriter << stringToWrite;
         return true;
+    }
+
+    void openFileStream(std::ifstream& stream, const std::string& fileName)
+    {
+        path fullPath = currentDir;
+        fullPath.append(fileName);
+        stream.open(fullPath);
+    }
+
+    void openFileStream(std::ofstream& stream, const std::string& fileName)
+    {
+        path fullPath = currentDir;
+        fullPath.append(fileName);
+        stream.open(fullPath);
     }
 
     void removeAllDirectoriesInCurrentDir()

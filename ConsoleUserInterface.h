@@ -30,7 +30,11 @@ std::string getTaskStatus(const Task& task)
 
 #include <iomanip>
 void setPrecision() { cout << std::fixed << std::setprecision(2); }
-void resetPrecision() { cout << std::defaultfloat; }
+void resetPrecision(int significantDigits = 3)
+{
+    cout.unsetf(std::ios::fixed | std::ios::scientific); 
+    cout.precision(significantDigits);
+}
 
 void clearConsole() { std::system("cls"); }
 
@@ -78,6 +82,11 @@ void printTaskPerformTime(const Task& task)
 
 void printSendingTask(const SimulationEnvironment::SendingTask& sTask)
 {
+    /*if (sTask.task->id == "9.2")
+    {
+        cout << sTask.timeToSend << "\n";
+    }*/
+
     printTaskMainInfo(*sTask.task);
     cout << getSeparator() << "remain " <<
         sTask.timeToSend << " " << getTimeUnit() <<
@@ -206,4 +215,69 @@ void printSendingPool(
         printSendingTask(sTask);
     }
     cout << "\n";
+}
+
+#include "SetGenerator.h"
+#include "DataSetManager.h"
+#include <limits>  // std::numeric_limits
+
+const std::vector<std::string> procArchs = { "x86" };
+const std::vector<std::string> osTypes = { "Windows", "Linux" };
+
+int getNumberFromUser()
+{
+    int number;
+    while (true)
+    {
+        if (std::cin >> number)
+            return number;
+        else
+        {
+            std::cout << "Invalid input. Please enter a valid number.\n";
+
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+}
+
+void fillDataBase(DataBase& db)
+{
+    DataSetManager dsm;
+    SetGenerator sg(procArchs, osTypes);
+    std::string answer;
+
+    while (true)
+    {
+        cout << "What do you want to do, generate a" << 
+            " new data set or choose an existing one (generate/choose): ";
+        std::getline(cin, answer);
+
+        if (answer == "generate")
+        {
+            cout << "How many tasks to generate: ";
+            int tasksCount = getNumberFromUser();
+            sg.fillRandomTasks(db.tasks, tasksCount);
+
+            cout << "How many resources to generate: ";
+            int resCount = getNumberFromUser();
+            sg.fillRandomResources(db.availableResources, resCount);
+
+            dsm.writeTasks(db.tasks);
+            dsm.writeResources(db.availableResources);
+            break;
+        }
+        else if (answer == "choose")
+        {
+            cout << "Choose data set number: ";
+            int DSNumber = getNumberFromUser();
+            dsm.loadTasks(db.tasks, DSNumber);
+            dsm.loadResources(db.availableResources, DSNumber);
+            break;
+        }
+        else
+        {
+            cout << "Invalid option. Please type 'generate' or 'choose'.\n";
+        }
+    }
 }

@@ -62,12 +62,34 @@ void SimulationEnvironment::initTasksSimulationInfo()
 
 void SimulationEnvironment::runSimulation(const DM* dm)
 {
-    logger->selectDMethod(dm->getId());
+    bool isItFirstIteration = true;
     while (true)
     {
         {
             std::lock_guard<std::mutex> lock(dataBaseMutex);
             
+            logger->selectDMethod(dm->getId());
+
+            // якщо це перша ітерація
+            if (isItFirstIteration)
+            {
+                isItFirstIteration = false;
+                logger->logSimulationData(
+                    SimulationData
+                    {
+                        simulationClock,
+                        getSubTaskWaitingTimeAv(),
+                        getResourceStagnationAv()
+                    }
+                );
+                // виводимо завдання, які було скасовано
+                for (const Task& task : dataBase->tasks)
+                {
+                    if (task.status == Task::TaskStatus::CANCELLED)
+                        logger->logTaskCancelled(task);
+                }
+            }
+
             simContext.actionTaken = false;
             // якщо ще є задачі для відправки
             if (simContext.subTasksRemain > 0)
@@ -171,6 +193,7 @@ bool SimulationEnvironment::haveAllTasksPerformed()
     return true;
 }
 
+
 int SimulationEnvironment::trySendTaskToResource(
     Task& task,
     Resource& resource,
@@ -231,6 +254,7 @@ int SimulationEnvironment::trySendTaskToResource(
             taskToBeSent,
             getNetworkDelay(*taskToBeSent, resource, sentSubTasksCount)
         };
+  
         sendingPool.push_back(st);
 
         return sentSubTasksCount;
@@ -269,6 +293,11 @@ void SimulationEnvironment::wait(int time)
 
 void SimulationEnvironment::modelWaiting(double time)
 {
+    resourceStagnationSum +=
+        ResourceManager::calcResourceStagnation(dataBase->availableResources);
+    modelWaitingForSubTasks(time);
+    calcSubTaskWaitingTimeCurrent();
+
     logger->logSimulationData(
         SimulationData
         {
@@ -278,10 +307,6 @@ void SimulationEnvironment::modelWaiting(double time)
         }
     );
 
-    resourceStagnationSum +=
-        ResourceManager::calcResourceStagnation(dataBase->availableResources);
-    modelWaitingForSubTasks(time);
-    calcSubTaskWaitingTimeCurrent();
     // спочатку моделюємо очікування на ресурсах, які вже виконуються,
     // щоб завдання не могли надсіслатися і одразу виконатися на якусь частину
     waitForResources(time, dataBase->availableResources);
@@ -427,6 +452,7 @@ void SimulationEnvironment::finishDividedTaskIfNeed(Task& childTask)
     parentPtr->status = Task::TaskStatus::PERFORMED;
     logger->logTaskPerformed(*parentPtr);
 }
+
 
 double SimulationEnvironment::getNetworkDelay(
     const Task& task,

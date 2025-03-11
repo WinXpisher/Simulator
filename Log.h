@@ -1,13 +1,21 @@
 #pragma once
-#include <iostream>  
+#include <iostream>
 #include <sstream>
-#include <string>  
+#include <string>
 #include <ctime>
-#include <fstream>
+#include <unordered_map>
+
 #include "SimulationData.h"
-#include "SimulatorPrimitives.h" 
+#include "SimulatorPrimitives.h"
 #include "DistributionMethod.h"
 #include "FileManager.h"
+
+struct SimulationMetaData
+{
+    std::string startTime;
+    int setNumber;
+};
+
 
 class Logger
 {
@@ -15,6 +23,9 @@ private:
     using DM = DistributionMethod;
     FileManager fm;
     std::string timeUnit;
+    // скільки логів вже було створено для методу розподілу
+    std::unordered_map<DM::DMethod, int> logCountForDMethod;
+    DM::DMethod selectedDMethod;
 
     std::string getDistributionMethodName(DM::DMethod dMethod)
     {
@@ -62,13 +73,29 @@ private:
 
         return oss.str();
     }
+
+    std::string getLogFileName(int fileNumber)
+    {
+        std::string prefix = "log";
+        std::string extension = ".txt";
+        return prefix + std::to_string(fileNumber) + extension;
+    }
+
+    void initDMethodDirectory(DM::DMethod dMethod)
+    {
+        if (!logCountForDMethod.count(dMethod))
+            logCountForDMethod[dMethod] = fm.getNextFileNumber("log", ".txt");
+    }
 public:
     Logger(std::string timeUnit) : fm(), timeUnit(timeUnit) {}
 	~Logger() {}
 
     void selectDMethod(DM::DMethod dMethod)
     {
+        selectedDMethod = dMethod;
+        fm.selectDir("");
         fm.selectDir(getDistributionMethodName(dMethod));
+        initDMethodDirectory(dMethod);
     }
 
     void logSimulationData(const SimulationData& simData)
@@ -80,7 +107,11 @@ public:
             << std::setprecision(2)
             << " | Average waiting time: " << simData.avWaitTime << " " << timeUnit
             << " | Resource stagnation: " << simData.resStagnation << "%\n";
-        fm.writeString("log.txt", simDataString.str());
+
+        fm.writeString(
+            getLogFileName(logCountForDMethod[selectedDMethod]), 
+            simDataString.str()
+        );
     }
 
     void logTaskSendingPool(const Task& task)
@@ -89,7 +120,11 @@ public:
         stringToLog << getCurrentTime()
             <<"\t[SEND] Task [" << task.id << "] "
             << "has been added to the sending pool.\n";
-        fm.writeString("log.txt", stringToLog.str());
+
+        fm.writeString(
+            getLogFileName(logCountForDMethod[selectedDMethod]),
+            stringToLog.str()
+        );
     }
 
     void logTaskSentToRes(const Task& task, const Resource& res)
@@ -99,7 +134,11 @@ public:
             << "\t[RUN] Task [" << task.id << "] "
             << "started running on resource " << res.id
             << ".\n";
-        fm.writeString("log.txt", stringToLog.str());
+
+        fm.writeString(
+            getLogFileName(logCountForDMethod[selectedDMethod]),
+            stringToLog.str()
+        );
     }
 
     void logTaskPerformed(const Task& task)
@@ -108,6 +147,23 @@ public:
         stringToLog << getCurrentTime()
             << "\t[PERFORMED] Task [" << task.id << "] "
             << "has been performed.\n";
-        fm.writeString("log.txt", stringToLog.str());
+
+        fm.writeString(
+            getLogFileName(logCountForDMethod[selectedDMethod]),
+            stringToLog.str()
+        );
+    }
+
+    void logTaskCancelled(const Task& task)
+    {
+        std::ostringstream stringToLog;
+        stringToLog << getCurrentTime()
+            << "\t[CANCELLED] Task [" << task.id << "] "
+            << "has been cancelled.\n";
+
+        fm.writeString(
+            getLogFileName(logCountForDMethod[selectedDMethod]),
+            stringToLog.str()
+        );
     }
 };

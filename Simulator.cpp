@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <mutex>
 #include <chrono>
@@ -48,29 +48,28 @@ void updateScreen(
     }
 }
 
+#include "DataSetManager.h"
 int main()
 {
     DataBase db;
+    fillDataBase(db);
 
-    fillTasks1(db);
-    fillResources1(db);
-
-    // змінні налаштування симуляції
-    const int channelCount = 2; // кількість каналів зв'язку
-    const int timeUnitToSkip = 1; // скільки одиниць часу буде пропускатися за раз
-    const int waitMilliSec = 400; // скільки часу буде затримка
-    
+    // Р·РјС–РЅРЅС– РЅР°Р»Р°С€С‚СѓРІР°РЅРЅСЏ СЃРёРјСѓР»СЏС†С–С—
+    const int channelCount = 2; // РєС–Р»СЊРєС–СЃС‚СЊ РєР°РЅР°Р»С–РІ Р·РІ'СЏР·РєСѓ
+    const int timeUnitToSkip = 1; // СЃРєС–Р»СЊРєРё РѕРґРёРЅРёС†СЊ С‡Р°СЃСѓ Р±СѓРґРµ РїСЂРѕРїСѓСЃРєР°С‚РёСЃСЏ Р·Р° СЂР°Р·
+    const int waitMilliSec = 400; // СЃРєС–Р»СЊРєРё С‡Р°СЃСѓ Р±СѓРґРµ Р·Р°С‚СЂРёРјРєР°
+         
     Logger logger(getTimeUnit());
     SimulationEnvironment simEnv(&db, &logger);
     simEnv.prepareForSimulation(channelCount, timeUnitToSkip, waitMilliSec);
 
-    DM* dm = new FCFS();
+    DM* dm = new SIMPLEX();
     std::thread simulation([&simEnv, &dm]() {
         simEnv.runSimulation(dm);
      });
 
-    // період оновлення екрану в мілісекундах
-    const int updatePeriod = 300;
+    // РїРµСЂС–РѕРґ РѕРЅРѕРІР»РµРЅРЅСЏ РµРєСЂР°РЅСѓ РІ РјС–Р»С–СЃРµРєСѓРЅРґР°С…
+    const int updatePeriod = 390;
 
     std::thread dispatcher(
         updateScreen,

@@ -3,6 +3,8 @@
 #include <vector>
 #include <list>
 
+#include <fstream>
+
 using namespace std;
 // описувач ресурсу
 struct ResourceDescriptor
@@ -13,6 +15,15 @@ struct ResourceDescriptor
     int procSpeed; // швидкодія процесорів
     int memSize; // об'єм оперативної пам'яті
     int discSize; // доступний обсяг вінчестера
+
+    friend std::istream& operator>>(
+        std::istream& is,
+        ResourceDescriptor& resDesc
+    );
+    friend std::ostream& operator<<(
+        std::ostream& os,
+        const ResourceDescriptor& resDesc
+    );
 };
 
 struct Task;
@@ -32,6 +43,15 @@ public:
     // задачі, які виконуються в даний момент часу
     // якщо вектор пустий, то таких задач немає
     vector<Task*> performingTasks;
+
+    friend std::istream& operator>>(
+        std::istream& is,
+        Resource& res
+        );
+    friend std::ostream& operator<<(
+        std::ostream& os,
+        const Resource& res
+        );
 };
 
 // інформація завдань, пов'язана з симуляцією
@@ -91,6 +111,15 @@ public:
     double performTime; // час виконання однієї задачі
     double subTaskSize; // розмір задачі (виконуючого файлу, який буде надсилатися)
     SimulationInfo simulationInfo; // додаткова інформація, пов'язана з виконанням
+
+    friend std::istream& operator>>(
+        std::istream& is,
+        Task& task
+        );
+    friend std::ostream& operator<<(
+        std::ostream& os,
+        const Task& task
+        );
 };
 
 struct DataBase

@@ -19,7 +19,6 @@ bool LIFO::nextTask(
     return true;
 }
 
-#include <iostream>
 bool FCFS::nextTask(vector<TaskAnalizer::AnalizerResult>& tasks,
     TaskAnalizer::AnalizerResult& outAnResult,
     Resource*& outRes) const
