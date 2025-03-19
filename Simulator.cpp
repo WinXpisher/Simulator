@@ -52,18 +52,27 @@ void updateScreen(
 int main()
 {
     DataBase db;
-    fillDataBase(db);
+    GeneratedSetInfo setInfo = fillDataBase(db);
 
     // змінні налаштування симуляції
-    const int channelCount = 2; // кількість каналів зв'язку
+    const int channelCount = 8; // кількість каналів зв'язку
     const int timeUnitToSkip = 1; // скільки одиниць часу буде пропускатися за раз
     const int waitMilliSec = 400; // скільки часу буде затримка
          
     Logger logger(getTimeUnit());
+
     SimulationEnvironment simEnv(&db, &logger);
     simEnv.prepareForSimulation(channelCount, timeUnitToSkip, waitMilliSec);
 
     DM* dm = new SIMPLEX();
+    logger.selectDMethod(dm->getId());
+    logger.logSimulationMetaData(SimulationMetaData{
+        setInfo.taskSetNumber,
+        setInfo.resSetNumber,
+        dm->getId(),
+        channelCount
+        });
+
     std::thread simulation([&simEnv, &dm]() {
         simEnv.runSimulation(dm);
      });

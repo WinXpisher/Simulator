@@ -28,7 +28,7 @@ private:
     }
 public:
     // --- TASKS ---
-    void writeTasks(const std::vector<Task>& tasks)
+    int writeTasks(const std::vector<Task>& tasks)
     {
         fm.selectDir("");
         fm.selectDir("Simulation data");
@@ -36,8 +36,10 @@ public:
 
         const std::string& prefix = "tasks_set";
         const std::string& extension = ".txt";
+        
+        int taskSetNumber = fm.getNextFileNumber(prefix, extension);
         const std::string fileName = prefix +
-            std::to_string(fm.getNextFileNumber(prefix, extension)) +
+            std::to_string(taskSetNumber) +
             extension;
 
         std::ostringstream taskString;
@@ -46,6 +48,8 @@ public:
             taskString << task;
         }
         fm.writeString(fileName, taskString.str());
+        
+        return taskSetNumber;
     }
 
     void loadTasks(std::vector<Task>& tasks, int taskSetNum)
@@ -75,7 +79,7 @@ public:
     }
 
     // --- RESOURCES ---
-    void writeResources(const std::vector<Resource>& resources)
+    int writeResources(const std::vector<Resource>& resources)
     {
         fm.selectDir("");
         fm.selectDir("Simulation data");
@@ -83,8 +87,10 @@ public:
 
         const std::string prefix = "resources_set";
         const std::string extension = ".txt";
+
+        int resSetNumber = fm.getNextFileNumber(prefix, extension);
         const std::string fileName = prefix +
-            std::to_string(fm.getNextFileNumber(prefix, extension)) +
+            std::to_string(resSetNumber) +
             extension;
 
         std::ostringstream resString;
@@ -93,6 +99,8 @@ public:
             resString << res;
         }
         fm.writeString(fileName, resString.str());
+
+        return resSetNumber;
     }
 
     void loadResources(std::vector<Resource>& resources, int resourceSetNum)

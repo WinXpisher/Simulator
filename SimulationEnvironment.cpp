@@ -68,8 +68,6 @@ void SimulationEnvironment::runSimulation(const DM* dm)
         {
             std::lock_guard<std::mutex> lock(dataBaseMutex);
             
-            logger->selectDMethod(dm->getId());
-
             // ÿךשמ צו ןונרא ³עונאצ³ÿ
             if (isItFirstIteration)
             {

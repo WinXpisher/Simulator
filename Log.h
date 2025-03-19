@@ -12,10 +12,11 @@
 
 struct SimulationMetaData
 {
-    std::string startTime;
-    int setNumber;
+    int taskSetNumber;
+    int resSetNumber;
+    DM::DMethod dMethod;
+    int channelCount;
 };
-
 
 class Logger
 {
@@ -89,6 +90,23 @@ private:
 public:
     Logger(std::string timeUnit) : fm(), timeUnit(timeUnit) {}
 	~Logger() {}
+
+    void logSimulationMetaData(const SimulationMetaData& metaData)
+    {
+        std::ostringstream metaDataString;
+        metaDataString << "BEGIN Metadata\n"
+            << "Simulation started at: " << getCurrentTime() << "\n"
+            << "Task set number: " << metaData.taskSetNumber << "\n"
+            << "Resource set number: " << metaData.resSetNumber << "\n"
+            << "Distribution method: " << getDistributionMethodName(
+                metaData.dMethod) << "\n"
+            << "Number of channels: " << metaData.channelCount << "\n"
+            << "END\n\n";
+
+        fm.writeString(
+            getLogFileName(logCountForDMethod[selectedDMethod]),
+            metaDataString.str());
+    }
 
     void selectDMethod(DM::DMethod dMethod)
     {

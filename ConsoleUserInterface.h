@@ -241,12 +241,19 @@ int getNumberFromUser()
     }
 }
 
-void fillDataBase(DataBase& db)
+struct GeneratedSetInfo
+{
+    int taskSetNumber;
+    int resSetNumber;
+};
+
+GeneratedSetInfo fillDataBase(DataBase& db)
 {
     DataSetManager dsm;
     SetGenerator sg(procArchs, osTypes);
     std::string answer;
 
+    GeneratedSetInfo setInfo;
     while (true)
     {
         cout << "What do you want to do, generate a" << 
@@ -263,8 +270,8 @@ void fillDataBase(DataBase& db)
             int resCount = getNumberFromUser();
             sg.fillRandomResources(db.availableResources, resCount);
 
-            dsm.writeTasks(db.tasks);
-            dsm.writeResources(db.availableResources);
+            setInfo.taskSetNumber = dsm.writeTasks(db.tasks);
+            setInfo.resSetNumber = dsm.writeResources(db.availableResources);
             break;
         }
         else if (answer == "choose")
@@ -273,6 +280,9 @@ void fillDataBase(DataBase& db)
             int DSNumber = getNumberFromUser();
             dsm.loadTasks(db.tasks, DSNumber);
             dsm.loadResources(db.availableResources, DSNumber);
+            
+            setInfo.taskSetNumber = DSNumber;
+            setInfo.resSetNumber = DSNumber;
             break;
         }
         else
@@ -280,4 +290,5 @@ void fillDataBase(DataBase& db)
             cout << "Invalid option. Please type 'generate' or 'choose'.\n";
         }
     }
+    return setInfo;
 }
