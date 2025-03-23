@@ -49,9 +49,21 @@ private:
         case DistributionMethod::SIMPLEX:
             name = "simplex";
             break;
-        case DistributionMethod::RR:
-            name = "rr";
+        case DistributionMethod::Penguin:
+            name = "Penguin";
             break;
+        case DistributionMethod::SMART:
+            name = "SMART";
+            break;
+        case DistributionMethod::MFQS:
+            name = "MFQS";
+            break;
+        /*case DistributionMethod::SIMPLEX:
+            name = "simplex";
+            break;*/
+        /*case DistributionMethod::RR:
+            name = "rr";
+            break;*/
         default:
             name = "unknown";
         }

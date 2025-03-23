@@ -16,10 +16,11 @@ public:
         BACKFILL,
         SIMPLEX,
         SMART,
-        RR,
+        MFQS,
+        Penguin
     };
     // масив доступних методів для їх перебору  
-    static const DMethod dMethods[6];
+    static const DMethod dMethods[8];
 private:
     DMethod methodId;
 public:
@@ -32,6 +33,11 @@ public:
         TaskAnalizer::AnalizerResult& outAnResult,
         Resource*& outRes
     ) const = 0;
+
+    virtual Resource* nextResource(
+        TaskAnalizer::AnalizerResult& anResult
+    ) const { return nullptr; }
+
     DMethod getId() const { return methodId; }
 };
 
@@ -84,6 +90,10 @@ public:
         TaskAnalizer::AnalizerResult& outAnResult,
         Resource*& outRes
     ) const override;
+
+    virtual Resource* nextResource(
+        TaskAnalizer::AnalizerResult& anResult
+    ) const override;
 };
 
 class SIMPLEX : public DistributionMethod
@@ -98,16 +108,71 @@ public:
     ) const override;
 };
 
-class RR : public DistributionMethod
+class SMART : public DistributionMethod
 {
 private:
     using DM = DistributionMethod;
-    mutable int currentIndex = 0; // для того щоб можна було модифікувати на 133 рядку в .cpp файлі реалізації
-    size_t quantum;
+
 public:
-    RR(size_t quantum) : DM(DM::DMethod::RR), quantum(quantum) {}
-    virtual bool nextTask(vector<TaskAnalizer::AnalizerResult>& tasks,
+    SMART() : DM(DM::DMethod::SMART) {}
+    virtual bool nextTask(
+        vector<TaskAnalizer::AnalizerResult>& tasks,
         TaskAnalizer::AnalizerResult& outAnResult,
-        Resource*& outRes
+        Resource*& outRes) const override;
+};
+
+//class MFQS : public DistributionMethod
+//{
+//private:
+//    using DM = DistributionMethod;
+//    mutable vector<list<TaskAnalizer::AnalizerResult>> priorityQueues; // Черги для завдань різного рівня
+//    size_t timeQuantum; // Квант часу для зниження пріоритету
+//
+//public:
+//    // Конструктор
+//    MFQS(size_t levels = 3, size_t timeQuantum = 10)
+//        : DM(DM::DMethod::SMART), timeQuantum(timeQuantum)
+//    {
+//        if (levels == 0)
+//            throw std::invalid_argument("Number of levels must be greater than 0.");
+//        priorityQueues.resize(levels);
+//    }
+//
+//    virtual bool nextTask(
+//        vector<TaskAnalizer::AnalizerResult>& tasks,
+//        TaskAnalizer::AnalizerResult& outAnResult,
+//        Resource*& outRes) const override;
+//
+//    void addToQueue(const TaskAnalizer::AnalizerResult& taskResult, size_t level) const
+//    {
+//        if (level >= priorityQueues.size())
+//            level = priorityQueues.size() - 1; // Забезпечуємо коректний рівень
+//
+//        auto& queue = priorityQueues[level];
+//        for (const auto& task : queue)
+//        {
+//            if (task.task->id == taskResult.task->id) // Уникнення дублювання
+//                return;
+//        }
+//
+//        queue.push_back(taskResult); // Додаємо завдання у відповідну чергу
+//    }
+//};
+
+class Penguin : public DistributionMethod
+{
+private:
+    using DM = DistributionMethod;
+
+public:
+    Penguin() : DM(DM::DMethod::Penguin) {}
+
+    virtual bool nextTask(
+        vector<TaskAnalizer::AnalizerResult>& tasks,
+        TaskAnalizer::AnalizerResult& outAnResult,
+        Resource*& outRes) const override;
+
+    virtual Resource* nextResource(
+        TaskAnalizer::AnalizerResult& anResult
     ) const override;
 };

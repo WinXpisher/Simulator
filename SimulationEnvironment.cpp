@@ -94,6 +94,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
             {
                 // використовуємо призначений ресурс, якщо він є, інакше шукаємо вільний
                 Resource* targetResource = simContext.assignedResource;
+                targetResource = dm->nextResource(simContext.anResult);
                 if (!targetResource)
                 {
                     targetResource = ResourceManager::findAnyFreeResource(
@@ -118,10 +119,12 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                     }
                     // якщо це не призначений ресурс, скидаємо його для 
                     // наступного пошуку
-                    if (targetResource != simContext.assignedResource)
+                    /*if (targetResource != simContext.assignedResource)
                     {
                         targetResource = nullptr;
-                    }
+                    }*/
+                    // _____TEST_______
+                    simContext.assignedResource = targetResource = nullptr;
                 }
             }
             // якщо ж задач для відправки немає, завантажуємо нове завдання
@@ -133,6 +136,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                     simContext.anResult,
                     resource
                 );
+                
                 // якщо завдання було отримано
                 if (simContext.hasTask)
                 {
@@ -144,10 +148,10 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                     simContext.actionTaken = true;
                 }
             }
-            if (haveAllTasksPerformed())
+            /*if (haveAllTasksPerformed())
             {
                 break;
-            }
+            }*/
             // перевіряємо, чи всі завдання виконано
             if (simContext.subTasksRemain <= 0 && !simContext.hasTask)
             {

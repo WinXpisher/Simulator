@@ -58,6 +58,7 @@ int main()
     const int channelCount = 8; // кількість каналів зв'язку
     const int timeUnitToSkip = 1; // скільки одиниць часу буде пропускатися за раз
     const int waitMilliSec = 400; // скільки часу буде затримка
+    //const int waitMilliSec = 0; // скільки часу буде затримка
          
     Logger logger(getTimeUnit());
 
