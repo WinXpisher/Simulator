@@ -44,7 +44,7 @@ void SimulationEnvironment::initSimContext()
     simContext.anResults =
         taskAnalizer.getAnalizeResultClear();
 
-    simContext.assignedResource = nullptr;     
+    //simContext.assignedResource = nullptr;   
     simContext.hasTask = true;                 
     simContext.subTasksRemain = 0;
     simContext.areSubTasksConnected = false;
@@ -93,8 +93,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
             if (simContext.subTasksRemain > 0)
             {
                 // використовуємо призначений ресурс, якщо він є, інакше шукаємо вільний
-                Resource* targetResource = simContext.assignedResource;
-                targetResource = dm->nextResource(simContext.anResult);
+                Resource* targetResource = dm->nextResource(simContext.anResult);
                 if (!targetResource)
                 {
                     targetResource = ResourceManager::findAnyFreeResource(
@@ -117,41 +116,24 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                         simContext.subTasksRemain -= sent;
                         simContext.actionTaken = true;
                     }
-                    // якщо це не призначений ресурс, скидаємо його для 
-                    // наступного пошуку
-                    /*if (targetResource != simContext.assignedResource)
-                    {
-                        targetResource = nullptr;
-                    }*/
-                    // _____TEST_______
-                    simContext.assignedResource = targetResource = nullptr;
                 }
             }
             // якщо ж задач для відправки немає, завантажуємо нове завдання
             else if (simContext.hasTask)
             {
-                Resource* resource = nullptr;
                 simContext.hasTask = dm->nextTask(
                     simContext.anResults,
-                    simContext.anResult,
-                    resource
+                    simContext.anResult
                 );
-                
                 // якщо завдання було отримано
                 if (simContext.hasTask)
                 {
                     simContext.subTasksRemain = simContext.anResult.task->count;
                     simContext.areSubTasksConnected = 
                         taskAnalizer.areSubTasksConnected(*simContext.anResult.task);
-                    // зберігаємо ресурс, якщо він наданий
-                    simContext.assignedResource = resource;
                     simContext.actionTaken = true;
                 }
             }
-            /*if (haveAllTasksPerformed())
-            {
-                break;
-            }*/
             // перевіряємо, чи всі завдання виконано
             if (simContext.subTasksRemain <= 0 && !simContext.hasTask)
             {

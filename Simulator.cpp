@@ -65,7 +65,7 @@ int main()
     SimulationEnvironment simEnv(&db, &logger);
     simEnv.prepareForSimulation(channelCount, timeUnitToSkip, waitMilliSec);
 
-    DM* dm = new SIMPLEX();
+    DM* dm = new SMART();
     logger.selectDMethod(dm->getId());
     logger.logSimulationMetaData(SimulationMetaData{
         setInfo.taskSetNumber,

@@ -50,20 +50,14 @@ private:
             name = "simplex";
             break;
         case DistributionMethod::Penguin:
-            name = "Penguin";
+            name = "penguin";
             break;
         case DistributionMethod::SMART:
-            name = "SMART";
+            name = "smart";
             break;
         case DistributionMethod::MFQS:
-            name = "MFQS";
+            name = "mfqs";
             break;
-        /*case DistributionMethod::SIMPLEX:
-            name = "simplex";
-            break;*/
-        /*case DistributionMethod::RR:
-            name = "rr";
-            break;*/
         default:
             name = "unknown";
         }

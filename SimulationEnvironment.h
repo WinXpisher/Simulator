@@ -20,7 +20,6 @@ private:
     {
         vector<TaskAnalizer::AnalizerResult> anResults; // результати аналізу задач
         TaskAnalizer::AnalizerResult anResult; // об'єкт, в якому зберігається поточне завадання
-        Resource* assignedResource; // ресурс, призначений методом розподілу
         bool hasTask; // чи є ще завдання в пулі завдань
         int subTasksRemain; // кількість задач поточного завдання, що залишились
         bool areSubTasksConnected; // чи пов'язані задачі в завданні
