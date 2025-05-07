@@ -44,7 +44,6 @@ void SimulationEnvironment::initSimContext()
     simContext.anResults =
         taskAnalizer.getAnalizeResultClear();
 
-    //simContext.assignedResource = nullptr;   
     simContext.hasTask = true;                 
     simContext.subTasksRemain = 0;
     simContext.areSubTasksConnected = false;

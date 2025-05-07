@@ -1,7 +1,9 @@
 #include "DistributionMethod.h" 
 #include "ResourceManager.h"
+#include <algorithm>
+#include <limits>
 
-
+using namespace std;
 using DM = DistributionMethod;
 const DM::DMethod DM::dMethods[8] = { LIFO, FCFS, HPF, BACKFILL, SIMPLEX, SMART, MFQS, Penguin, };
 

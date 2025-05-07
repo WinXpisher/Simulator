@@ -12,6 +12,8 @@ using namespace std;
 
 class SimulationEnvironment
 {
+public:
+    struct SendingTask;
 private:
     using DM = DistributionMethod;
 
@@ -32,7 +34,6 @@ private:
     std::mutex dataBaseMutex;
     Logger* logger;
 
-    struct SendingTask;
     vector<SendingTask> sendingPool; // пул завдань, €к≥ в≥дправл€ютьс€ на ресурс
     TaskAnalizer taskAnalizer; // об'Їкт, €кий буде анал≥зувати кожне завданн€, перед симул€ц≥Їю
     vector<DM*> distributionMethods; // методи розпод≥лу
