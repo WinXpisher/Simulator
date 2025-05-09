@@ -191,12 +191,11 @@ private slots:
 
     void showGraphAction()
     {
-        QString program = "python";
+        QString program = "coreenv/Scripts/python.exe";
         QStringList arguments;
         arguments << "show_graph.py";
         QProcess *startGraphProc = new QProcess();
         startGraphProc->start(program, arguments);
-
     }
 private:
     void addMenuToSimulationWindow()
