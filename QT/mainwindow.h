@@ -191,9 +191,8 @@ private slots:
 
     void showGraphAction()
     {
-        QString program = "coreenv/Scripts/python.exe";
+        QString program = "dist/show_graph.exe";
         QStringList arguments;
-        arguments << "show_graph.py";
         QProcess *startGraphProc = new QProcess();
         startGraphProc->start(program, arguments);
     }
