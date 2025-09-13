@@ -133,7 +133,7 @@
 ## English
 
 **Description:**
-This program was developed by students of KhNURE: Vasylenko D.O., Birka E.M, Lukianov Y.I., to study distribution methods (LIFO, FIFO, HPF, SMART, etc.). This program can be expanded and help with the study of new methods for different OS.
+This program was developed by students of KhNURE: Vasylenko D.O., Birka E.M., Lukianov Y.I., to study distribution methods (LIFO, FIFO, HPF, SMART, etc.). This program can be expanded and help with the study of new methods for different OS.
 
 ---
 
