@@ -1,0 +1,864 @@
+BEGIN Metadata
+Simulation started at: 2025-08-29 18:43:49
+Task set number: 2
+Resource set number: 2
+Distribution method: fcfs
+Number of channels: 1
+END
+
+2025-08-29 18:43:49	[!] Clock: 0 tacts | Average waiting time: 0.00 tacts | Resource stagnation: 0.00%
+2025-08-29 18:43:49	[CANCELLED] Task [2] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [3] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [6] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [9] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [12] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [15] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [19] has been cancelled.
+2025-08-29 18:43:49	[CANCELLED] Task [21] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [27] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [28] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [29] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [35] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [37] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [38] has been cancelled.
+2025-08-29 18:43:50	[CANCELLED] Task [39] has been cancelled.
+2025-08-29 18:43:50	[SEND] Task [1] has been added to the sending pool.
+2025-08-29 18:43:50	[SEND] Task [4] has been added to the sending pool.
+2025-08-29 18:43:50	[!] Clock: 1 tacts | Average waiting time: 0.42 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 2 tacts | Average waiting time: 0.84 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 3 tacts | Average waiting time: 1.27 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 4 tacts | Average waiting time: 1.69 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 5 tacts | Average waiting time: 2.11 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 6 tacts | Average waiting time: 2.53 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 7 tacts | Average waiting time: 2.95 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 8 tacts | Average waiting time: 3.37 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 9 tacts | Average waiting time: 3.80 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 10 tacts | Average waiting time: 4.22 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 11 tacts | Average waiting time: 4.64 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 12 tacts | Average waiting time: 5.06 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 13 tacts | Average waiting time: 5.48 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 14 tacts | Average waiting time: 5.90 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 15 tacts | Average waiting time: 6.33 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 16 tacts | Average waiting time: 6.75 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[RUN] Task [1] started running on resource D.
+2025-08-29 18:43:50	[!] Clock: 17 tacts | Average waiting time: 7.17 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 18 tacts | Average waiting time: 7.59 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 19 tacts | Average waiting time: 8.01 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 20 tacts | Average waiting time: 8.43 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 21 tacts | Average waiting time: 8.86 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 22 tacts | Average waiting time: 9.28 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 23 tacts | Average waiting time: 9.70 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 24 tacts | Average waiting time: 10.12 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 25 tacts | Average waiting time: 10.54 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 26 tacts | Average waiting time: 10.96 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 27 tacts | Average waiting time: 11.39 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 28 tacts | Average waiting time: 11.81 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 29 tacts | Average waiting time: 12.23 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 30 tacts | Average waiting time: 12.65 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 31 tacts | Average waiting time: 13.07 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 32 tacts | Average waiting time: 13.50 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 33 tacts | Average waiting time: 13.92 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 34 tacts | Average waiting time: 14.34 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 35 tacts | Average waiting time: 14.76 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 36 tacts | Average waiting time: 15.18 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 37 tacts | Average waiting time: 15.60 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 38 tacts | Average waiting time: 16.03 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 39 tacts | Average waiting time: 16.45 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 40 tacts | Average waiting time: 16.87 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 41 tacts | Average waiting time: 17.29 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 42 tacts | Average waiting time: 17.71 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 43 tacts | Average waiting time: 18.13 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 44 tacts | Average waiting time: 18.56 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 45 tacts | Average waiting time: 18.98 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 46 tacts | Average waiting time: 19.40 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 47 tacts | Average waiting time: 19.82 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 48 tacts | Average waiting time: 20.24 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 49 tacts | Average waiting time: 20.66 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 50 tacts | Average waiting time: 21.09 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 51 tacts | Average waiting time: 21.51 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 52 tacts | Average waiting time: 21.93 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 53 tacts | Average waiting time: 22.35 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 54 tacts | Average waiting time: 22.77 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 55 tacts | Average waiting time: 23.19 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[RUN] Task [4] started running on resource A.
+2025-08-29 18:43:50	[!] Clock: 56 tacts | Average waiting time: 23.62 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 57 tacts | Average waiting time: 24.04 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 58 tacts | Average waiting time: 24.46 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 59 tacts | Average waiting time: 24.88 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 60 tacts | Average waiting time: 25.30 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:50	[!] Clock: 61 tacts | Average waiting time: 25.73 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 62 tacts | Average waiting time: 26.15 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 63 tacts | Average waiting time: 26.57 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 64 tacts | Average waiting time: 26.99 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 65 tacts | Average waiting time: 27.41 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 66 tacts | Average waiting time: 27.83 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 67 tacts | Average waiting time: 28.26 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 68 tacts | Average waiting time: 28.68 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 69 tacts | Average waiting time: 29.10 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 70 tacts | Average waiting time: 29.52 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 71 tacts | Average waiting time: 29.94 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 72 tacts | Average waiting time: 30.36 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 73 tacts | Average waiting time: 30.79 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[!] Clock: 74 tacts | Average waiting time: 31.21 tacts | Resource stagnation: 80.37%
+2025-08-29 18:43:51	[PERFORMED] Task [1] has been performed.
+2025-08-29 18:43:51	[!] Clock: 75 tacts | Average waiting time: 31.63 tacts | Resource stagnation: 80.47%
+2025-08-29 18:43:51	[!] Clock: 76 tacts | Average waiting time: 32.05 tacts | Resource stagnation: 80.57%
+2025-08-29 18:43:51	[!] Clock: 77 tacts | Average waiting time: 32.47 tacts | Resource stagnation: 80.67%
+2025-08-29 18:43:51	[!] Clock: 78 tacts | Average waiting time: 32.89 tacts | Resource stagnation: 80.77%
+2025-08-29 18:43:51	[!] Clock: 79 tacts | Average waiting time: 33.32 tacts | Resource stagnation: 80.86%
+2025-08-29 18:43:51	[!] Clock: 80 tacts | Average waiting time: 33.74 tacts | Resource stagnation: 80.96%
+2025-08-29 18:43:51	[!] Clock: 81 tacts | Average waiting time: 34.16 tacts | Resource stagnation: 81.05%
+2025-08-29 18:43:51	[!] Clock: 82 tacts | Average waiting time: 34.58 tacts | Resource stagnation: 81.13%
+2025-08-29 18:43:51	[!] Clock: 83 tacts | Average waiting time: 35.00 tacts | Resource stagnation: 81.22%
+2025-08-29 18:43:51	[!] Clock: 84 tacts | Average waiting time: 35.42 tacts | Resource stagnation: 81.30%
+2025-08-29 18:43:51	[!] Clock: 85 tacts | Average waiting time: 35.85 tacts | Resource stagnation: 81.38%
+2025-08-29 18:43:51	[!] Clock: 86 tacts | Average waiting time: 36.27 tacts | Resource stagnation: 81.46%
+2025-08-29 18:43:51	[!] Clock: 87 tacts | Average waiting time: 36.69 tacts | Resource stagnation: 81.54%
+2025-08-29 18:43:51	[!] Clock: 88 tacts | Average waiting time: 37.11 tacts | Resource stagnation: 81.62%
+2025-08-29 18:43:51	[!] Clock: 89 tacts | Average waiting time: 37.53 tacts | Resource stagnation: 81.69%
+2025-08-29 18:43:51	[!] Clock: 90 tacts | Average waiting time: 37.96 tacts | Resource stagnation: 81.76%
+2025-08-29 18:43:51	[!] Clock: 91 tacts | Average waiting time: 38.38 tacts | Resource stagnation: 81.83%
+2025-08-29 18:43:51	[!] Clock: 92 tacts | Average waiting time: 38.80 tacts | Resource stagnation: 81.90%
+2025-08-29 18:43:51	[!] Clock: 93 tacts | Average waiting time: 39.22 tacts | Resource stagnation: 81.97%
+2025-08-29 18:43:51	[!] Clock: 94 tacts | Average waiting time: 39.64 tacts | Resource stagnation: 82.04%
+2025-08-29 18:43:51	[!] Clock: 95 tacts | Average waiting time: 40.06 tacts | Resource stagnation: 82.10%
+2025-08-29 18:43:51	[PERFORMED] Task [4] has been performed.
+2025-08-29 18:43:51	[SEND] Task [5] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [7.1] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [7.2] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [7.3] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [7.4] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [8.1] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [8.2] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [8.3] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [8.4] has been added to the sending pool.
+2025-08-29 18:43:51	[SEND] Task [10] has been added to the sending pool.
+2025-08-29 18:43:51	[!] Clock: 96 tacts | Average waiting time: 40.42 tacts | Resource stagnation: 82.12%
+2025-08-29 18:43:51	[!] Clock: 97 tacts | Average waiting time: 40.79 tacts | Resource stagnation: 82.13%
+2025-08-29 18:43:51	[!] Clock: 98 tacts | Average waiting time: 41.15 tacts | Resource stagnation: 82.15%
+2025-08-29 18:43:51	[!] Clock: 99 tacts | Average waiting time: 41.51 tacts | Resource stagnation: 82.16%
+2025-08-29 18:43:51	[!] Clock: 100 tacts | Average waiting time: 41.87 tacts | Resource stagnation: 82.17%
+2025-08-29 18:43:51	[!] Clock: 101 tacts | Average waiting time: 42.23 tacts | Resource stagnation: 82.19%
+2025-08-29 18:43:51	[!] Clock: 102 tacts | Average waiting time: 42.59 tacts | Resource stagnation: 82.20%
+2025-08-29 18:43:51	[!] Clock: 103 tacts | Average waiting time: 42.95 tacts | Resource stagnation: 82.21%
+2025-08-29 18:43:51	[RUN] Task [5] started running on resource A.
+2025-08-29 18:43:51	[!] Clock: 104 tacts | Average waiting time: 43.31 tacts | Resource stagnation: 82.22%
+2025-08-29 18:43:51	[!] Clock: 105 tacts | Average waiting time: 43.67 tacts | Resource stagnation: 82.24%
+2025-08-29 18:43:51	[!] Clock: 106 tacts | Average waiting time: 44.04 tacts | Resource stagnation: 82.25%
+2025-08-29 18:43:51	[!] Clock: 107 tacts | Average waiting time: 44.40 tacts | Resource stagnation: 82.26%
+2025-08-29 18:43:51	[RUN] Task [7.1] started running on resource A.
+2025-08-29 18:43:51	[!] Clock: 108 tacts | Average waiting time: 44.76 tacts | Resource stagnation: 82.27%
+2025-08-29 18:43:51	[RUN] Task [7.2] started running on resource B.
+2025-08-29 18:43:51	[!] Clock: 109 tacts | Average waiting time: 45.12 tacts | Resource stagnation: 82.28%
+2025-08-29 18:43:51	[!] Clock: 110 tacts | Average waiting time: 45.48 tacts | Resource stagnation: 82.29%
+2025-08-29 18:43:51	[RUN] Task [7.3] started running on resource G.
+2025-08-29 18:43:51	[!] Clock: 111 tacts | Average waiting time: 45.84 tacts | Resource stagnation: 82.31%
+2025-08-29 18:43:51	[RUN] Task [7.4] started running on resource H.
+2025-08-29 18:43:51	[!] Clock: 112 tacts | Average waiting time: 46.20 tacts | Resource stagnation: 82.32%
+2025-08-29 18:43:51	[!] Clock: 113 tacts | Average waiting time: 46.56 tacts | Resource stagnation: 82.33%
+2025-08-29 18:43:51	[!] Clock: 114 tacts | Average waiting time: 46.92 tacts | Resource stagnation: 82.34%
+2025-08-29 18:43:51	[!] Clock: 115 tacts | Average waiting time: 47.28 tacts | Resource stagnation: 82.35%
+2025-08-29 18:43:51	[RUN] Task [8.1] started running on resource H.
+2025-08-29 18:43:51	[!] Clock: 116 tacts | Average waiting time: 47.65 tacts | Resource stagnation: 82.36%
+2025-08-29 18:43:51	[RUN] Task [8.2] started running on resource J.
+2025-08-29 18:43:51	[!] Clock: 117 tacts | Average waiting time: 48.01 tacts | Resource stagnation: 82.37%
+2025-08-29 18:43:51	[!] Clock: 118 tacts | Average waiting time: 48.37 tacts | Resource stagnation: 82.38%
+2025-08-29 18:43:51	[RUN] Task [8.3] started running on resource K.
+2025-08-29 18:43:51	[!] Clock: 119 tacts | Average waiting time: 48.73 tacts | Resource stagnation: 82.39%
+2025-08-29 18:43:51	[!] Clock: 120 tacts | Average waiting time: 49.09 tacts | Resource stagnation: 82.40%
+2025-08-29 18:43:51	[RUN] Task [8.4] started running on resource L.
+2025-08-29 18:43:51	[!] Clock: 121 tacts | Average waiting time: 49.45 tacts | Resource stagnation: 82.40%
+2025-08-29 18:43:51	[!] Clock: 122 tacts | Average waiting time: 49.81 tacts | Resource stagnation: 82.41%
+2025-08-29 18:43:51	[!] Clock: 123 tacts | Average waiting time: 50.17 tacts | Resource stagnation: 82.42%
+2025-08-29 18:43:52	[!] Clock: 124 tacts | Average waiting time: 50.53 tacts | Resource stagnation: 82.43%
+2025-08-29 18:43:52	[!] Clock: 125 tacts | Average waiting time: 50.89 tacts | Resource stagnation: 82.44%
+2025-08-29 18:43:52	[!] Clock: 126 tacts | Average waiting time: 51.26 tacts | Resource stagnation: 82.45%
+2025-08-29 18:43:52	[!] Clock: 127 tacts | Average waiting time: 51.62 tacts | Resource stagnation: 82.46%
+2025-08-29 18:43:52	[RUN] Task [10] started running on resource D.
+2025-08-29 18:43:52	[!] Clock: 128 tacts | Average waiting time: 51.98 tacts | Resource stagnation: 82.46%
+2025-08-29 18:43:52	[!] Clock: 129 tacts | Average waiting time: 52.34 tacts | Resource stagnation: 82.47%
+2025-08-29 18:43:52	[!] Clock: 130 tacts | Average waiting time: 52.70 tacts | Resource stagnation: 82.48%
+2025-08-29 18:43:52	[!] Clock: 131 tacts | Average waiting time: 53.06 tacts | Resource stagnation: 82.49%
+2025-08-29 18:43:52	[PERFORMED] Task [5] has been performed.
+2025-08-29 18:43:52	[!] Clock: 132 tacts | Average waiting time: 53.42 tacts | Resource stagnation: 82.56%
+2025-08-29 18:43:52	[!] Clock: 133 tacts | Average waiting time: 53.78 tacts | Resource stagnation: 82.63%
+2025-08-29 18:43:52	[!] Clock: 134 tacts | Average waiting time: 54.14 tacts | Resource stagnation: 82.70%
+2025-08-29 18:43:52	[!] Clock: 135 tacts | Average waiting time: 54.50 tacts | Resource stagnation: 82.77%
+2025-08-29 18:43:52	[!] Clock: 136 tacts | Average waiting time: 54.87 tacts | Resource stagnation: 82.83%
+2025-08-29 18:43:52	[!] Clock: 137 tacts | Average waiting time: 55.23 tacts | Resource stagnation: 82.90%
+2025-08-29 18:43:52	[!] Clock: 138 tacts | Average waiting time: 55.59 tacts | Resource stagnation: 82.97%
+2025-08-29 18:43:52	[!] Clock: 139 tacts | Average waiting time: 55.95 tacts | Resource stagnation: 83.03%
+2025-08-29 18:43:52	[!] Clock: 140 tacts | Average waiting time: 56.31 tacts | Resource stagnation: 83.09%
+2025-08-29 18:43:52	[!] Clock: 141 tacts | Average waiting time: 56.67 tacts | Resource stagnation: 83.16%
+2025-08-29 18:43:52	[!] Clock: 142 tacts | Average waiting time: 57.03 tacts | Resource stagnation: 83.22%
+2025-08-29 18:43:52	[!] Clock: 143 tacts | Average waiting time: 57.39 tacts | Resource stagnation: 83.28%
+2025-08-29 18:43:52	[!] Clock: 144 tacts | Average waiting time: 57.75 tacts | Resource stagnation: 83.34%
+2025-08-29 18:43:52	[!] Clock: 145 tacts | Average waiting time: 58.12 tacts | Resource stagnation: 83.40%
+2025-08-29 18:43:52	[!] Clock: 146 tacts | Average waiting time: 58.48 tacts | Resource stagnation: 83.45%
+2025-08-29 18:43:52	[!] Clock: 147 tacts | Average waiting time: 58.84 tacts | Resource stagnation: 83.51%
+2025-08-29 18:43:52	[!] Clock: 148 tacts | Average waiting time: 59.20 tacts | Resource stagnation: 83.57%
+2025-08-29 18:43:52	[!] Clock: 149 tacts | Average waiting time: 59.56 tacts | Resource stagnation: 83.62%
+2025-08-29 18:43:52	[PERFORMED] Task [7.1] has been performed.
+2025-08-29 18:43:52	[SEND] Task [11] has been added to the sending pool.
+2025-08-29 18:43:52	[SEND] Task [13] has been added to the sending pool.
+2025-08-29 18:43:52	[SEND] Task [14.1] has been added to the sending pool.
+2025-08-29 18:43:52	[!] Clock: 150 tacts | Average waiting time: 59.86 tacts | Resource stagnation: 83.56%
+2025-08-29 18:43:52	[PERFORMED] Task [7.2] has been performed.
+2025-08-29 18:43:52	[!] Clock: 151 tacts | Average waiting time: 60.15 tacts | Resource stagnation: 83.50%
+2025-08-29 18:43:52	[!] Clock: 152 tacts | Average waiting time: 60.45 tacts | Resource stagnation: 83.44%
+2025-08-29 18:43:52	[PERFORMED] Task [7.3] has been performed.
+2025-08-29 18:43:52	[!] Clock: 153 tacts | Average waiting time: 60.75 tacts | Resource stagnation: 83.39%
+2025-08-29 18:43:52	[PERFORMED] Task [7.4] has been performed.
+2025-08-29 18:43:52	[PERFORMED] Task [7] has been performed.
+2025-08-29 18:43:52	[!] Clock: 154 tacts | Average waiting time: 61.04 tacts | Resource stagnation: 83.35%
+2025-08-29 18:43:52	[!] Clock: 155 tacts | Average waiting time: 61.34 tacts | Resource stagnation: 83.31%
+2025-08-29 18:43:52	[!] Clock: 156 tacts | Average waiting time: 61.64 tacts | Resource stagnation: 83.27%
+2025-08-29 18:43:52	[PERFORMED] Task [8.1] has been performed.
+2025-08-29 18:43:52	[!] Clock: 157 tacts | Average waiting time: 61.94 tacts | Resource stagnation: 83.23%
+2025-08-29 18:43:52	[PERFORMED] Task [8.2] has been performed.
+2025-08-29 18:43:52	[!] Clock: 158 tacts | Average waiting time: 62.23 tacts | Resource stagnation: 83.19%
+2025-08-29 18:43:52	[!] Clock: 159 tacts | Average waiting time: 62.53 tacts | Resource stagnation: 83.16%
+2025-08-29 18:43:52	[PERFORMED] Task [8.3] has been performed.
+2025-08-29 18:43:52	[!] Clock: 160 tacts | Average waiting time: 62.83 tacts | Resource stagnation: 83.12%
+2025-08-29 18:43:52	[!] Clock: 161 tacts | Average waiting time: 63.12 tacts | Resource stagnation: 83.09%
+2025-08-29 18:43:52	[PERFORMED] Task [10] has been performed.
+2025-08-29 18:43:52	[PERFORMED] Task [8.4] has been performed.
+2025-08-29 18:43:52	[PERFORMED] Task [8] has been performed.
+2025-08-29 18:43:52	[SEND] Task [14.2] has been added to the sending pool.
+2025-08-29 18:43:52	[!] Clock: 162 tacts | Average waiting time: 63.42 tacts | Resource stagnation: 83.07%
+2025-08-29 18:43:52	[!] Clock: 163 tacts | Average waiting time: 63.71 tacts | Resource stagnation: 83.04%
+2025-08-29 18:43:52	[!] Clock: 164 tacts | Average waiting time: 64.01 tacts | Resource stagnation: 83.01%
+2025-08-29 18:43:52	[!] Clock: 165 tacts | Average waiting time: 64.30 tacts | Resource stagnation: 82.99%
+2025-08-29 18:43:52	[!] Clock: 166 tacts | Average waiting time: 64.59 tacts | Resource stagnation: 82.96%
+2025-08-29 18:43:52	[!] Clock: 167 tacts | Average waiting time: 64.89 tacts | Resource stagnation: 82.94%
+2025-08-29 18:43:52	[!] Clock: 168 tacts | Average waiting time: 65.18 tacts | Resource stagnation: 82.91%
+2025-08-29 18:43:52	[!] Clock: 169 tacts | Average waiting time: 65.48 tacts | Resource stagnation: 82.89%
+2025-08-29 18:43:52	[!] Clock: 170 tacts | Average waiting time: 65.77 tacts | Resource stagnation: 82.86%
+2025-08-29 18:43:52	[!] Clock: 171 tacts | Average waiting time: 66.06 tacts | Resource stagnation: 82.84%
+2025-08-29 18:43:52	[!] Clock: 172 tacts | Average waiting time: 66.36 tacts | Resource stagnation: 82.82%
+2025-08-29 18:43:52	[!] Clock: 173 tacts | Average waiting time: 66.65 tacts | Resource stagnation: 82.79%
+2025-08-29 18:43:52	[!] Clock: 174 tacts | Average waiting time: 66.95 tacts | Resource stagnation: 82.77%
+2025-08-29 18:43:52	[!] Clock: 175 tacts | Average waiting time: 67.24 tacts | Resource stagnation: 82.75%
+2025-08-29 18:43:52	[!] Clock: 176 tacts | Average waiting time: 67.53 tacts | Resource stagnation: 82.73%
+2025-08-29 18:43:52	[!] Clock: 177 tacts | Average waiting time: 67.83 tacts | Resource stagnation: 82.70%
+2025-08-29 18:43:52	[!] Clock: 178 tacts | Average waiting time: 68.12 tacts | Resource stagnation: 82.68%
+2025-08-29 18:43:52	[!] Clock: 179 tacts | Average waiting time: 68.42 tacts | Resource stagnation: 82.66%
+2025-08-29 18:43:52	[!] Clock: 180 tacts | Average waiting time: 68.71 tacts | Resource stagnation: 82.64%
+2025-08-29 18:43:52	[!] Clock: 181 tacts | Average waiting time: 69.00 tacts | Resource stagnation: 82.62%
+2025-08-29 18:43:52	[!] Clock: 182 tacts | Average waiting time: 69.30 tacts | Resource stagnation: 82.60%
+2025-08-29 18:43:52	[!] Clock: 183 tacts | Average waiting time: 69.59 tacts | Resource stagnation: 82.58%
+2025-08-29 18:43:52	[!] Clock: 184 tacts | Average waiting time: 69.88 tacts | Resource stagnation: 82.55%
+2025-08-29 18:43:53	[!] Clock: 185 tacts | Average waiting time: 70.18 tacts | Resource stagnation: 82.53%
+2025-08-29 18:43:53	[!] Clock: 186 tacts | Average waiting time: 70.47 tacts | Resource stagnation: 82.51%
+2025-08-29 18:43:53	[!] Clock: 187 tacts | Average waiting time: 70.77 tacts | Resource stagnation: 82.49%
+2025-08-29 18:43:53	[!] Clock: 188 tacts | Average waiting time: 71.06 tacts | Resource stagnation: 82.47%
+2025-08-29 18:43:53	[!] Clock: 189 tacts | Average waiting time: 71.35 tacts | Resource stagnation: 82.46%
+2025-08-29 18:43:53	[!] Clock: 190 tacts | Average waiting time: 71.65 tacts | Resource stagnation: 82.44%
+2025-08-29 18:43:53	[!] Clock: 191 tacts | Average waiting time: 71.94 tacts | Resource stagnation: 82.42%
+2025-08-29 18:43:53	[!] Clock: 192 tacts | Average waiting time: 72.24 tacts | Resource stagnation: 82.40%
+2025-08-29 18:43:53	[!] Clock: 193 tacts | Average waiting time: 72.53 tacts | Resource stagnation: 82.38%
+2025-08-29 18:43:53	[!] Clock: 194 tacts | Average waiting time: 72.82 tacts | Resource stagnation: 82.36%
+2025-08-29 18:43:53	[!] Clock: 195 tacts | Average waiting time: 73.12 tacts | Resource stagnation: 82.34%
+2025-08-29 18:43:53	[!] Clock: 196 tacts | Average waiting time: 73.41 tacts | Resource stagnation: 82.32%
+2025-08-29 18:43:53	[!] Clock: 197 tacts | Average waiting time: 73.71 tacts | Resource stagnation: 82.31%
+2025-08-29 18:43:53	[!] Clock: 198 tacts | Average waiting time: 74.00 tacts | Resource stagnation: 82.29%
+2025-08-29 18:43:53	[!] Clock: 199 tacts | Average waiting time: 74.29 tacts | Resource stagnation: 82.27%
+2025-08-29 18:43:53	[!] Clock: 200 tacts | Average waiting time: 74.59 tacts | Resource stagnation: 82.25%
+2025-08-29 18:43:53	[!] Clock: 201 tacts | Average waiting time: 74.88 tacts | Resource stagnation: 82.24%
+2025-08-29 18:43:53	[!] Clock: 202 tacts | Average waiting time: 75.18 tacts | Resource stagnation: 82.22%
+2025-08-29 18:43:53	[!] Clock: 203 tacts | Average waiting time: 75.47 tacts | Resource stagnation: 82.20%
+2025-08-29 18:43:53	[!] Clock: 204 tacts | Average waiting time: 75.76 tacts | Resource stagnation: 82.19%
+2025-08-29 18:43:53	[!] Clock: 205 tacts | Average waiting time: 76.06 tacts | Resource stagnation: 82.17%
+2025-08-29 18:43:53	[!] Clock: 206 tacts | Average waiting time: 76.35 tacts | Resource stagnation: 82.15%
+2025-08-29 18:43:53	[!] Clock: 207 tacts | Average waiting time: 76.65 tacts | Resource stagnation: 82.14%
+2025-08-29 18:43:53	[!] Clock: 208 tacts | Average waiting time: 76.94 tacts | Resource stagnation: 82.12%
+2025-08-29 18:43:53	[!] Clock: 209 tacts | Average waiting time: 77.23 tacts | Resource stagnation: 82.11%
+2025-08-29 18:43:53	[!] Clock: 210 tacts | Average waiting time: 77.53 tacts | Resource stagnation: 82.09%
+2025-08-29 18:43:53	[!] Clock: 211 tacts | Average waiting time: 77.82 tacts | Resource stagnation: 82.07%
+2025-08-29 18:43:53	[!] Clock: 212 tacts | Average waiting time: 78.12 tacts | Resource stagnation: 82.06%
+2025-08-29 18:43:53	[!] Clock: 213 tacts | Average waiting time: 78.41 tacts | Resource stagnation: 82.04%
+2025-08-29 18:43:53	[RUN] Task [11] started running on resource A.
+2025-08-29 18:43:53	[!] Clock: 214 tacts | Average waiting time: 78.70 tacts | Resource stagnation: 82.03%
+2025-08-29 18:43:53	[!] Clock: 215 tacts | Average waiting time: 79.00 tacts | Resource stagnation: 82.01%
+2025-08-29 18:43:53	[!] Clock: 216 tacts | Average waiting time: 79.29 tacts | Resource stagnation: 82.00%
+2025-08-29 18:43:53	[!] Clock: 217 tacts | Average waiting time: 79.58 tacts | Resource stagnation: 81.98%
+2025-08-29 18:43:53	[RUN] Task [13] started running on resource D.
+2025-08-29 18:43:53	[!] Clock: 218 tacts | Average waiting time: 79.88 tacts | Resource stagnation: 81.97%
+2025-08-29 18:43:53	[!] Clock: 219 tacts | Average waiting time: 80.17 tacts | Resource stagnation: 81.95%
+2025-08-29 18:43:53	[!] Clock: 220 tacts | Average waiting time: 80.47 tacts | Resource stagnation: 81.94%
+2025-08-29 18:43:53	[RUN] Task [14.1] started running on resource N.
+2025-08-29 18:43:53	[!] Clock: 221 tacts | Average waiting time: 80.76 tacts | Resource stagnation: 81.93%
+2025-08-29 18:43:53	[!] Clock: 222 tacts | Average waiting time: 81.05 tacts | Resource stagnation: 81.91%
+2025-08-29 18:43:53	[!] Clock: 223 tacts | Average waiting time: 81.35 tacts | Resource stagnation: 81.90%
+2025-08-29 18:43:53	[RUN] Task [14.2] started running on resource D.
+2025-08-29 18:43:53	[!] Clock: 224 tacts | Average waiting time: 81.64 tacts | Resource stagnation: 81.88%
+2025-08-29 18:43:53	[!] Clock: 225 tacts | Average waiting time: 81.94 tacts | Resource stagnation: 81.87%
+2025-08-29 18:43:53	[!] Clock: 226 tacts | Average waiting time: 82.23 tacts | Resource stagnation: 81.86%
+2025-08-29 18:43:53	[!] Clock: 227 tacts | Average waiting time: 82.52 tacts | Resource stagnation: 81.84%
+2025-08-29 18:43:53	[!] Clock: 228 tacts | Average waiting time: 82.82 tacts | Resource stagnation: 81.83%
+2025-08-29 18:43:53	[!] Clock: 229 tacts | Average waiting time: 83.11 tacts | Resource stagnation: 81.82%
+2025-08-29 18:43:53	[!] Clock: 230 tacts | Average waiting time: 83.41 tacts | Resource stagnation: 81.80%
+2025-08-29 18:43:53	[!] Clock: 231 tacts | Average waiting time: 83.70 tacts | Resource stagnation: 81.79%
+2025-08-29 18:43:53	[!] Clock: 232 tacts | Average waiting time: 83.99 tacts | Resource stagnation: 81.78%
+2025-08-29 18:43:53	[!] Clock: 233 tacts | Average waiting time: 84.29 tacts | Resource stagnation: 81.76%
+2025-08-29 18:43:53	[!] Clock: 234 tacts | Average waiting time: 84.58 tacts | Resource stagnation: 81.75%
+2025-08-29 18:43:53	[!] Clock: 235 tacts | Average waiting time: 84.88 tacts | Resource stagnation: 81.74%
+2025-08-29 18:43:53	[!] Clock: 236 tacts | Average waiting time: 85.17 tacts | Resource stagnation: 81.73%
+2025-08-29 18:43:53	[!] Clock: 237 tacts | Average waiting time: 85.46 tacts | Resource stagnation: 81.71%
+2025-08-29 18:43:53	[!] Clock: 238 tacts | Average waiting time: 85.76 tacts | Resource stagnation: 81.70%
+2025-08-29 18:43:53	[!] Clock: 239 tacts | Average waiting time: 86.05 tacts | Resource stagnation: 81.69%
+2025-08-29 18:43:53	[!] Clock: 240 tacts | Average waiting time: 86.35 tacts | Resource stagnation: 81.68%
+2025-08-29 18:43:53	[!] Clock: 241 tacts | Average waiting time: 86.64 tacts | Resource stagnation: 81.67%
+2025-08-29 18:43:53	[!] Clock: 242 tacts | Average waiting time: 86.93 tacts | Resource stagnation: 81.65%
+2025-08-29 18:43:53	[!] Clock: 243 tacts | Average waiting time: 87.23 tacts | Resource stagnation: 81.64%
+2025-08-29 18:43:53	[PERFORMED] Task [14.1] has been performed.
+2025-08-29 18:43:53	[SEND] Task [14.3] has been added to the sending pool.
+2025-08-29 18:43:53	[SEND] Task [16] has been added to the sending pool.
+2025-08-29 18:43:53	[SEND] Task [17] has been added to the sending pool.
+2025-08-29 18:43:53	[SEND] Task [18.1] has been added to the sending pool.
+2025-08-29 18:43:53	[SEND] Task [18.2] has been added to the sending pool.
+2025-08-29 18:43:53	[!] Clock: 244 tacts | Average waiting time: 87.47 tacts | Resource stagnation: 81.60%
+2025-08-29 18:43:53	[!] Clock: 245 tacts | Average waiting time: 87.72 tacts | Resource stagnation: 81.56%
+2025-08-29 18:43:53	[RUN] Task [14.3] started running on resource N.
+2025-08-29 18:43:53	[!] Clock: 246 tacts | Average waiting time: 87.96 tacts | Resource stagnation: 81.52%
+2025-08-29 18:43:53	[PERFORMED] Task [14.2] has been performed.
+2025-08-29 18:43:54	[SEND] Task [18.3] has been added to the sending pool.
+2025-08-29 18:43:54	[!] Clock: 247 tacts | Average waiting time: 88.20 tacts | Resource stagnation: 81.48%
+2025-08-29 18:43:54	[!] Clock: 248 tacts | Average waiting time: 88.44 tacts | Resource stagnation: 81.45%
+2025-08-29 18:43:54	[!] Clock: 249 tacts | Average waiting time: 88.67 tacts | Resource stagnation: 81.41%
+2025-08-29 18:43:54	[RUN] Task [16] started running on resource E.
+2025-08-29 18:43:54	[!] Clock: 250 tacts | Average waiting time: 88.91 tacts | Resource stagnation: 81.38%
+2025-08-29 18:43:54	[RUN] Task [17] started running on resource I.
+2025-08-29 18:43:54	[!] Clock: 251 tacts | Average waiting time: 89.15 tacts | Resource stagnation: 81.34%
+2025-08-29 18:43:54	[!] Clock: 252 tacts | Average waiting time: 89.38 tacts | Resource stagnation: 81.31%
+2025-08-29 18:43:54	[!] Clock: 253 tacts | Average waiting time: 89.62 tacts | Resource stagnation: 81.27%
+2025-08-29 18:43:54	[!] Clock: 254 tacts | Average waiting time: 89.86 tacts | Resource stagnation: 81.24%
+2025-08-29 18:43:54	[RUN] Task [18.1] started running on resource I.
+2025-08-29 18:43:54	[!] Clock: 255 tacts | Average waiting time: 90.09 tacts | Resource stagnation: 81.20%
+2025-08-29 18:43:54	[!] Clock: 256 tacts | Average waiting time: 90.33 tacts | Resource stagnation: 81.17%
+2025-08-29 18:43:54	[PERFORMED] Task [13] has been performed.
+2025-08-29 18:43:54	[SEND] Task [18.4] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [20] has been added to the sending pool.
+2025-08-29 18:43:54	[!] Clock: 257 tacts | Average waiting time: 90.54 tacts | Resource stagnation: 81.12%
+2025-08-29 18:43:54	[!] Clock: 258 tacts | Average waiting time: 90.75 tacts | Resource stagnation: 81.08%
+2025-08-29 18:43:54	[PERFORMED] Task [11] has been performed.
+2025-08-29 18:43:54	[!] Clock: 259 tacts | Average waiting time: 90.96 tacts | Resource stagnation: 81.07%
+2025-08-29 18:43:54	[!] Clock: 260 tacts | Average waiting time: 91.17 tacts | Resource stagnation: 81.06%
+2025-08-29 18:43:54	[!] Clock: 261 tacts | Average waiting time: 91.38 tacts | Resource stagnation: 81.06%
+2025-08-29 18:43:54	[!] Clock: 262 tacts | Average waiting time: 91.59 tacts | Resource stagnation: 81.05%
+2025-08-29 18:43:54	[!] Clock: 263 tacts | Average waiting time: 91.81 tacts | Resource stagnation: 81.04%
+2025-08-29 18:43:54	[!] Clock: 264 tacts | Average waiting time: 92.02 tacts | Resource stagnation: 81.04%
+2025-08-29 18:43:54	[!] Clock: 265 tacts | Average waiting time: 92.23 tacts | Resource stagnation: 81.03%
+2025-08-29 18:43:54	[!] Clock: 266 tacts | Average waiting time: 92.44 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 267 tacts | Average waiting time: 92.65 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 268 tacts | Average waiting time: 92.86 tacts | Resource stagnation: 81.01%
+2025-08-29 18:43:54	[PERFORMED] Task [14.3] has been performed.
+2025-08-29 18:43:54	[PERFORMED] Task [14] has been performed.
+2025-08-29 18:43:54	[!] Clock: 269 tacts | Average waiting time: 93.07 tacts | Resource stagnation: 81.01%
+2025-08-29 18:43:54	[!] Clock: 270 tacts | Average waiting time: 93.28 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 271 tacts | Average waiting time: 93.49 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 272 tacts | Average waiting time: 93.70 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 273 tacts | Average waiting time: 93.91 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 274 tacts | Average waiting time: 94.12 tacts | Resource stagnation: 81.02%
+2025-08-29 18:43:54	[!] Clock: 275 tacts | Average waiting time: 94.34 tacts | Resource stagnation: 81.03%
+2025-08-29 18:43:54	[!] Clock: 276 tacts | Average waiting time: 94.55 tacts | Resource stagnation: 81.03%
+2025-08-29 18:43:54	[!] Clock: 277 tacts | Average waiting time: 94.76 tacts | Resource stagnation: 81.03%
+2025-08-29 18:43:54	[RUN] Task [18.2] started running on resource N.
+2025-08-29 18:43:54	[!] Clock: 278 tacts | Average waiting time: 94.97 tacts | Resource stagnation: 81.03%
+2025-08-29 18:43:54	[!] Clock: 279 tacts | Average waiting time: 95.18 tacts | Resource stagnation: 81.04%
+2025-08-29 18:43:54	[!] Clock: 280 tacts | Average waiting time: 95.39 tacts | Resource stagnation: 81.04%
+2025-08-29 18:43:54	[!] Clock: 281 tacts | Average waiting time: 95.60 tacts | Resource stagnation: 81.04%
+2025-08-29 18:43:54	[!] Clock: 282 tacts | Average waiting time: 95.81 tacts | Resource stagnation: 81.04%
+2025-08-29 18:43:54	[!] Clock: 283 tacts | Average waiting time: 96.02 tacts | Resource stagnation: 81.05%
+2025-08-29 18:43:54	[!] Clock: 284 tacts | Average waiting time: 96.23 tacts | Resource stagnation: 81.05%
+2025-08-29 18:43:54	[!] Clock: 285 tacts | Average waiting time: 96.44 tacts | Resource stagnation: 81.05%
+2025-08-29 18:43:54	[PERFORMED] Task [16] has been performed.
+2025-08-29 18:43:54	[SEND] Task [22] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [23.1] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [23.2] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [23.3] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [24] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [25] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [26.1] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [26.2] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [26.3] has been added to the sending pool.
+2025-08-29 18:43:54	[SEND] Task [26.4] has been added to the sending pool.
+2025-08-29 18:43:54	[!] Clock: 286 tacts | Average waiting time: 96.56 tacts | Resource stagnation: 80.96%
+2025-08-29 18:43:54	[!] Clock: 287 tacts | Average waiting time: 96.67 tacts | Resource stagnation: 80.88%
+2025-08-29 18:43:54	[!] Clock: 288 tacts | Average waiting time: 96.79 tacts | Resource stagnation: 80.79%
+2025-08-29 18:43:54	[PERFORMED] Task [17] has been performed.
+2025-08-29 18:43:54	[!] Clock: 289 tacts | Average waiting time: 96.90 tacts | Resource stagnation: 80.71%
+2025-08-29 18:43:54	[!] Clock: 290 tacts | Average waiting time: 97.02 tacts | Resource stagnation: 80.62%
+2025-08-29 18:43:54	[!] Clock: 291 tacts | Average waiting time: 97.13 tacts | Resource stagnation: 80.54%
+2025-08-29 18:43:54	[!] Clock: 292 tacts | Average waiting time: 97.25 tacts | Resource stagnation: 80.46%
+2025-08-29 18:43:54	[!] Clock: 293 tacts | Average waiting time: 97.36 tacts | Resource stagnation: 80.38%
+2025-08-29 18:43:54	[!] Clock: 294 tacts | Average waiting time: 97.48 tacts | Resource stagnation: 80.29%
+2025-08-29 18:43:54	[!] Clock: 295 tacts | Average waiting time: 97.59 tacts | Resource stagnation: 80.21%
+2025-08-29 18:43:54	[PERFORMED] Task [18.1] has been performed.
+2025-08-29 18:43:54	[!] Clock: 296 tacts | Average waiting time: 97.71 tacts | Resource stagnation: 80.14%
+2025-08-29 18:43:54	[RUN] Task [18.3] started running on resource D.
+2025-08-29 18:43:54	[!] Clock: 297 tacts | Average waiting time: 97.82 tacts | Resource stagnation: 80.06%
+2025-08-29 18:43:54	[!] Clock: 298 tacts | Average waiting time: 97.94 tacts | Resource stagnation: 79.99%
+2025-08-29 18:43:54	[!] Clock: 299 tacts | Average waiting time: 98.05 tacts | Resource stagnation: 79.91%
+2025-08-29 18:43:54	[!] Clock: 300 tacts | Average waiting time: 98.17 tacts | Resource stagnation: 79.84%
+2025-08-29 18:43:54	[!] Clock: 301 tacts | Average waiting time: 98.28 tacts | Resource stagnation: 79.76%
+2025-08-29 18:43:54	[!] Clock: 302 tacts | Average waiting time: 98.40 tacts | Resource stagnation: 79.69%
+2025-08-29 18:43:54	[!] Clock: 303 tacts | Average waiting time: 98.51 tacts | Resource stagnation: 79.62%
+2025-08-29 18:43:54	[!] Clock: 304 tacts | Average waiting time: 98.63 tacts | Resource stagnation: 79.54%
+2025-08-29 18:43:54	[!] Clock: 305 tacts | Average waiting time: 98.74 tacts | Resource stagnation: 79.47%
+2025-08-29 18:43:54	[!] Clock: 306 tacts | Average waiting time: 98.86 tacts | Resource stagnation: 79.40%
+2025-08-29 18:43:54	[!] Clock: 307 tacts | Average waiting time: 98.97 tacts | Resource stagnation: 79.33%
+2025-08-29 18:43:54	[!] Clock: 308 tacts | Average waiting time: 99.09 tacts | Resource stagnation: 79.26%
+2025-08-29 18:43:55	[!] Clock: 309 tacts | Average waiting time: 99.20 tacts | Resource stagnation: 79.19%
+2025-08-29 18:43:55	[RUN] Task [18.4] started running on resource D.
+2025-08-29 18:43:55	[!] Clock: 310 tacts | Average waiting time: 99.32 tacts | Resource stagnation: 79.12%
+2025-08-29 18:43:55	[!] Clock: 311 tacts | Average waiting time: 99.43 tacts | Resource stagnation: 79.05%
+2025-08-29 18:43:55	[!] Clock: 312 tacts | Average waiting time: 99.55 tacts | Resource stagnation: 78.98%
+2025-08-29 18:43:55	[!] Clock: 313 tacts | Average waiting time: 99.66 tacts | Resource stagnation: 78.91%
+2025-08-29 18:43:55	[!] Clock: 314 tacts | Average waiting time: 99.78 tacts | Resource stagnation: 78.84%
+2025-08-29 18:43:55	[!] Clock: 315 tacts | Average waiting time: 99.89 tacts | Resource stagnation: 78.78%
+2025-08-29 18:43:55	[!] Clock: 316 tacts | Average waiting time: 100.01 tacts | Resource stagnation: 78.71%
+2025-08-29 18:43:55	[!] Clock: 317 tacts | Average waiting time: 100.12 tacts | Resource stagnation: 78.64%
+2025-08-29 18:43:55	[!] Clock: 318 tacts | Average waiting time: 100.24 tacts | Resource stagnation: 78.58%
+2025-08-29 18:43:55	[PERFORMED] Task [18.2] has been performed.
+2025-08-29 18:43:55	[SEND] Task [26.5] has been added to the sending pool.
+2025-08-29 18:43:55	[!] Clock: 319 tacts | Average waiting time: 100.35 tacts | Resource stagnation: 78.52%
+2025-08-29 18:43:55	[!] Clock: 320 tacts | Average waiting time: 100.46 tacts | Resource stagnation: 78.46%
+2025-08-29 18:43:55	[!] Clock: 321 tacts | Average waiting time: 100.58 tacts | Resource stagnation: 78.40%
+2025-08-29 18:43:55	[!] Clock: 322 tacts | Average waiting time: 100.69 tacts | Resource stagnation: 78.34%
+2025-08-29 18:43:55	[!] Clock: 323 tacts | Average waiting time: 100.80 tacts | Resource stagnation: 78.28%
+2025-08-29 18:43:55	[!] Clock: 324 tacts | Average waiting time: 100.91 tacts | Resource stagnation: 78.22%
+2025-08-29 18:43:55	[!] Clock: 325 tacts | Average waiting time: 101.02 tacts | Resource stagnation: 78.17%
+2025-08-29 18:43:55	[RUN] Task [20] started running on resource D.
+2025-08-29 18:43:55	[!] Clock: 326 tacts | Average waiting time: 101.13 tacts | Resource stagnation: 78.11%
+2025-08-29 18:43:55	[!] Clock: 327 tacts | Average waiting time: 101.25 tacts | Resource stagnation: 78.05%
+2025-08-29 18:43:55	[!] Clock: 328 tacts | Average waiting time: 101.36 tacts | Resource stagnation: 77.99%
+2025-08-29 18:43:55	[!] Clock: 329 tacts | Average waiting time: 101.47 tacts | Resource stagnation: 77.94%
+2025-08-29 18:43:55	[!] Clock: 330 tacts | Average waiting time: 101.58 tacts | Resource stagnation: 77.88%
+2025-08-29 18:43:55	[!] Clock: 331 tacts | Average waiting time: 101.69 tacts | Resource stagnation: 77.83%
+2025-08-29 18:43:55	[!] Clock: 332 tacts | Average waiting time: 101.81 tacts | Resource stagnation: 77.77%
+2025-08-29 18:43:55	[!] Clock: 333 tacts | Average waiting time: 101.92 tacts | Resource stagnation: 77.71%
+2025-08-29 18:43:55	[!] Clock: 334 tacts | Average waiting time: 102.03 tacts | Resource stagnation: 77.66%
+2025-08-29 18:43:55	[!] Clock: 335 tacts | Average waiting time: 102.14 tacts | Resource stagnation: 77.61%
+2025-08-29 18:43:55	[!] Clock: 336 tacts | Average waiting time: 102.25 tacts | Resource stagnation: 77.55%
+2025-08-29 18:43:55	[!] Clock: 337 tacts | Average waiting time: 102.36 tacts | Resource stagnation: 77.50%
+2025-08-29 18:43:55	[PERFORMED] Task [18.3] has been performed.
+2025-08-29 18:43:55	[!] Clock: 338 tacts | Average waiting time: 102.48 tacts | Resource stagnation: 77.45%
+2025-08-29 18:43:55	[!] Clock: 339 tacts | Average waiting time: 102.59 tacts | Resource stagnation: 77.40%
+2025-08-29 18:43:55	[!] Clock: 340 tacts | Average waiting time: 102.70 tacts | Resource stagnation: 77.35%
+2025-08-29 18:43:55	[!] Clock: 341 tacts | Average waiting time: 102.81 tacts | Resource stagnation: 77.30%
+2025-08-29 18:43:55	[!] Clock: 342 tacts | Average waiting time: 102.92 tacts | Resource stagnation: 77.26%
+2025-08-29 18:43:55	[!] Clock: 343 tacts | Average waiting time: 103.04 tacts | Resource stagnation: 77.21%
+2025-08-29 18:43:55	[RUN] Task [22] started running on resource E.
+2025-08-29 18:43:55	[!] Clock: 344 tacts | Average waiting time: 103.15 tacts | Resource stagnation: 77.16%
+2025-08-29 18:43:55	[!] Clock: 345 tacts | Average waiting time: 103.26 tacts | Resource stagnation: 77.12%
+2025-08-29 18:43:55	[!] Clock: 346 tacts | Average waiting time: 103.37 tacts | Resource stagnation: 77.07%
+2025-08-29 18:43:55	[!] Clock: 347 tacts | Average waiting time: 103.48 tacts | Resource stagnation: 77.02%
+2025-08-29 18:43:55	[!] Clock: 348 tacts | Average waiting time: 103.59 tacts | Resource stagnation: 76.98%
+2025-08-29 18:43:55	[!] Clock: 349 tacts | Average waiting time: 103.71 tacts | Resource stagnation: 76.93%
+2025-08-29 18:43:55	[!] Clock: 350 tacts | Average waiting time: 103.82 tacts | Resource stagnation: 76.88%
+2025-08-29 18:43:55	[PERFORMED] Task [18.4] has been performed.
+2025-08-29 18:43:55	[PERFORMED] Task [18] has been performed.
+2025-08-29 18:43:55	[SEND] Task [26.6] has been added to the sending pool.
+2025-08-29 18:43:55	[!] Clock: 351 tacts | Average waiting time: 103.93 tacts | Resource stagnation: 76.84%
+2025-08-29 18:43:55	[!] Clock: 352 tacts | Average waiting time: 104.04 tacts | Resource stagnation: 76.79%
+2025-08-29 18:43:55	[!] Clock: 353 tacts | Average waiting time: 104.14 tacts | Resource stagnation: 76.74%
+2025-08-29 18:43:55	[!] Clock: 354 tacts | Average waiting time: 104.25 tacts | Resource stagnation: 76.69%
+2025-08-29 18:43:55	[!] Clock: 355 tacts | Average waiting time: 104.36 tacts | Resource stagnation: 76.64%
+2025-08-29 18:43:55	[!] Clock: 356 tacts | Average waiting time: 104.47 tacts | Resource stagnation: 76.59%
+2025-08-29 18:43:55	[!] Clock: 357 tacts | Average waiting time: 104.58 tacts | Resource stagnation: 76.55%
+2025-08-29 18:43:55	[!] Clock: 358 tacts | Average waiting time: 104.69 tacts | Resource stagnation: 76.50%
+2025-08-29 18:43:55	[!] Clock: 359 tacts | Average waiting time: 104.80 tacts | Resource stagnation: 76.45%
+2025-08-29 18:43:55	[!] Clock: 360 tacts | Average waiting time: 104.90 tacts | Resource stagnation: 76.41%
+2025-08-29 18:43:55	[!] Clock: 361 tacts | Average waiting time: 105.01 tacts | Resource stagnation: 76.36%
+2025-08-29 18:43:55	[!] Clock: 362 tacts | Average waiting time: 105.12 tacts | Resource stagnation: 76.31%
+2025-08-29 18:43:55	[!] Clock: 363 tacts | Average waiting time: 105.23 tacts | Resource stagnation: 76.27%
+2025-08-29 18:43:55	[!] Clock: 364 tacts | Average waiting time: 105.34 tacts | Resource stagnation: 76.22%
+2025-08-29 18:43:55	[!] Clock: 365 tacts | Average waiting time: 105.45 tacts | Resource stagnation: 76.18%
+2025-08-29 18:43:55	[!] Clock: 366 tacts | Average waiting time: 105.56 tacts | Resource stagnation: 76.13%
+2025-08-29 18:43:55	[!] Clock: 367 tacts | Average waiting time: 105.66 tacts | Resource stagnation: 76.09%
+2025-08-29 18:43:55	[!] Clock: 368 tacts | Average waiting time: 105.77 tacts | Resource stagnation: 76.04%
+2025-08-29 18:43:55	[PERFORMED] Task [20] has been performed.
+2025-08-29 18:43:55	[!] Clock: 369 tacts | Average waiting time: 105.88 tacts | Resource stagnation: 76.02%
+2025-08-29 18:43:55	[!] Clock: 370 tacts | Average waiting time: 105.99 tacts | Resource stagnation: 75.99%
+2025-08-29 18:43:56	[!] Clock: 371 tacts | Average waiting time: 106.10 tacts | Resource stagnation: 75.96%
+2025-08-29 18:43:56	[!] Clock: 372 tacts | Average waiting time: 106.21 tacts | Resource stagnation: 75.94%
+2025-08-29 18:43:56	[!] Clock: 373 tacts | Average waiting time: 106.32 tacts | Resource stagnation: 75.91%
+2025-08-29 18:43:56	[!] Clock: 374 tacts | Average waiting time: 106.42 tacts | Resource stagnation: 75.88%
+2025-08-29 18:43:56	[PERFORMED] Task [22] has been performed.
+2025-08-29 18:43:56	[SEND] Task [26.7] has been added to the sending pool.
+2025-08-29 18:43:56	[!] Clock: 375 tacts | Average waiting time: 106.53 tacts | Resource stagnation: 75.86%
+2025-08-29 18:43:56	[!] Clock: 376 tacts | Average waiting time: 106.64 tacts | Resource stagnation: 75.84%
+2025-08-29 18:43:56	[!] Clock: 377 tacts | Average waiting time: 106.74 tacts | Resource stagnation: 75.81%
+2025-08-29 18:43:56	[!] Clock: 378 tacts | Average waiting time: 106.85 tacts | Resource stagnation: 75.79%
+2025-08-29 18:43:56	[!] Clock: 379 tacts | Average waiting time: 106.95 tacts | Resource stagnation: 75.77%
+2025-08-29 18:43:56	[!] Clock: 380 tacts | Average waiting time: 107.06 tacts | Resource stagnation: 75.75%
+2025-08-29 18:43:56	[!] Clock: 381 tacts | Average waiting time: 107.16 tacts | Resource stagnation: 75.72%
+2025-08-29 18:43:56	[!] Clock: 382 tacts | Average waiting time: 107.27 tacts | Resource stagnation: 75.70%
+2025-08-29 18:43:56	[!] Clock: 383 tacts | Average waiting time: 107.37 tacts | Resource stagnation: 75.68%
+2025-08-29 18:43:56	[!] Clock: 384 tacts | Average waiting time: 107.48 tacts | Resource stagnation: 75.66%
+2025-08-29 18:43:56	[!] Clock: 385 tacts | Average waiting time: 107.58 tacts | Resource stagnation: 75.64%
+2025-08-29 18:43:56	[!] Clock: 386 tacts | Average waiting time: 107.69 tacts | Resource stagnation: 75.61%
+2025-08-29 18:43:56	[!] Clock: 387 tacts | Average waiting time: 107.80 tacts | Resource stagnation: 75.59%
+2025-08-29 18:43:56	[!] Clock: 388 tacts | Average waiting time: 107.90 tacts | Resource stagnation: 75.57%
+2025-08-29 18:43:56	[!] Clock: 389 tacts | Average waiting time: 108.01 tacts | Resource stagnation: 75.55%
+2025-08-29 18:43:56	[!] Clock: 390 tacts | Average waiting time: 108.11 tacts | Resource stagnation: 75.53%
+2025-08-29 18:43:56	[!] Clock: 391 tacts | Average waiting time: 108.22 tacts | Resource stagnation: 75.51%
+2025-08-29 18:43:56	[!] Clock: 392 tacts | Average waiting time: 108.32 tacts | Resource stagnation: 75.49%
+2025-08-29 18:43:56	[!] Clock: 393 tacts | Average waiting time: 108.43 tacts | Resource stagnation: 75.47%
+2025-08-29 18:43:56	[!] Clock: 394 tacts | Average waiting time: 108.53 tacts | Resource stagnation: 75.45%
+2025-08-29 18:43:56	[!] Clock: 395 tacts | Average waiting time: 108.64 tacts | Resource stagnation: 75.42%
+2025-08-29 18:43:56	[!] Clock: 396 tacts | Average waiting time: 108.74 tacts | Resource stagnation: 75.40%
+2025-08-29 18:43:56	[!] Clock: 397 tacts | Average waiting time: 108.85 tacts | Resource stagnation: 75.38%
+2025-08-29 18:43:56	[RUN] Task [23.1] started running on resource A.
+2025-08-29 18:43:56	[!] Clock: 398 tacts | Average waiting time: 108.96 tacts | Resource stagnation: 75.36%
+2025-08-29 18:43:56	[!] Clock: 399 tacts | Average waiting time: 109.06 tacts | Resource stagnation: 75.34%
+2025-08-29 18:43:56	[!] Clock: 400 tacts | Average waiting time: 109.17 tacts | Resource stagnation: 75.32%
+2025-08-29 18:43:56	[!] Clock: 401 tacts | Average waiting time: 109.27 tacts | Resource stagnation: 75.30%
+2025-08-29 18:43:56	[RUN] Task [23.2] started running on resource B.
+2025-08-29 18:43:56	[!] Clock: 402 tacts | Average waiting time: 109.38 tacts | Resource stagnation: 75.28%
+2025-08-29 18:43:56	[!] Clock: 403 tacts | Average waiting time: 109.48 tacts | Resource stagnation: 75.26%
+2025-08-29 18:43:56	[RUN] Task [23.3] started running on resource G.
+2025-08-29 18:43:56	[!] Clock: 404 tacts | Average waiting time: 109.59 tacts | Resource stagnation: 75.24%
+2025-08-29 18:43:56	[!] Clock: 405 tacts | Average waiting time: 109.69 tacts | Resource stagnation: 75.22%
+2025-08-29 18:43:56	[!] Clock: 406 tacts | Average waiting time: 109.80 tacts | Resource stagnation: 75.20%
+2025-08-29 18:43:56	[!] Clock: 407 tacts | Average waiting time: 109.90 tacts | Resource stagnation: 75.18%
+2025-08-29 18:43:56	[!] Clock: 408 tacts | Average waiting time: 110.01 tacts | Resource stagnation: 75.16%
+2025-08-29 18:43:56	[!] Clock: 409 tacts | Average waiting time: 110.12 tacts | Resource stagnation: 75.15%
+2025-08-29 18:43:56	[!] Clock: 410 tacts | Average waiting time: 110.22 tacts | Resource stagnation: 75.13%
+2025-08-29 18:43:56	[!] Clock: 411 tacts | Average waiting time: 110.33 tacts | Resource stagnation: 75.11%
+2025-08-29 18:43:56	[PERFORMED] Task [23.1] has been performed.
+2025-08-29 18:43:56	[!] Clock: 412 tacts | Average waiting time: 110.43 tacts | Resource stagnation: 75.09%
+2025-08-29 18:43:56	[!] Clock: 413 tacts | Average waiting time: 110.54 tacts | Resource stagnation: 75.08%
+2025-08-29 18:43:56	[!] Clock: 414 tacts | Average waiting time: 110.64 tacts | Resource stagnation: 75.06%
+2025-08-29 18:43:56	[!] Clock: 415 tacts | Average waiting time: 110.75 tacts | Resource stagnation: 75.05%
+2025-08-29 18:43:56	[PERFORMED] Task [23.2] has been performed.
+2025-08-29 18:43:56	[!] Clock: 416 tacts | Average waiting time: 110.85 tacts | Resource stagnation: 75.04%
+2025-08-29 18:43:56	[!] Clock: 417 tacts | Average waiting time: 110.96 tacts | Resource stagnation: 75.02%
+2025-08-29 18:43:56	[PERFORMED] Task [23.3] has been performed.
+2025-08-29 18:43:56	[PERFORMED] Task [23] has been performed.
+2025-08-29 18:43:56	[RUN] Task [24] started running on resource H.
+2025-08-29 18:43:56	[!] Clock: 418 tacts | Average waiting time: 111.06 tacts | Resource stagnation: 75.01%
+2025-08-29 18:43:56	[!] Clock: 419 tacts | Average waiting time: 111.17 tacts | Resource stagnation: 75.00%
+2025-08-29 18:43:56	[!] Clock: 420 tacts | Average waiting time: 111.27 tacts | Resource stagnation: 74.99%
+2025-08-29 18:43:56	[RUN] Task [25] started running on resource G.
+2025-08-29 18:43:56	[!] Clock: 421 tacts | Average waiting time: 111.38 tacts | Resource stagnation: 74.97%
+2025-08-29 18:43:56	[!] Clock: 422 tacts | Average waiting time: 111.49 tacts | Resource stagnation: 74.96%
+2025-08-29 18:43:56	[!] Clock: 423 tacts | Average waiting time: 111.59 tacts | Resource stagnation: 74.95%
+2025-08-29 18:43:56	[RUN] Task [26.1] started running on resource E.
+2025-08-29 18:43:56	[!] Clock: 424 tacts | Average waiting time: 111.70 tacts | Resource stagnation: 74.94%
+2025-08-29 18:43:56	[!] Clock: 425 tacts | Average waiting time: 111.80 tacts | Resource stagnation: 74.93%
+2025-08-29 18:43:56	[!] Clock: 426 tacts | Average waiting time: 111.91 tacts | Resource stagnation: 74.92%
+2025-08-29 18:43:56	[!] Clock: 427 tacts | Average waiting time: 112.01 tacts | Resource stagnation: 74.90%
+2025-08-29 18:43:56	[!] Clock: 428 tacts | Average waiting time: 112.12 tacts | Resource stagnation: 74.89%
+2025-08-29 18:43:56	[RUN] Task [26.2] started running on resource F.
+2025-08-29 18:43:56	[!] Clock: 429 tacts | Average waiting time: 112.22 tacts | Resource stagnation: 74.88%
+2025-08-29 18:43:56	[!] Clock: 430 tacts | Average waiting time: 112.33 tacts | Resource stagnation: 74.87%
+2025-08-29 18:43:56	[!] Clock: 431 tacts | Average waiting time: 112.43 tacts | Resource stagnation: 74.86%
+2025-08-29 18:43:56	[!] Clock: 432 tacts | Average waiting time: 112.54 tacts | Resource stagnation: 74.85%
+2025-08-29 18:43:56	[PERFORMED] Task [25] has been performed.
+2025-08-29 18:43:57	[!] Clock: 433 tacts | Average waiting time: 112.65 tacts | Resource stagnation: 74.84%
+2025-08-29 18:43:57	[!] Clock: 434 tacts | Average waiting time: 112.75 tacts | Resource stagnation: 74.83%
+2025-08-29 18:43:57	[!] Clock: 435 tacts | Average waiting time: 112.86 tacts | Resource stagnation: 74.83%
+2025-08-29 18:43:57	[!] Clock: 436 tacts | Average waiting time: 112.96 tacts | Resource stagnation: 74.82%
+2025-08-29 18:43:57	[PERFORMED] Task [24] has been performed.
+2025-08-29 18:43:57	[!] Clock: 437 tacts | Average waiting time: 113.07 tacts | Resource stagnation: 74.82%
+2025-08-29 18:43:57	[!] Clock: 438 tacts | Average waiting time: 113.17 tacts | Resource stagnation: 74.82%
+2025-08-29 18:43:57	[!] Clock: 439 tacts | Average waiting time: 113.28 tacts | Resource stagnation: 74.82%
+2025-08-29 18:43:57	[!] Clock: 440 tacts | Average waiting time: 113.38 tacts | Resource stagnation: 74.82%
+2025-08-29 18:43:57	[!] Clock: 441 tacts | Average waiting time: 113.49 tacts | Resource stagnation: 74.82%
+2025-08-29 18:43:57	[!] Clock: 442 tacts | Average waiting time: 113.59 tacts | Resource stagnation: 74.81%
+2025-08-29 18:43:57	[!] Clock: 443 tacts | Average waiting time: 113.70 tacts | Resource stagnation: 74.81%
+2025-08-29 18:43:57	[!] Clock: 444 tacts | Average waiting time: 113.81 tacts | Resource stagnation: 74.81%
+2025-08-29 18:43:57	[!] Clock: 445 tacts | Average waiting time: 113.91 tacts | Resource stagnation: 74.81%
+2025-08-29 18:43:57	[!] Clock: 446 tacts | Average waiting time: 114.02 tacts | Resource stagnation: 74.81%
+2025-08-29 18:43:57	[!] Clock: 447 tacts | Average waiting time: 114.12 tacts | Resource stagnation: 74.81%
+2025-08-29 18:43:57	[!] Clock: 448 tacts | Average waiting time: 114.23 tacts | Resource stagnation: 74.80%
+2025-08-29 18:43:57	[!] Clock: 449 tacts | Average waiting time: 114.33 tacts | Resource stagnation: 74.80%
+2025-08-29 18:43:57	[!] Clock: 450 tacts | Average waiting time: 114.44 tacts | Resource stagnation: 74.80%
+2025-08-29 18:43:57	[!] Clock: 451 tacts | Average waiting time: 114.54 tacts | Resource stagnation: 74.80%
+2025-08-29 18:43:57	[!] Clock: 452 tacts | Average waiting time: 114.65 tacts | Resource stagnation: 74.80%
+2025-08-29 18:43:57	[!] Clock: 453 tacts | Average waiting time: 114.75 tacts | Resource stagnation: 74.80%
+2025-08-29 18:43:57	[RUN] Task [26.3] started running on resource M.
+2025-08-29 18:43:57	[!] Clock: 454 tacts | Average waiting time: 114.86 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[!] Clock: 455 tacts | Average waiting time: 114.96 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[!] Clock: 456 tacts | Average waiting time: 115.07 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[RUN] Task [26.4] started running on resource N.
+2025-08-29 18:43:57	[!] Clock: 457 tacts | Average waiting time: 115.18 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[!] Clock: 458 tacts | Average waiting time: 115.28 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[!] Clock: 459 tacts | Average waiting time: 115.39 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[RUN] Task [26.5] started running on resource N.
+2025-08-29 18:43:57	[!] Clock: 460 tacts | Average waiting time: 115.49 tacts | Resource stagnation: 74.79%
+2025-08-29 18:43:57	[!] Clock: 461 tacts | Average waiting time: 115.60 tacts | Resource stagnation: 74.78%
+2025-08-29 18:43:57	[!] Clock: 462 tacts | Average waiting time: 115.70 tacts | Resource stagnation: 74.78%
+2025-08-29 18:43:57	[!] Clock: 463 tacts | Average waiting time: 115.81 tacts | Resource stagnation: 74.78%
+2025-08-29 18:43:57	[!] Clock: 464 tacts | Average waiting time: 115.91 tacts | Resource stagnation: 74.78%
+2025-08-29 18:43:57	[!] Clock: 465 tacts | Average waiting time: 116.02 tacts | Resource stagnation: 74.78%
+2025-08-29 18:43:57	[PERFORMED] Task [26.1] has been performed.
+2025-08-29 18:43:57	[RUN] Task [26.6] started running on resource D.
+2025-08-29 18:43:57	[SEND] Task [26.8] has been added to the sending pool.
+2025-08-29 18:43:57	[!] Clock: 466 tacts | Average waiting time: 116.12 tacts | Resource stagnation: 74.78%
+2025-08-29 18:43:57	[!] Clock: 467 tacts | Average waiting time: 116.22 tacts | Resource stagnation: 74.77%
+2025-08-29 18:43:57	[!] Clock: 468 tacts | Average waiting time: 116.33 tacts | Resource stagnation: 74.77%
+2025-08-29 18:43:57	[RUN] Task [26.7] started running on resource E.
+2025-08-29 18:43:57	[!] Clock: 469 tacts | Average waiting time: 116.43 tacts | Resource stagnation: 74.77%
+2025-08-29 18:43:57	[!] Clock: 470 tacts | Average waiting time: 116.53 tacts | Resource stagnation: 74.77%
+2025-08-29 18:43:57	[PERFORMED] Task [26.2] has been performed.
+2025-08-29 18:43:57	[SEND] Task [26.9] has been added to the sending pool.
+2025-08-29 18:43:57	[SEND] Task [30] has been added to the sending pool.
+2025-08-29 18:43:57	[!] Clock: 471 tacts | Average waiting time: 116.62 tacts | Resource stagnation: 74.75%
+2025-08-29 18:43:57	[RUN] Task [26.8] started running on resource E.
+2025-08-29 18:43:57	[!] Clock: 472 tacts | Average waiting time: 116.71 tacts | Resource stagnation: 74.73%
+2025-08-29 18:43:57	[!] Clock: 473 tacts | Average waiting time: 116.80 tacts | Resource stagnation: 74.72%
+2025-08-29 18:43:57	[!] Clock: 474 tacts | Average waiting time: 116.89 tacts | Resource stagnation: 74.70%
+2025-08-29 18:43:57	[!] Clock: 475 tacts | Average waiting time: 116.98 tacts | Resource stagnation: 74.68%
+2025-08-29 18:43:57	[!] Clock: 476 tacts | Average waiting time: 117.07 tacts | Resource stagnation: 74.66%
+2025-08-29 18:43:57	[RUN] Task [26.9] started running on resource F.
+2025-08-29 18:43:57	[!] Clock: 477 tacts | Average waiting time: 117.16 tacts | Resource stagnation: 74.65%
+2025-08-29 18:43:57	[!] Clock: 478 tacts | Average waiting time: 117.25 tacts | Resource stagnation: 74.63%
+2025-08-29 18:43:57	[!] Clock: 479 tacts | Average waiting time: 117.34 tacts | Resource stagnation: 74.61%
+2025-08-29 18:43:57	[!] Clock: 480 tacts | Average waiting time: 117.42 tacts | Resource stagnation: 74.59%
+2025-08-29 18:43:57	[!] Clock: 481 tacts | Average waiting time: 117.51 tacts | Resource stagnation: 74.58%
+2025-08-29 18:43:57	[!] Clock: 482 tacts | Average waiting time: 117.60 tacts | Resource stagnation: 74.56%
+2025-08-29 18:43:57	[!] Clock: 483 tacts | Average waiting time: 117.69 tacts | Resource stagnation: 74.54%
+2025-08-29 18:43:57	[!] Clock: 484 tacts | Average waiting time: 117.78 tacts | Resource stagnation: 74.52%
+2025-08-29 18:43:57	[!] Clock: 485 tacts | Average waiting time: 117.87 tacts | Resource stagnation: 74.51%
+2025-08-29 18:43:57	[!] Clock: 486 tacts | Average waiting time: 117.96 tacts | Resource stagnation: 74.49%
+2025-08-29 18:43:57	[!] Clock: 487 tacts | Average waiting time: 118.05 tacts | Resource stagnation: 74.47%
+2025-08-29 18:43:57	[!] Clock: 488 tacts | Average waiting time: 118.14 tacts | Resource stagnation: 74.46%
+2025-08-29 18:43:57	[!] Clock: 489 tacts | Average waiting time: 118.23 tacts | Resource stagnation: 74.44%
+2025-08-29 18:43:57	[!] Clock: 490 tacts | Average waiting time: 118.32 tacts | Resource stagnation: 74.42%
+2025-08-29 18:43:57	[!] Clock: 491 tacts | Average waiting time: 118.41 tacts | Resource stagnation: 74.41%
+2025-08-29 18:43:57	[!] Clock: 492 tacts | Average waiting time: 118.50 tacts | Resource stagnation: 74.39%
+2025-08-29 18:43:57	[!] Clock: 493 tacts | Average waiting time: 118.59 tacts | Resource stagnation: 74.37%
+2025-08-29 18:43:57	[!] Clock: 494 tacts | Average waiting time: 118.68 tacts | Resource stagnation: 74.36%
+2025-08-29 18:43:58	[!] Clock: 495 tacts | Average waiting time: 118.77 tacts | Resource stagnation: 74.34%
+2025-08-29 18:43:58	[PERFORMED] Task [26.3] has been performed.
+2025-08-29 18:43:58	[SEND] Task [31] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [32.1] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [32.2] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [33] has been added to the sending pool.
+2025-08-29 18:43:58	[!] Clock: 496 tacts | Average waiting time: 118.83 tacts | Resource stagnation: 74.32%
+2025-08-29 18:43:58	[!] Clock: 497 tacts | Average waiting time: 118.90 tacts | Resource stagnation: 74.30%
+2025-08-29 18:43:58	[!] Clock: 498 tacts | Average waiting time: 118.97 tacts | Resource stagnation: 74.28%
+2025-08-29 18:43:58	[PERFORMED] Task [26.4] has been performed.
+2025-08-29 18:43:58	[!] Clock: 499 tacts | Average waiting time: 119.04 tacts | Resource stagnation: 74.26%
+2025-08-29 18:43:58	[!] Clock: 500 tacts | Average waiting time: 119.10 tacts | Resource stagnation: 74.24%
+2025-08-29 18:43:58	[!] Clock: 501 tacts | Average waiting time: 119.17 tacts | Resource stagnation: 74.23%
+2025-08-29 18:43:58	[PERFORMED] Task [26.5] has been performed.
+2025-08-29 18:43:58	[SEND] Task [34] has been added to the sending pool.
+2025-08-29 18:43:58	[!] Clock: 502 tacts | Average waiting time: 119.22 tacts | Resource stagnation: 74.21%
+2025-08-29 18:43:58	[!] Clock: 503 tacts | Average waiting time: 119.28 tacts | Resource stagnation: 74.18%
+2025-08-29 18:43:58	[!] Clock: 504 tacts | Average waiting time: 119.33 tacts | Resource stagnation: 74.16%
+2025-08-29 18:43:58	[!] Clock: 505 tacts | Average waiting time: 119.39 tacts | Resource stagnation: 74.14%
+2025-08-29 18:43:58	[!] Clock: 506 tacts | Average waiting time: 119.44 tacts | Resource stagnation: 74.12%
+2025-08-29 18:43:58	[!] Clock: 507 tacts | Average waiting time: 119.50 tacts | Resource stagnation: 74.10%
+2025-08-29 18:43:58	[PERFORMED] Task [26.6] has been performed.
+2025-08-29 18:43:58	[!] Clock: 508 tacts | Average waiting time: 119.55 tacts | Resource stagnation: 74.08%
+2025-08-29 18:43:58	[!] Clock: 509 tacts | Average waiting time: 119.60 tacts | Resource stagnation: 74.07%
+2025-08-29 18:43:58	[RUN] Task [30] started running on resource A.
+2025-08-29 18:43:58	[!] Clock: 510 tacts | Average waiting time: 119.66 tacts | Resource stagnation: 74.05%
+2025-08-29 18:43:58	[PERFORMED] Task [26.7] has been performed.
+2025-08-29 18:43:58	[!] Clock: 511 tacts | Average waiting time: 119.71 tacts | Resource stagnation: 74.04%
+2025-08-29 18:43:58	[!] Clock: 512 tacts | Average waiting time: 119.77 tacts | Resource stagnation: 74.03%
+2025-08-29 18:43:58	[!] Clock: 513 tacts | Average waiting time: 119.82 tacts | Resource stagnation: 74.01%
+2025-08-29 18:43:58	[PERFORMED] Task [26.8] has been performed.
+2025-08-29 18:43:58	[!] Clock: 514 tacts | Average waiting time: 119.88 tacts | Resource stagnation: 74.01%
+2025-08-29 18:43:58	[!] Clock: 515 tacts | Average waiting time: 119.93 tacts | Resource stagnation: 74.00%
+2025-08-29 18:43:58	[!] Clock: 516 tacts | Average waiting time: 119.98 tacts | Resource stagnation: 73.99%
+2025-08-29 18:43:58	[!] Clock: 517 tacts | Average waiting time: 120.04 tacts | Resource stagnation: 73.99%
+2025-08-29 18:43:58	[!] Clock: 518 tacts | Average waiting time: 120.09 tacts | Resource stagnation: 73.98%
+2025-08-29 18:43:58	[PERFORMED] Task [26.9] has been performed.
+2025-08-29 18:43:58	[PERFORMED] Task [26] has been performed.
+2025-08-29 18:43:58	[!] Clock: 519 tacts | Average waiting time: 120.15 tacts | Resource stagnation: 73.98%
+2025-08-29 18:43:58	[!] Clock: 520 tacts | Average waiting time: 120.20 tacts | Resource stagnation: 73.98%
+2025-08-29 18:43:58	[!] Clock: 521 tacts | Average waiting time: 120.26 tacts | Resource stagnation: 73.97%
+2025-08-29 18:43:58	[!] Clock: 522 tacts | Average waiting time: 120.31 tacts | Resource stagnation: 73.97%
+2025-08-29 18:43:58	[!] Clock: 523 tacts | Average waiting time: 120.36 tacts | Resource stagnation: 73.97%
+2025-08-29 18:43:58	[!] Clock: 524 tacts | Average waiting time: 120.42 tacts | Resource stagnation: 73.97%
+2025-08-29 18:43:58	[!] Clock: 525 tacts | Average waiting time: 120.47 tacts | Resource stagnation: 73.96%
+2025-08-29 18:43:58	[RUN] Task [31] started running on resource M.
+2025-08-29 18:43:58	[!] Clock: 526 tacts | Average waiting time: 120.53 tacts | Resource stagnation: 73.96%
+2025-08-29 18:43:58	[!] Clock: 527 tacts | Average waiting time: 120.58 tacts | Resource stagnation: 73.96%
+2025-08-29 18:43:58	[!] Clock: 528 tacts | Average waiting time: 120.64 tacts | Resource stagnation: 73.96%
+2025-08-29 18:43:58	[!] Clock: 529 tacts | Average waiting time: 120.69 tacts | Resource stagnation: 73.96%
+2025-08-29 18:43:58	[RUN] Task [32.1] started running on resource D.
+2025-08-29 18:43:58	[!] Clock: 530 tacts | Average waiting time: 120.74 tacts | Resource stagnation: 73.95%
+2025-08-29 18:43:58	[PERFORMED] Task [31] has been performed.
+2025-08-29 18:43:58	[!] Clock: 531 tacts | Average waiting time: 120.80 tacts | Resource stagnation: 73.97%
+2025-08-29 18:43:58	[RUN] Task [32.2] started running on resource E.
+2025-08-29 18:43:58	[!] Clock: 532 tacts | Average waiting time: 120.85 tacts | Resource stagnation: 73.99%
+2025-08-29 18:43:58	[RUN] Task [33] started running on resource A.
+2025-08-29 18:43:58	[!] Clock: 533 tacts | Average waiting time: 120.91 tacts | Resource stagnation: 74.01%
+2025-08-29 18:43:58	[!] Clock: 534 tacts | Average waiting time: 120.96 tacts | Resource stagnation: 74.02%
+2025-08-29 18:43:58	[!] Clock: 535 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 74.04%
+2025-08-29 18:43:58	[PERFORMED] Task [30] has been performed.
+2025-08-29 18:43:58	[SEND] Task [36] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.1] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.2] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.3] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.4] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.5] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.6] has been added to the sending pool.
+2025-08-29 18:43:58	[SEND] Task [40.7] has been added to the sending pool.
+2025-08-29 18:43:58	[!] Clock: 536 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 74.01%
+2025-08-29 18:43:58	[!] Clock: 537 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.98%
+2025-08-29 18:43:58	[!] Clock: 538 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.95%
+2025-08-29 18:43:58	[!] Clock: 539 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.92%
+2025-08-29 18:43:58	[!] Clock: 540 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.89%
+2025-08-29 18:43:58	[!] Clock: 541 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.85%
+2025-08-29 18:43:58	[!] Clock: 542 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.82%
+2025-08-29 18:43:58	[RUN] Task [34] started running on resource N.
+2025-08-29 18:43:58	[!] Clock: 543 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.79%
+2025-08-29 18:43:58	[!] Clock: 544 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.76%
+2025-08-29 18:43:58	[!] Clock: 545 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.73%
+2025-08-29 18:43:58	[!] Clock: 546 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.70%
+2025-08-29 18:43:58	[PERFORMED] Task [34] has been performed.
+2025-08-29 18:43:58	[!] Clock: 547 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.68%
+2025-08-29 18:43:58	[!] Clock: 548 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.66%
+2025-08-29 18:43:58	[!] Clock: 549 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.64%
+2025-08-29 18:43:58	[!] Clock: 550 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.62%
+2025-08-29 18:43:58	[!] Clock: 551 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.60%
+2025-08-29 18:43:58	[!] Clock: 552 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.58%
+2025-08-29 18:43:58	[!] Clock: 553 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.56%
+2025-08-29 18:43:58	[!] Clock: 554 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.54%
+2025-08-29 18:43:58	[!] Clock: 555 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.52%
+2025-08-29 18:43:58	[!] Clock: 556 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.50%
+2025-08-29 18:43:59	[!] Clock: 557 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.48%
+2025-08-29 18:43:59	[!] Clock: 558 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.46%
+2025-08-29 18:43:59	[!] Clock: 559 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.44%
+2025-08-29 18:43:59	[!] Clock: 560 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.42%
+2025-08-29 18:43:59	[!] Clock: 561 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.41%
+2025-08-29 18:43:59	[!] Clock: 562 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.39%
+2025-08-29 18:43:59	[!] Clock: 563 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.37%
+2025-08-29 18:43:59	[!] Clock: 564 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.35%
+2025-08-29 18:43:59	[!] Clock: 565 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.33%
+2025-08-29 18:43:59	[!] Clock: 566 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.31%
+2025-08-29 18:43:59	[!] Clock: 567 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.29%
+2025-08-29 18:43:59	[!] Clock: 568 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.27%
+2025-08-29 18:43:59	[!] Clock: 569 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.25%
+2025-08-29 18:43:59	[PERFORMED] Task [32.1] has been performed.
+2025-08-29 18:43:59	[!] Clock: 570 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.24%
+2025-08-29 18:43:59	[!] Clock: 571 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.22%
+2025-08-29 18:43:59	[PERFORMED] Task [32.2] has been performed.
+2025-08-29 18:43:59	[PERFORMED] Task [32] has been performed.
+2025-08-29 18:43:59	[!] Clock: 572 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.21%
+2025-08-29 18:43:59	[!] Clock: 573 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.19%
+2025-08-29 18:43:59	[!] Clock: 574 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.18%
+2025-08-29 18:43:59	[!] Clock: 575 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.17%
+2025-08-29 18:43:59	[!] Clock: 576 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.16%
+2025-08-29 18:43:59	[!] Clock: 577 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.14%
+2025-08-29 18:43:59	[!] Clock: 578 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.13%
+2025-08-29 18:43:59	[!] Clock: 579 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.12%
+2025-08-29 18:43:59	[!] Clock: 580 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.10%
+2025-08-29 18:43:59	[PERFORMED] Task [33] has been performed.
+2025-08-29 18:43:59	[!] Clock: 581 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.09%
+2025-08-29 18:43:59	[!] Clock: 582 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.08%
+2025-08-29 18:43:59	[!] Clock: 583 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.07%
+2025-08-29 18:43:59	[!] Clock: 584 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.06%
+2025-08-29 18:43:59	[!] Clock: 585 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.05%
+2025-08-29 18:43:59	[!] Clock: 586 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.03%
+2025-08-29 18:43:59	[!] Clock: 587 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.02%
+2025-08-29 18:43:59	[!] Clock: 588 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.01%
+2025-08-29 18:43:59	[!] Clock: 589 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 73.00%
+2025-08-29 18:43:59	[!] Clock: 590 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.99%
+2025-08-29 18:43:59	[!] Clock: 591 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.98%
+2025-08-29 18:43:59	[!] Clock: 592 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.97%
+2025-08-29 18:43:59	[RUN] Task [36] started running on resource A.
+2025-08-29 18:43:59	[!] Clock: 593 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.95%
+2025-08-29 18:43:59	[!] Clock: 594 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.94%
+2025-08-29 18:43:59	[!] Clock: 595 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.93%
+2025-08-29 18:43:59	[!] Clock: 596 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.92%
+2025-08-29 18:43:59	[!] Clock: 597 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.91%
+2025-08-29 18:43:59	[!] Clock: 598 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.90%
+2025-08-29 18:43:59	[!] Clock: 599 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.89%
+2025-08-29 18:43:59	[!] Clock: 600 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.88%
+2025-08-29 18:43:59	[!] Clock: 601 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.86%
+2025-08-29 18:43:59	[RUN] Task [40.1] started running on resource A.
+2025-08-29 18:43:59	[!] Clock: 602 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.85%
+2025-08-29 18:43:59	[!] Clock: 603 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.84%
+2025-08-29 18:43:59	[!] Clock: 604 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.83%
+2025-08-29 18:43:59	[!] Clock: 605 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.82%
+2025-08-29 18:43:59	[RUN] Task [40.2] started running on resource B.
+2025-08-29 18:43:59	[!] Clock: 606 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.81%
+2025-08-29 18:43:59	[!] Clock: 607 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.80%
+2025-08-29 18:43:59	[RUN] Task [40.3] started running on resource G.
+2025-08-29 18:43:59	[!] Clock: 608 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.79%
+2025-08-29 18:43:59	[!] Clock: 609 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.78%
+2025-08-29 18:43:59	[!] Clock: 610 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.77%
+2025-08-29 18:43:59	[PERFORMED] Task [36] has been performed.
+2025-08-29 18:43:59	[!] Clock: 611 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.76%
+2025-08-29 18:43:59	[RUN] Task [40.4] started running on resource H.
+2025-08-29 18:43:59	[!] Clock: 612 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.76%
+2025-08-29 18:43:59	[!] Clock: 613 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.75%
+2025-08-29 18:43:59	[!] Clock: 614 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.74%
+2025-08-29 18:43:59	[RUN] Task [40.5] started running on resource J.
+2025-08-29 18:43:59	[!] Clock: 615 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.74%
+2025-08-29 18:43:59	[!] Clock: 616 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.73%
+2025-08-29 18:43:59	[!] Clock: 617 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.73%
+2025-08-29 18:43:59	[!] Clock: 618 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.72%
+2025-08-29 18:44:00	[!] Clock: 619 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.72%
+2025-08-29 18:44:00	[!] Clock: 620 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.71%
+2025-08-29 18:44:00	[!] Clock: 621 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.71%
+2025-08-29 18:44:00	[RUN] Task [40.6] started running on resource K.
+2025-08-29 18:44:00	[!] Clock: 622 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.70%
+2025-08-29 18:44:00	[!] Clock: 623 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.70%
+2025-08-29 18:44:00	[!] Clock: 624 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.69%
+2025-08-29 18:44:00	[!] Clock: 625 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.68%
+2025-08-29 18:44:00	[RUN] Task [40.7] started running on resource L.
+2025-08-29 18:44:00	[!] Clock: 626 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.68%
+2025-08-29 18:44:00	[!] Clock: 627 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.67%
+2025-08-29 18:44:00	[!] Clock: 628 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.67%
+2025-08-29 18:44:00	[!] Clock: 629 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.66%
+2025-08-29 18:44:00	[!] Clock: 630 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.66%
+2025-08-29 18:44:00	[!] Clock: 631 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.65%
+2025-08-29 18:44:00	[!] Clock: 632 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.65%
+2025-08-29 18:44:00	[!] Clock: 633 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.64%
+2025-08-29 18:44:00	[!] Clock: 634 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.64%
+2025-08-29 18:44:00	[!] Clock: 635 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.63%
+2025-08-29 18:44:00	[!] Clock: 636 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.63%
+2025-08-29 18:44:00	[!] Clock: 637 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.62%
+2025-08-29 18:44:00	[!] Clock: 638 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.62%
+2025-08-29 18:44:00	[!] Clock: 639 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.61%
+2025-08-29 18:44:00	[!] Clock: 640 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.61%
+2025-08-29 18:44:00	[!] Clock: 641 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.60%
+2025-08-29 18:44:00	[!] Clock: 642 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.60%
+2025-08-29 18:44:00	[!] Clock: 643 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.59%
+2025-08-29 18:44:00	[!] Clock: 644 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.59%
+2025-08-29 18:44:00	[!] Clock: 645 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.58%
+2025-08-29 18:44:00	[!] Clock: 646 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.58%
+2025-08-29 18:44:00	[!] Clock: 647 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.57%
+2025-08-29 18:44:00	[!] Clock: 648 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.57%
+2025-08-29 18:44:00	[!] Clock: 649 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.56%
+2025-08-29 18:44:00	[PERFORMED] Task [40.1] has been performed.
+2025-08-29 18:44:00	[!] Clock: 650 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.56%
+2025-08-29 18:44:00	[!] Clock: 651 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.56%
+2025-08-29 18:44:00	[!] Clock: 652 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.56%
+2025-08-29 18:44:00	[!] Clock: 653 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.56%
+2025-08-29 18:44:00	[PERFORMED] Task [40.2] has been performed.
+2025-08-29 18:44:00	[!] Clock: 654 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.56%
+2025-08-29 18:44:00	[!] Clock: 655 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.57%
+2025-08-29 18:44:00	[PERFORMED] Task [40.3] has been performed.
+2025-08-29 18:44:00	[!] Clock: 656 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.58%
+2025-08-29 18:44:00	[!] Clock: 657 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.59%
+2025-08-29 18:44:00	[!] Clock: 658 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.60%
+2025-08-29 18:44:00	[!] Clock: 659 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.61%
+2025-08-29 18:44:00	[PERFORMED] Task [40.4] has been performed.
+2025-08-29 18:44:00	[!] Clock: 660 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.62%
+2025-08-29 18:44:00	[!] Clock: 661 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.63%
+2025-08-29 18:44:00	[!] Clock: 662 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.65%
+2025-08-29 18:44:00	[PERFORMED] Task [40.5] has been performed.
+2025-08-29 18:44:00	[!] Clock: 663 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.67%
+2025-08-29 18:44:00	[!] Clock: 664 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.69%
+2025-08-29 18:44:00	[!] Clock: 665 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.71%
+2025-08-29 18:44:00	[!] Clock: 666 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.72%
+2025-08-29 18:44:00	[!] Clock: 667 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.74%
+2025-08-29 18:44:00	[!] Clock: 668 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.76%
+2025-08-29 18:44:00	[!] Clock: 669 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.78%
+2025-08-29 18:44:00	[PERFORMED] Task [40.6] has been performed.
+2025-08-29 18:44:00	[!] Clock: 670 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.82%
+2025-08-29 18:44:00	[!] Clock: 671 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.85%
+2025-08-29 18:44:00	[!] Clock: 672 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.88%
+2025-08-29 18:44:00	[!] Clock: 673 tacts | Average waiting time: 121.02 tacts | Resource stagnation: 72.92%
+2025-08-29 18:44:00	[PERFORMED] Task [40.7] has been performed.
+2025-08-29 18:44:00	[PERFORMED] Task [40] has been performed.
