@@ -1,0 +1,16 @@
+id: A
+procArch: x86
+os: Windows
+procCount: 23
+procSpeed: 9
+memSize: 1016
+discSize: 536
+bandwidth: 9
+id: B
+procArch: x86
+os: Windows
+procCount: 7
+procSpeed: 22
+memSize: 495
+discSize: 1721
+bandwidth: 46

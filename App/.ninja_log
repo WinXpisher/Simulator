@@ -1,0 +1,26 @@
+# ninja log v6
+21	2835	7794693864475258	myApp_autogen/timestamp	2cdac69e77db78c1
+21	2835	7794693864475258	myApp_autogen/mocs_compilation.cpp	2cdac69e77db78c1
+21	2835	7794693864475258	D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/myApp_autogen/timestamp	2cdac69e77db78c1
+21	2835	7794693864475258	D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/myApp_autogen/mocs_compilation.cpp	2cdac69e77db78c1
+2848	2967	7794693866978493	myApp_autogen/EWIEGA46WW/qrc_resource.cpp	454ba5621d565645
+2848	2967	7794693866978493	D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/myApp_autogen/EWIEGA46WW/qrc_resource.cpp	454ba5621d565645
+2977	3177	7794693867242623	CMakeFiles/myApp.dir/mainwindow.cpp.obj	d97e2fbc5ce4f31d
+3080	3256	7794693868216290	CMakeFiles/myApp.dir/SimulationDispatcher.cpp.obj	5d9c49842c36b9b4
+3097	3796	7794693868372543	CMakeFiles/myApp.dir/myApp_autogen/EWIEGA46WW/qrc_resource.cpp.obj	c628ccd391c09f9a
+3008	4979	7794693867441067	CMakeFiles/myApp.dir/SimulatorFiles/ResourceManager.cpp.obj	732276bd37206901
+3029	5313	7794693867747514	CMakeFiles/myApp.dir/SimulatorFiles/TaskAnalizer.cpp.obj	7c95c8eae1ca1f1e
+3022	5590	7794693867591165	CMakeFiles/myApp.dir/SimulatorFiles/SimulatorPrimitives.cpp.obj	d6923c1ab84ef744
+3002	6481	7794693867441067	CMakeFiles/myApp.dir/SimulatorFiles/DistributionMethod.cpp.obj	7896a83dad92f69
+3071	6818	7794693868060025	CMakeFiles/myApp.dir/GetTaskStatusStr.cpp.obj	720a6b193c3dbe11
+2982	8713	7794693867301116	CMakeFiles/myApp.dir/SelectModePanel.cpp.obj	e47ca58039fac5ea
+2995	8972	7794693867432677	CMakeFiles/myApp.dir/ChooseOptionsPanel.cpp.obj	1bfcf7eae91c6c08
+3036	8984	7794693867747514	CMakeFiles/myApp.dir/SimulationSettingsPanel.cpp.obj	608c148013e92d8b
+2988	9013	7794693867361134	CMakeFiles/myApp.dir/GenerateOptionsPanel.cpp.obj	b2dc1815e00bbdeb
+3014	9499	7794693867591165	CMakeFiles/myApp.dir/SimulatorFiles/SimulationEnvironment.cpp.obj	7455347a0e75cd80
+3057	9500	7794693868060025	CMakeFiles/myApp.dir/ResourcesDockWidget.cpp.obj	8d4a270f29709d51
+3048	10693	7794693867903778	CMakeFiles/myApp.dir/TaskTable.cpp.obj	544d62ee818a3041
+3042	10757	7794693867747514	CMakeFiles/myApp.dir/SimulationMainWidget.cpp.obj	647298ca87d7ebe5
+2972	16448	7794693867193255	CMakeFiles/myApp.dir/main.cpp.obj	97fd5207cf5b9183
+2967	16659	7794693867148588	CMakeFiles/myApp.dir/myApp_autogen/mocs_compilation.cpp.obj	6ae05514534f1556
+16659	17108	7794694004075594	myApp.exe	1772b0f087f5d7fc

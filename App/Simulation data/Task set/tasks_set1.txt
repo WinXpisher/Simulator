@@ -1,0 +1,12 @@
+id: 1
+count: 3
+procArch: x86
+os: Windows
+procCount: 8
+procSpeed: 12
+memSize: 22
+discSize: 188
+connectivity: 0.2
+priority: 10
+performTime: 29
+subTaskSize: 25

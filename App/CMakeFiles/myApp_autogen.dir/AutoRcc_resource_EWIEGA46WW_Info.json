@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/myApp_autogen",
+	"CMAKE_BINARY_DIR" : "D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/qt_projects/myApp",
+	"CMAKE_SOURCE_DIR" : "D:/qt_projects/myApp",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/myApp_autogen/include",
+	"INPUTS" : [ "D:/qt_projects/myApp/icon.jpg" ],
+	"LOCK_FILE" : "D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/CMakeFiles/myApp_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resource" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resource.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.8.1/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "D:/qt_projects/myApp/build/Desktop_Qt_6_8_1_MinGW_64_bit-Release/CMakeFiles/myApp_autogen.dir/AutoRcc_resource_EWIEGA46WW_Used.txt",
+	"SOURCE" : "D:/qt_projects/myApp/resource.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}
