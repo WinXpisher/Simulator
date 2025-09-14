@@ -127,7 +127,8 @@
 ## **Ліцензія**
 
 Цей проєкт поширюється під ліцензією **GPLv2**.
-[Дивитись ліцензію](LICENSE)
+[Переглянути ліцензію](LICENSE)
+
 ---
 
 ## English
@@ -249,7 +250,7 @@ This program was developed by students of KhNURE: Vasylenko D.O., Birka E.M., Lu
 
 ## **License**
 
-**This project is distributed under the license GPLv2**.
-**[View license](LICENSE)**
+This project is distributed under the license **GPLv2**.
+[View license](LICENSE)
 
 ---
