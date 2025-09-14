@@ -145,6 +145,20 @@ This program was developed by students of KhNURE: Vasylenko D.O., Birka E.M., Lu
 
 ---
 
+## **Getting started**
+
+1. Clone repository:
+   ```bash
+   git clone https://github.com/WinXpisher/Simulator.git
+2. Go to the catalog (with the finished program):
+   ```bash
+   cd Simulator/App
+3. Run the finished program:
+   ```bash
+   Core.exe
+
+---
+
 ## **Instruction**
 
 1. After opening, you will see this window:
