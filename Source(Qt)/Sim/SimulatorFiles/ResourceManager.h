@@ -4,48 +4,48 @@
 class ResourceManager
 {
 public:
-    // задачі, які виконуються в даний момент займають якусь
-    // кількість процесорів, пам'яті і тд
-    // структура відображає вільні компоненти ресурсу
+    // Tasks that are running at the moment are occupied by some
+    // amount of processors, RAM, etc
+    // structure gives the view of the free resource`s component
     struct ResourceRemaining
     {
-        int procCount; // кількість процесорів
-        int memSize; // об'єм оперативної пам'яті
-        int discSize; // доступний обсяг вінчестера
+        int procCount; // Amount of processors
+        int memSize; // RAM size
+        int discSize; // HardDrive size
     };
-    // Метод повертає доступні компоненти ресурсу, які ще можна зайняти.
-    // Параметр considerStatus використовується в інтерфейсі користувача
-    // і якщо встановлений як true, то враховуються тільки ті завдання,
-    // в яких статус співпадає з параметром tStatus.
+    // Method returns the available resource's component that can be occupied.
+    // Parameter considerStatus is used by the GUI
+    // and if it`s true, only tasks whose status equals tStatus will be in use
     static ResourceRemaining getResourceRemainingData(
         const Resource& res,
         bool considerStatus=false,
         Task::TaskStatus tStatus=Task::TaskStatus::RUNNING
     );
-    // скільки задач певного завдання може бути виконано на даному ресурсі
+    // How many certain tasks can be run on a certain resource
     static int howManyTasksCanBePerformed(const Task& task, const Resource& res);
-    // Чи можна відправити це завдання до ресурсу частково або повністю.
-    // Якщо передати параметр outSubTasksCount і метод поверне true, то
-    // в цю адресу буде записана кількість задач, які можуть бути виконані ресурсом.
+    // Whether it can send the task to the resource partially or fully.
+    // If the parameter outSubTasksCount is passed and the method returns true,
+    // in that address, the number of tasks which can be done by the resource
+    // will be recorded.
     static bool canTaskBeSentToResource(
         const Task& task,
         const Resource& res,
         bool areSubTasksConnected,
         int* outSubTasksCount = nullptr
     );
-    // отримати мінімальний час для звільнення ресурсу хоча б від однієї задачі
+    // Get the minimum time for releasing resource from at least 1 task
     static double getMinTimeToFree(const Resource& res);
-    // Знайти будь-який ресурс, який може виконати дане завдання
-    // частково або повністю (залежить від зв'язності завдань).
-    // Якщо такого немає, метод повертає nullptr.
+    // Find any resource which could run that task
+    // partially or filly (depends on the task`s connectivity).
+    // If there is none, the method will return nullptr.
     static Resource* findAnyFreeResource(
         const Task& task,
         const vector<Resource*>& resources,
         bool areSubTasksConnected
     );
-    // розрахувати простій ресурсів в відсотках
+    // Calculate resource`s stagnation in percents
     static double calcResourceStagnation(vector<Resource>& resources);
-    // знайти ресурс, на якому вже виконується завдання
+    // Find a resource on which the task are running yet
     static const Resource* findResourceTaskIsPerfOn(
         const Task* task,
         const vector<Resource>& resources

@@ -12,18 +12,18 @@ std::string Resource::generateId()
     }
 
     int i = globalId.size() - 1;
-    // доки літера є останньою в алфавіті - Z,
-    // замінюємо її на першу - A
+    // Till letter is last in alphabetical order - Z,
+    // change her to first - A
     while (i >= 0 && globalId[i] == 'Z') 
     {
         globalId[i] = 'A';
         --i;
     }
-    // якщо всі літери були Z, додаємо новий разряд
+    // If all letters were Z, add new letter
     if (i < 0)
         globalId.insert(globalId.begin(), 'A');
-    // інакше, просто замінюємо останню (з кінця) літеру,
-    // яка не була Z на наступну по алфавіту
+    // Otherwise, change last letter (from the end),
+    // which wasn't Z on the next iteration by alphabetical order
     else
         globalId[i]++;
 
@@ -38,12 +38,12 @@ std::string Task::generateId()
 int Task::getRemainingSubTasksCount(const Task& parentTask)
 {
     int countToSubstract = 0;
-    // підраховуємо суму задач всіх дочірніх завдань поточного завдання
+    // Count sum of subtasks for all child tasks on the current task
     for (const Task& child : parentTask.simulationInfo.childTasks)
     {
         countToSubstract += child.count;
     }
-    // повертаємо різницю задач батьківського завдання і підрахованої суми
+    // Return difference of subtasks for parent task and calculate sum
     return parentTask.count - countToSubstract;
 }
 

@@ -7,7 +7,7 @@
 #include <ctime>
 #include "SimulatorPrimitives.h"
 
-// генератор вх≥дних набор≥в (завдань ≥ ресурс≥в)
+// A generator of incoming sets (tasks and resources)
 class SetGenerator
 {
 private:
@@ -32,20 +32,20 @@ private:
         task = Task{
             Task::generateId(),
             Task::WAITING,
-            getRandomNumber(1, 15), // к≥льк≥сть задач (в д≥апазон≥ в≥д 1 до 15)
+            getRandomNumber(1, 15), // amount of tasks (in the range from 1 to 15)
             {
-                arch,      // арх≥тектура процесора
-                os,        // операц≥йна система
-                getRandomNumber(1, 10), // к≥льк≥сть процесор≥в (в≥д 1 до 10)
-                getRandomNumber(1, 20), // швидкод≥€ процесор≥в (в≥д 1 до 20)
-                getRandomNumber(1, 64), // об'Їм оперативноњ пам'€т≥ (в≥д 1 до 64 √б)
-                getRandomNumber(10, 512) // доступний обс€г в≥нчестера (в≥д 10 до 512 √б)
+                arch,      // processor architecture
+                os,        // operation system
+                getRandomNumber(1, 10), // amount of processors (in the range from 1 to 10)
+                getRandomNumber(1, 20), // processor`s speed (in the range from 1 to 20)
+                getRandomNumber(1, 64), // RAM size (in the range of 1 to 64 GB)
+                getRandomNumber(10, 512) // available HardDrive size (in the range from 10 to 512 GB)
             },
-            // коеф≥ц≥Їнт зв'€зност≥ задач у завданн≥ (в≥д 0.0 до 1.0)
+            // Tasks` connectivity coefficient (from 0.0 to 1.0)
             roundToDigits(static_cast<double>(getRandomNumber(0, 10)) / 10, 1),
-            getRandomNumber(1, 10), // пр≥оритет завданн€ (в≥д 1 до 10)
-            static_cast<double>(getRandomNumber(1, 60)), // час виконанн€ одн≥Їњ задач≥ (в≥д 1 до 60 хв)
-            static_cast<double>(getRandomNumber(5, 100))  // розм≥р задач≥ (в≥д 5 до 100 ћб)
+            getRandomNumber(1, 10), // tasks priority (in the range from 1 to 10)
+            static_cast<double>(getRandomNumber(1, 60)), // running time for 1 task (in the range from 1 to 60 mins)
+            static_cast<double>(getRandomNumber(5, 100))  // task size (in the range from 5 to 100 Mb)
         };
     }
 
@@ -57,14 +57,14 @@ private:
         res = Resource{
             Resource::generateId(),
             {
-                arch,      // арх≥тектура процесора
-                os,        // операц≥йна система
-                getRandomNumber(1, 50), // к≥льк≥сть процесор≥в (в≥д 1 до 50)
-                getRandomNumber(5, 40), // швидкод≥€ процесор≥в (в≥д 5 до 40)
-                getRandomNumber(8, 1024), // об'Їм оперативноњ пам'€т≥ (в≥д 8 до 1024 √б)
-                getRandomNumber(256, 3000) // доступний обс€г в≥нчестера (в≥д 256 до 3000 √б)
+                arch,      // processor architecture
+                os,        // operation system
+                getRandomNumber(1, 50), // amount of processors (in the range from 1 to 50)
+                getRandomNumber(5, 40), // processor`s speed (in the range from 5 to 40)
+                getRandomNumber(8, 1024), // RAM size (in the range of 8 to 1024 GB)
+                getRandomNumber(256, 3000) // available HardDrive size (in the range from 256 to 3000 GB)
             },
-            static_cast<double>(getRandomNumber(5, 60)) // пропускна здатн≥сть каналу (в≥д 5 до 60 ћб/хв)
+            static_cast<double>(getRandomNumber(5, 60)) // Bandwith of channel (in the range from 5 to 60 Mb/mins)
         };
     }
 public:
@@ -73,7 +73,7 @@ public:
         const std::vector<std::string>& osTypes
     ) : procArchs(procArchs), osTypes(osTypes)
     {
-        // ≥н≥ц≥ал≥зац≥€ генератора випадкових чисел
+        // init generation of random numbers
         std::srand(std::time(0));
     }
 

@@ -6,7 +6,7 @@ SimulationMainWidget::SimulationMainWidget() : timeUnit("")
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // === label layout ===
+    // --- LABEL LAYOUT ---
     QVBoxLayout *statusPanelLayout = new QVBoxLayout();
 
     clockLabel = new QLabel("Clock:");
@@ -23,7 +23,7 @@ SimulationMainWidget::SimulationMainWidget() : timeUnit("")
 
     QHBoxLayout *tablePanelLayout = new QHBoxLayout();
 
-    // === Waiting Block ===
+    // --- WAITING BLOCK ---
     QVBoxLayout *waitingLayout = new QVBoxLayout();
     QLabel *waitingLabel = new QLabel("Waiting");
     waitingLabel->setStyleSheet("font-weight: bold; font-size: 14px; color: red;");
@@ -33,7 +33,7 @@ SimulationMainWidget::SimulationMainWidget() : timeUnit("")
     tablePanelLayout->addLayout(waitingLayout);
     tablePanelLayout->addSpacing(20);
 
-    // === Sending Block ===
+    // --- SENDING BLOCK ---
     QVBoxLayout *sendingLayout = new QVBoxLayout();
     QLabel *sendingLabel = new QLabel("Sending");
     sendingLabel->setStyleSheet("font-weight: bold; font-size: 14px; color: blue;");
@@ -43,7 +43,7 @@ SimulationMainWidget::SimulationMainWidget() : timeUnit("")
     tablePanelLayout->addLayout(sendingLayout);
     tablePanelLayout->addSpacing(20);
 
-    // === Running Block ===
+    // --- RINNING BLOCK ---
     QVBoxLayout *runningLayout = new QVBoxLayout();
     QLabel *runningLabel = new QLabel("Running");
     runningLabel->setStyleSheet("font-weight: bold; font-size: 14px; color: rgb(96, 235, 40);");

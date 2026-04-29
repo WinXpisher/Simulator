@@ -11,13 +11,13 @@ bool LIFO::nextTask(
     TaskAnalizer::AnalizerResult& outAnResult
 ) const
 {
-    if (tasks.empty()) // Перевіряємо, чи є завдання
+    if (tasks.empty()) // Check, if task exists
         return false;
 
-    // Отримуємо останнє завдання
+    // Get last task
     outAnResult = tasks.back();
 
-    // Видаляємо його зі списку
+    // Pop the task from list
     tasks.pop_back();
     return true;
 }
@@ -26,14 +26,14 @@ bool FCFS::nextTask(vector<TaskAnalizer::AnalizerResult>& tasks,
     TaskAnalizer::AnalizerResult& outAnResult
 ) const
 {
-    // Якщо завдань немає, повертаємо false 
+    // If there no tasks, then return false
     if (tasks.empty())
         return false;
-    // Отримаємо перше завдання в черзі 
+    // Get first task in queue
     TaskAnalizer::AnalizerResult& taskResult = tasks.front();
-    // Записуємо вихідне завдання з результату 
+    // Record output's tasks from result
     outAnResult = taskResult;
-    // Видаляємо оброблене завдання з вектору 
+    // Delete the processed task from vector
     tasks.erase(tasks.begin());
     return true;
 }
@@ -46,14 +46,14 @@ bool HPF::nextTask(
     if (tasks.empty())
         return false;
 
-    // Знаходимо завдання з найвищим пріоритетом
+    // Find task with the highest priority
     auto highestPriorityTaskIter = max_element(
         tasks.begin(), tasks.end(),
         [](const TaskAnalizer::AnalizerResult& a, const TaskAnalizer::AnalizerResult& b) {
             return a.task->priority < b.task->priority;
         });
 
-    // Безпосередньо працюємо з ітератором, щоб уникнути копіювання
+    // Directly working with the iterator to avoid copying
     outAnResult = *highestPriorityTaskIter;
     tasks.erase(highestPriorityTaskIter);
     return true;
@@ -68,28 +68,29 @@ bool BACKFILL::nextTask(
     if (tasks.empty())
         return false;
 
-    DataBase db; // Ініціалізація бази даних
+    DataBase db; // initialization for database
     TaskAnalizer analyzer(&db);
     Resource* resToSelect = nullptr;
-    // Ітерація по задачах для знаходження тієї, яка може бути виконана з доступними ресурсами
+    // Iteration through tasks for finding that task,
+    // which can be performed with available resources
     for (auto it = tasks.begin(); it != tasks.end(); ++it)
     {
-        // Перевіряємо, чи може завдання виконатися на ресурсі в поточний момент
+        // Check, whether task can be performed on the resource at the moment
         if (resToSelect = ResourceManager::findAnyFreeResource(
             *(*it).task,
             (*it).resources,
             analyzer.areSubTasksConnected(*(*it).task)))
         {
-            // Обираємо поточне завдання
+            // Select current task
             outAnResult = *it;
             tasks.erase(it);
             return true;
         }
     }
-    // Отримуємо останнє завдання
+    // Get last task
     outAnResult = tasks.back();
 
-    // Видаляємо його зі списку
+    // Pop the task from list
     tasks.pop_back();
     return true;
 }
@@ -98,15 +99,15 @@ bool SIMPLEX::nextTask(vector<TaskAnalizer::AnalizerResult>& tasks,
     TaskAnalizer::AnalizerResult& outAnResult
 ) const
 {
-    // Якщо немає завдань поертаємо false
+    // If there are no tasks, then return false
     if (tasks.empty())
         return false;
 
-    // Пошук завдання за певним критерієм,
+    // Find the task followed by a certain rule
     size_t selectedIdx = 0;
     for (size_t i = 1; i < tasks.size(); ++i)
     {
-        // Вибір завдання за певним критерієм
+        // Slect the task followed by a certain rule
         if (tasks[i].task->count > tasks[selectedIdx].task->count ||
             tasks[i].task->connectivity > tasks[selectedIdx].task->connectivity ||
             tasks[i].task->subTaskSize > tasks[selectedIdx].task->subTaskSize)
@@ -115,10 +116,10 @@ bool SIMPLEX::nextTask(vector<TaskAnalizer::AnalizerResult>& tasks,
         }
     }
 
-    // Призначення знайденого завдання
+    // Put found task into output result variable
     outAnResult = tasks[selectedIdx];
 
-    // Видалити вибране завдання з списку
+    // Delete selected task from list
     tasks.erase(tasks.begin() + selectedIdx);
 
     return true;
@@ -130,6 +131,7 @@ bool SMART::nextTask(
     TaskAnalizer::AnalizerResult& outAnResult
 ) const
 {
+    // If there are no tasks, then return false
     if (tasks.empty())
         return false;
 
@@ -137,19 +139,19 @@ bool SMART::nextTask(
     Resource* selectedResource = tasks[0].resources[0];
     double bestScore = std::numeric_limits<double>::min();;
 
-    // Проходимо по всіх завданнях і ресурсах для пошуку оптимального варіанту
+    // Iterate through all tasks and resources for finding a optimal variant
     for (auto& taskResult : tasks)
     {
         for (auto& resource : taskResult.resources)
         {
-            // Обчислюємо оцінку завдання за допомогою декількох критеріїв
+            // Calculate task's score followed by a few rules
             double score = 0.0;
-            score += taskResult.task->priority * 10;  // Пріоритет завдання
-            score -= taskResult.task->performTime;    // Час виконання завдання (менший час - краще)
-            score += taskResult.task->connectivity * 5;  // Коефіцієнт зв'язності
-            score += resource->bandwidth * 2;           // Пропускна здатність ресурсу
+            score += taskResult.task->priority * 10;  // task priority
+            score -= taskResult.task->performTime;    // performing task (small amount of time = better performing)
+            score += taskResult.task->connectivity * 5;  // connectivity coefficient
+            score += resource->bandwidth * 2;           // resource's bandwidth
 
-            // Якщо завдання має кращу оцінку, вибираємо його
+            // If task has best score, then select the task
             if (score > bestScore)
             {
                 bestScore = score;
@@ -159,10 +161,10 @@ bool SMART::nextTask(
         }
     }
 
-    // Призначаємо знайдене завдання і ресурс
+    // Put found task and resource into output result variable
     outAnResult = *selectedTask;
 
-    // Видаляємо обране завдання зі списку
+    // Delete selected task from list
     tasks.erase(remove_if(tasks.begin(), tasks.end(),
         [&](const TaskAnalizer::AnalizerResult& task) {
             return task.task->id == selectedTask->task->id;
@@ -176,32 +178,33 @@ bool MFQS::nextTask(
     vector<TaskAnalizer::AnalizerResult>& tasks,
     TaskAnalizer::AnalizerResult& outAnResult
 ) const {
-    if (tasks.empty()) return false; // Перевіряємо, чи є завдання
+    // If there are no tasks, then return false
+    if (tasks.empty()) return false;
 
-    // Припустимо, що завдання розподілені за рівнями черг (приклад з 3 рівнями)
-    vector<vector<TaskAnalizer::AnalizerResult>> queues(3); // 3 рівня черг
+    // Let's assume, taks are distributed by queue's level (example with 3 levels)
+    vector<vector<TaskAnalizer::AnalizerResult>> queues(3); // 3 queue's levels
 
-    // Розподіл завдань по чергам за їх пріоритетом
+    // Task's distribution by queue with their priority
     for (auto& task : tasks) {
         if (task.task->priority >= 10) {
-            queues[0].push_back(task); // Високий пріоритет
+            queues[0].push_back(task); // high priority
         }
         else if (task.task->priority >= 5) {
-            queues[1].push_back(task); // Середній пріоритет
+            queues[1].push_back(task); // medium priority
         }
         else {
-            queues[2].push_back(task); // Низький пріоритет
+            queues[2].push_back(task); // low priority
         }
     }
 
-    // Проходимо по чергам від найвищого пріоритету до найнижчого
+    // Iterate throgh queues from the highest to the lowest
     for (auto& queue : queues) {
         if (!queue.empty()) {
-            // Отримуємо завдання з черги
+            // Get tasks from queue
             outAnResult = queue.front();
-            queue.erase(queue.begin()); // Видаляємо його з черги
+            queue.erase(queue.begin()); // delete the task from queue
 
-            // Видаляємо також завдання з початкового вектора
+            // Also delete the task from beginning vector
             tasks.erase(remove_if(tasks.begin(), tasks.end(), [&](const TaskAnalizer::AnalizerResult& task) {
                 return task.task->id == outAnResult.task->id;
                 }), tasks.end());
@@ -209,7 +212,8 @@ bool MFQS::nextTask(
         }
     }
 
-    return false; // Якщо завдань у чергах немає
+    // If there are no tasks
+    return false;
 }
 
 
@@ -218,6 +222,7 @@ Resource* findOptimizedResource(
     const vector<Resource*>& freeResources,
     bool areSubTasksConnected)
 {
+    // If there are no tasks, then return false
     if (freeResources.empty())
         return nullptr;
 
@@ -225,16 +230,17 @@ Resource* findOptimizedResource(
     double bestScore = std::numeric_limits<double>::lowest();
     for (auto& resource : freeResources)
     {
-        // Отримуємо залишкові компоненти ресурсу
+        // Get remaning components of resource
         auto remaining = ResourceManager::getResourceRemainingData(*resource);
 
-        // Розраховуємо оцінку ресурсу
+        // Calculate resource's score
         double score = 0.0;
-        score += remaining.procCount * 60; // Більше процесорів - краще
-        score += remaining.memSize * 3;   // Більше пам'яті - краще
-        score += remaining.discSize;  // Більше дискового простору - краще
-        score += resource->bandwidth * 4; // Пропускна здатність
-        // Оновлюємо найкращий ресурс, якщо оцінка вища
+        score += remaining.procCount * 60;  // more processors = better result
+        score += remaining.memSize * 3;     // more RAM = better result
+        score += remaining.discSize;        // more HardDrive size = better result
+        score += resource->bandwidth * 4;   // resource's bandwidth
+
+        // Update the best resource, if it has best socre
         if (score > bestScore)
         {
             bestScore = score;
@@ -250,12 +256,13 @@ Resource* Penguin::nextResource(
     TaskAnalizer::AnalizerResult& anResult
 ) const
 {
-    DataBase db; // Ініціалізація бази даних
+    // Initialization a database
+    DataBase db;
     TaskAnalizer analyzer(&db);
     vector<Resource*> freeResources;
     for (auto& res : anResult.resources)
     {
-        // Перевіряємо, чи може завдання виконатися на ресурсі в поточний момент
+        // Check, whether task can be performed on the resource at the moment
         if (ResourceManager::canTaskBeSentToResource(
             *anResult.task,
             *res,
@@ -277,25 +284,28 @@ bool Penguin::nextTask(
     TaskAnalizer::AnalizerResult& outAnResult
 ) const
 {
-    if (tasks.empty()) // Перевіряємо, чи є завдання
+    // If there are no tasks, then return false
+    if (tasks.empty())
         return false;
 
     TaskAnalizer::AnalizerResult* selectedTask = nullptr;
     Resource* selectedResource = nullptr;
-    double minWeight = std::numeric_limits<double>::max(); // Для пошуку мінімального значення
+    // Searching for the minimum value
+    double minWeight = std::numeric_limits<double>::max();
 
-    // Проходимо по всіх завданнях і ресурсах
+    // Iterate through all tasks and resources
     for (auto& taskResult : tasks)
     {
         for (auto& resource : taskResult.resources)
         {
-            // Розрахунок "ваги" ресурсів завдання
+            // Calculate "weights" for tasks' resources
             double weight = 6 * taskResult.task->count *
                 taskResult.task->resDesc.procCount +
                 8 * taskResult.task->resDesc.memSize +
                 taskResult.task->resDesc.discSize;
 
-            // Якщо завдання має меншу вагу, ніж попереднє найкраще, вибираємо його
+            // If the task has a small "weight", than previous has the best,
+            // then select its
             if (weight < minWeight)
             {
                 minWeight = weight;
@@ -305,14 +315,14 @@ bool Penguin::nextTask(
         }
     }
 
-    // Якщо не знайдено підходящого завдання
+    // If it hasn't found a needed task
     if (selectedTask == nullptr)
         return false;
 
-    // Призначаємо знайдене завдання і ресурс
+    // Put the found task and resource into autput result variable
     outAnResult = *selectedTask;
 
-    // Видаляємо обране завдання зі списку
+    // Delete selected task from list
     tasks.erase(remove_if(tasks.begin(), tasks.end(),
         [&](const TaskAnalizer::AnalizerResult& task) {
             return task.task->id == selectedTask->task->id;

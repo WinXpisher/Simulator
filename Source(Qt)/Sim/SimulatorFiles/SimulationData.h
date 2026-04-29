@@ -2,10 +2,10 @@
 #include "DistributionMethod.h"
 using DM = DistributionMethod;
 
-// дані симуляції, які використовуються в логах
+// Simulation`s data, which will be used in logs
 struct SimulationData
 {
-    int simulationClock; // загальний час симуляції
-    double avWaitTime; // середній час очікування
-    double resStagnation; // відсоток простою ресурсів
+    int simulationClock; // general time of simalation
+    double avWaitTime; // avarage time of waiting
+    double resStagnation; // percentages of resources stagnation
 };

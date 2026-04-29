@@ -17,120 +17,119 @@ public:
 private:
     using DM = DistributionMethod;
 
-    // змінні, які використовуються в симуляції
+    // Variables, which are used in the simulation
     struct SimulationContext
     {
-        vector<TaskAnalizer::AnalizerResult> anResults; // результати аналізу задач
-        TaskAnalizer::AnalizerResult anResult; // об'єкт, в якому зберігається поточне завадання
-        bool hasTask; // чи є ще завдання в пулі завдань
-        int subTasksRemain; // кількість задач поточного завдання, що залишились
-        bool areSubTasksConnected; // чи пов'язані задачі в завданні
-        double timeUnitToSkip; // одиниця часу для пропуску
-        int waitMilliSec; // час очікування в мілісекундах
-        bool actionTaken; // чи вдалося виконати дію в поточній ітерації
+        vector<TaskAnalizer::AnalizerResult> anResults; // result of the tasks' analysis
+        TaskAnalizer::AnalizerResult anResult; // object, in which are saving present task
+        bool hasTask; // whether it has any tasks in pool of tasks
+        int subTasksRemain; // the number of tasks that are left
+        bool areSubTasksConnected; // whether subtasks are connected with tasks
+        double timeUnitToSkip; // time unit for skipping
+        int waitMilliSec; // waiting time in ms
+        bool actionTaken; // whether action is finished successfully in the present iteration
     };
     SimulationContext simContext;
 
     std::mutex dataBaseMutex;
     Logger* logger;
 
-    vector<SendingTask> sendingPool; // пул завдань, які відправляються на ресурс
-    TaskAnalizer taskAnalizer; // об'єкт, який буде аналізувати кожне завдання, перед симуляцією
-    vector<DM*> distributionMethods; // методи розподілу
-    DataBase* dataBase; // база даних к доступними ресурсами та завданнями
+    vector<SendingTask> sendingPool; // pool of tasks, which are sent to a resource
+    TaskAnalizer taskAnalizer; // object, which will be analysed for each task before simulation
+    vector<DM*> distributionMethods; // distribution methods
+    DataBase* dataBase; // database for available resources and tasks
     
-    int channelCount; // кількість каналів зв'язку
-    double resourceStagnationSum; // сумарний процент простою ресурсів
-    double subTaskWaitingTimeSum; // сумарний час очікування задач
-    int simulationClock; // таймер симуляції
-    
-    // ініцалізація змінних перед симуляцією
+    int channelCount; // the number of communications channel
+    double resourceStagnationSum; // sum of the resources' stagnation in percents
+    double subTaskWaitingTimeSum; // sum of waiting time for tasks
+    int simulationClock; // simulation clock
+
+    // Initialization of variables before simulation
     void initSimContext();
-    // ініцалізація інформації завдань, яка пов'язана з симуляцією
+    // Initialization of tasks' information, which are connected with simulation
     void initTasksSimulationInfo();
-    // метод моделює очікування часу time для ресурсів
+    // Method simmulates waiting time for resources
     void waitForResources(double time, vector<Resource>& resources);
-    // метод моделює очікування часу time для пулу відправки завдань
+    // Method simulates waiting time for a pool of sending tasks
     void waitForSendingPool(double time);
-    // чи виконалися всі завдання
+    // Whether all tasks are finished
     bool haveAllTasksPerformed();
-    // метод моделює очікування часу time на програмному рівні
+    // Method simulates waiting time on the program level
     void modelWaiting(double time);
-    // метод моделює очікування часу time для задач, які стоять в черзі
-    // і оновлює їх атрибут waitingTime
+    // Method simulates waiting time for tasks, which are in queue
+    // and updates their attribute waitingTime
     void modelWaitingForSubTasks(double time);
-    // отримати загальну кількість задач
+    // Get general number of tasks
     int getSubTasksCount() const;
-    // метод підраховує загальний час очікування задач на поточній
-    // ітерації і зберігає результат в subTaskWaitingTimeSum
+    // Method calculates general waiting time for tasks on current
+    // iteration and saves result in subTaskWaitingTimeSum
     void calcSubTaskWaitingTimeCurrent();
-    // метод очікує на фізичному рівні
+    // Method waits on physical level
     void wait(int time);
-    // Метод розподіляє завдання на ресурс, якщо це можливо.
-    // Якщо завдання було розподілено повністю, метод встановлює йому
-    // статус SENDING і додає до пулу надсилання. Якщо надіслана може
-    // бути тільки частина завдання, воно розділяється на менші завдання
-    // (або дочірні завдання), яким в свою чергу встановлюється статус
-    // SENDING, причому батьківському завданню встановлюється статус або
-    // DEVIDED, або DIVIDED_RUNNING, в залежності чи повністю завдання було
-    // розподілено, чи якась частина ще чекає в пулі завдань.
-    // Повертаючим значенням є розподілена кількість задач цього завдання.
+    // Method distributes tasks on the resource, if it is possible.
+    // If the task was distributed fully, the method sets the SENDING status
+    // and adds it to the pool of sending. If sent can be only part of the task,
+    // it is distributed into small tasks (or subtasks), which are set SENDING status,
+    // but for parent task is set DEVIDED or DEVIDED_RUNNING status,
+    // depends on whether the task was distributed fully or if some part is waiting
+    // in the pool of tasks.
+    // Return value is the number of distributed tasks.
     int trySendTaskToResource(
         Task& task,
         Resource& resource, 
         bool areSubTasksConnected
     );
-    // Отримати копію завдання, але від загальної кількості задач буде
-    // віднята сумарна кількість дочірніх задач (поточна задача має бути розділеною). 
-    // Для завдань зі статусом відмінним від DIVIDED, метод повертає копію без змін.
+    // Get a copy of the task, but from the general number of tasks will be
+    // minus the sum of the number of subtasks (current task must be separated).
+    // For the tasks with status, which are not DIVIDED, the method returns a copy without changes.
     Task getTaskCopyWithRemainingCount(const Task& task);
-    // Метод встановлює статус розділеного завдання в залежності від того,
-    // чи повністю всі задачі цього завдання розподілені на ресурси (навіть
-    // якщо вони ще знаходяться в пулі надсилання). Якщо це так, то встановлюється
-    // статус DIVIDED_RUNNING, інакше - просто DIVIDED
+    // Method sets the status of a separated task depending on
+    // whether all tasks are distributed on the resources (even if they
+    // are staying in the pool of sending). If it is true, then
+    // it sets DIVIDED_RUNNING status; otherwise, it just DIVIDED
     void setDividedTaskStatus(Task& parentTask);
-    // Метод завершує батьківське завдання (якщо таке є) поточного завдання, якщо
-    // сам метод має статус DIVIDED_RUNNING і всі його дочірні завдання мають
-    // статус PERFORMED
+    // Method finishes the parent task (if it exists) of the current task,
+    // if the distribution method itself has DIVIDED_RUNNING status and
+    // all its subtasks have PERFORMED status
     void finishDividedTaskIfNeed(Task& childTask);
-    // отримати затримку в мережі при надходженні задач до кластеру
-    // subTasksCount - кількість задач завдання, які будуть надсилатися
+    // Get the delay in network while finding tasks to cluster
+    // subTasksCount - the number of tasks, which will be sent
     double getNetworkDelay(
         const Task& task,
         const Resource& res,
         int subTasksCount);
 public:
-    // завдання, яке відправляється на ресурс
+    // Task, which is sending on the resource
     struct SendingTask
     {
         Task* task;
-        float timeToSend; // час, який залишився, щоб відправити завдання
+        float timeToSend; // time, which is left to send task
     };
 
     SimulationEnvironment(DataBase* dataBase, Logger* logger);
     ~SimulationEnvironment();
 
-    // метод підготовлює дані для початку симуляції
+    // Method prepares data for simulation beginning
     void prepareForSimulation(
         int channelCount=1,
         int timeUnitToSkip=1,
         int waitMilliSec=400
     );
-    // метод запускає симуляцію для одного конкретного методу
+    // Method runs a simulation for 1 specific distribution method
     void runSimulation(const DM* dm);
     
     int getSimulationClock() const { return simulationClock; }
     const DataBase& getDataBase() const { return *dataBase; }
     std::mutex& getDataBaseMutex() { return dataBaseMutex; }
     const vector<SendingTask>& getSendingPool() const { return sendingPool; }
-    // отримати середній процент простою ресурсів
+    // Get avarage percent of recources stagnation
     const double getResourceStagnationAv() const
     { 
         return (simulationClock == 0) ? 0 :
             resourceStagnationSum / simulationClock;
     }
 
-    // отримати середній час очікування задач
+    // Get avarage waiting time
     const double getSubTaskWaitingTimeAv() const
     {
         int subTasksCount = getSubTasksCount();

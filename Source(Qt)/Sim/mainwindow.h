@@ -31,6 +31,7 @@
 #include <QAction>
 #include <QProcess>
 #include <QStringList>
+#include <QtGlobal>
 
 #include <atomic>
 #include <thread>
@@ -191,7 +192,12 @@ private slots:
 
     void showGraphAction()
     {
-        QString program = "dist/show_graph.exe";
+        #ifdef Q_OS_WIN
+            QString program = "dist/Wshow_graph.exe";
+        #elif defined(Q_OS_UNIX)
+            QString program = "./dist/Lshow_graph";
+        #endif
+
         QStringList arguments;
         QProcess *startGraphProc = new QProcess();
         startGraphProc->start(program, arguments);
@@ -199,7 +205,11 @@ private slots:
 
     void showGraphsAction()
     {
-        QString program = "dist/show_graphs.exe";
+        #ifdef Q_OS_WIN
+                QString program = "dist/Wshow_graphs.exe";
+        #elif defined(Q_OS_UNIX)
+                QString program = "./dist/Lshow_graphs";
+        #endif
         QStringList arguments;
         QProcess *startGraphProc = new QProcess();
         startGraphProc->start(program, arguments);
@@ -208,7 +218,7 @@ private:
     void addMenuToSimulationWindow()
     {
         QMenuBar *mBar = QMainWindow::menuBar();
-        // === View ===
+        // --- VIEW ---
         QMenu *viewMenu = new QMenu("View", mBar);
         mBar->addMenu(viewMenu);
 
@@ -221,7 +231,7 @@ private:
 
         connect(toggleResPanel, &QAction::triggered, this, &MainWindow::toggleResDockVisibility);
 
-        // === Actions ===
+        // --- ACTIONS ---
         QMenu *actionsMenu = new QMenu("Actions", mBar);
         mBar->addMenu(actionsMenu);
 
@@ -305,7 +315,7 @@ private:
     SimulationMainWidget simulationMainWidget;
     ResourcesDockWidget resourcesDockWidget;
 
-    // === Simulation options ===
+    // --- SIMULATION OPTIONS ---
     QString dMethodStr;
     QString timeUnit;
     int channelCount;
@@ -313,7 +323,7 @@ private:
     int waitMilliSec;
     int updatePeriod;
 
-    // === Simulation variables ===
+    // --- SIMULATION VARIABLES ---
     DataBase db;
     SimulationEnvironment* simEnv;
     Logger* logger;
@@ -322,7 +332,7 @@ private:
     std::vector<std::string> procArchs = { "x86" };
     std::vector<std::string> osTypes = { "Windows", "Linux" };
 
-    // === menu items ===
+    // --- MENU ITEMS ---
     QAction *toggleResPanel;
 };
 

@@ -6,15 +6,15 @@
 #include <fstream>
 
 using namespace std;
-// описувач ресурсу
+// Resource descriptor
 struct ResourceDescriptor
 {
-    string procArch; // архітектура процесора
-    string os; // операційна система
-    int procCount; // кількість процесорів
-    int procSpeed; // швидкодія процесорів
-    int memSize; // об'єм оперативної пам'яті
-    int discSize; // доступний обсяг вінчестера
+    string procArch; // processor architecture
+    string os; // operating system
+    int procCount; // the number of processors
+    int procSpeed; // processors' speed
+    int memSize; // RAM size
+    int discSize; // available size of HardDrive
 
     friend std::istream& operator>>(
         std::istream& is,
@@ -30,18 +30,17 @@ struct Task;
 struct Resource
 {
 private:
-    // у ресурсів буквенний айді
+    // Resources have literal IDs
     static std::string globalId;
 public:
-    // генерація буквенного айді в наступному форматі
-    // A, B, C, ..., Z, AA, AB, ..., ZZ, AAA, ...
+    // Generate literal IDs in the following format: A-Z, AA-ZZ, AAA-ZZZ, etc
     static std::string generateId();
     
     std::string id;
-    ResourceDescriptor resDesc; // опис ресурсу
-    double bandwidth; // пропускна здатність каналу (від брокера до ресурсу)
-    // задачі, які виконуються в даний момент часу
-    // якщо вектор пустий, то таких задач немає
+    ResourceDescriptor resDesc; // resource's descriptor
+    double bandwidth; // channels' bandwith (from broker to resource)
+    // Tasks, which are running at the moment time
+    // if the vector is empty, then the tasks isn't exist
     vector<Task*> performingTasks;
 
     friend std::istream& operator>>(
@@ -54,63 +53,62 @@ public:
         );
 };
 
-// інформація завдань, пов'язана з симуляцією
+// Tasks' information related to simulation
 struct SimulationInfo
 {
-    // покажчик на батьківське завдання (для не дочірніх завдань
-    // встановлюється в nullptr)
+    // Pointer on parent task (for non-child tasks is set to nullptr)
     Task* parentTaskPtr;
-    double waitingTime; // скільки часу завдання чекає
-    double timePerformed; // скільки часу завдання вже виконується
-    // Дочірні завдання (якщо задача має низький коефіцієнт зв'язності,
-    // завдання можна розділити на частини, щоб розподілити на декілька
-    // ресурсів). Використовуємо list, щоб гарантувати, що пам'ять не буде
-    // перерозподілятися 
+    double waitingTime; // how much time is waiting
+    double timePerformed; // how much time is task running
+    // Child tasks (if the task has a low connectivity coefficient, then
+    // the task could be separated into parts to separate into a few resources).
+    // Use list to guarantee that memory won't be redistributed.
     std::list<Task> childTasks;
 };
 
-// завдання, яке включає пакет задач
+// Task that includes package of tasks
 struct Task
 {
 private:
-    // у завдань числовий айді
+    // Tasks have a digit IDs
     static int globalId;
 public:
-    // Метод підраховує скільки залишилося нерозподілених на 
-    // ресурси задач. Вираховується різниця між кількістю задач
-    // parentTask і сумарною кількістю задач дочірніх завдань.
+    // The method calculates the number of undistributed tasks
+    // remaining on the resources. Get the difference between
+    // the number of tasks parentTask and the sum of amount of subtasks.
     static int getRemainingSubTasksCount(const Task& parentTask);
-    // генерація чисельного айді
+    // Generate the digit ID
     static std::string generateId();
 
     enum TaskStatus
     {
-        WAITING,   // завдання очікує
-        CANCELLED, // завдання скасовано
-        SENDING,   // завдання надсилається на ресурс
-        RUNNING,   // завдання запущено
-        PERFORMED, // завдання виконано
-        // завдання розділено на менші завдання (дочірні завдання),
-        // але його частина все ще очікує
+        WAITING,   // task is waiting
+        CANCELLED, // task is cancelled
+        SENDING,   // task is sending on the resource
+        RUNNING,   // task is running
+        PERFORMED, // task is perfomed
+        // Tasks are separated into small tasks (child tasks),
+        // but his part is waiting yet
         DIVIDED,
-        // завдання розділено на менші завдання (дочірні завдання)
-        // і всі ці дочірні завдання або надсилаються або виконуються
-        // (або обидва варіанти), але не очікують
+        // Tasks are separated into small tasks (child tasks)
+        // and all these child tasks whether they are sending
+        // or running (can be both variants), but they aren't waiting
         DIVIDED_RUNNING
-        /* Якщо завдання має статус DIVIDED_RUNNING і всі його
-            дочірні завдання мають статус PERFORMED, то таке завдання
-            вважається виконаним і йому присвоюється статус PERFORMED.
+        /*
+         * If tasks have DIVIDED_RUNNING status and all their
+         * child tasks have PERFORMED status, then this task
+         * is considered as performed, and it has PERFORMED status.
         */
     };
     std::string id;
-    TaskStatus status; // статус завдання
-    int count; // кількість задач в завданні
-    ResourceDescriptor resDesc; // опис ресурсу, на якому кожна задача може виконатись
-    double connectivity; // коефіцієнт зв'язності задач у завданні
-    int priority; // пріоритет завдання
-    double performTime; // час виконання однієї задачі
-    double subTaskSize; // розмір задачі (виконуючого файлу, який буде надсилатися)
-    SimulationInfo simulationInfo; // додаткова інформація, пов'язана з виконанням
+    TaskStatus status; // task status
+    int count; // the number of tasks
+    ResourceDescriptor resDesc; // resource's desription, on which each task can be performed
+    double connectivity; // tasks' connectivity coefficient
+    int priority; // task priority
+    double performTime; // perform time for 1 task
+    double subTaskSize; // task size (execution file, which will be sent)
+    SimulationInfo simulationInfo; // additional information about the simulation
 
     friend std::istream& operator>>(
         std::istream& is,
@@ -124,6 +122,6 @@ public:
 
 struct DataBase
 {
-    vector<Task> tasks; // завдання, які треба виконати
-    vector<Resource> availableResources; // доступні ресурси
+    vector<Task> tasks; // tasks which must be done
+    vector<Resource> availableResources; // available resources
 };

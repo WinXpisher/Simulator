@@ -20,33 +20,33 @@ SimulationSettingsPanel::SimulationSettingsPanel()
     channelCountInput = new QLineEdit();
     QIntValidator *chanValidator = new QIntValidator(0, 10000);
     channelCountInput->setValidator(chanValidator);
-    // значення за замовчуванням
+    // Value by default
     channelCountInput->setText("1");
 
     QLabel *timeUnitLabel = new QLabel("Time unit:");
     timeUnitInput = new QLineEdit();
-    // значення за замовчуванням
+    // Value by default
     timeUnitInput->setText("minutes");
 
     QLabel *timeUnitToSkipLabel = new QLabel("Number of time units to skip (may affect simulation accuracy):");
     timeUnitToSkipInput = new QLineEdit();
     QIntValidator *timeUnitValidator = new QIntValidator(0, 999999);
     timeUnitToSkipInput->setValidator(timeUnitValidator);
-    // значення за замовчуванням
+    // Value by default
     timeUnitToSkipInput->setText("1");
 
     QLabel *waitMilliSecLabel = new QLabel("Number of milliseconds to wait in simulation:");
     waitMilliSecInput = new QLineEdit();
     QIntValidator *waitMilliSecValidator = new QIntValidator(0, 999999);
     waitMilliSecInput->setValidator(waitMilliSecValidator);
-    // значення за замовчуванням
+    // Value by default
     waitMilliSecInput->setText("400");
 
     QLabel *updatePeriodLabel = new QLabel("Screen update period in milliseconds:");
     updatePeriodInput = new QLineEdit();
     QIntValidator *updatePeriodValidator = new QIntValidator(100, 5000);
     updatePeriodInput->setValidator(updatePeriodValidator);
-    // значення за замовчуванням
+    // Value by default
     updatePeriodInput->setText("390");
 
     confirmButton = new QPushButton("Ok");

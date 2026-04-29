@@ -9,14 +9,14 @@
 class DataSetManager
 {
     /*
-        Клас відповідає за запис наборів даних (завдань та ресурсів)
-        до файлів та зчитування цих даних з файлів.
+     * Class responding for recording sets of data (tasks and resources)
+     * to files and reading that data from files
     */
 private:
     FileManager fm;
 
-    // Метод пропускає пусті символи та символи переходу на новий рядок.
-    // Повертає true, якщо було досягнуто кінця файлу.
+    // Method skips whitespaces and newlines
+    // Return True, if we reach the end of file
     bool skipEmptyChars(std::ifstream& ifs)
     {
         while (std::isspace(ifs.peek()) && ifs.peek() != EOF)

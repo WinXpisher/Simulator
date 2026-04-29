@@ -2,13 +2,19 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <ctime>
+#include <QtGlobal>
 #include <unordered_map>
 
 #include "SimulationData.h"
 #include "SimulatorPrimitives.h"
 #include "DistributionMethod.h"
 #include "FileManager.h"
+
+#ifdef Q_OS_WIN
+    #include <ctime>
+#elif defined(Q_OS_UNIX)
+    #include <time.h>
+#endif
 
 struct SimulationMetaData
 {
@@ -24,7 +30,7 @@ private:
     using DM = DistributionMethod;
     FileManager fm;
     std::string timeUnit;
-    // скільки логів вже було створено для методу розподілу
+    // How many logs were created for the distribution method yet
     std::unordered_map<DM::DMethod, int> logCountForDMethod;
     DM::DMethod selectedDMethod;
 
@@ -68,7 +74,11 @@ private:
     {
         time_t now = time(nullptr);
         tm ltm;
-        localtime_s(&ltm, &now);
+        #ifdef Q_OS_WIN
+            localtime_s(&ltm, &now);
+        #elif defined(Q_OS_UNIX)
+            localtime_r(&now, &ltm);
+        #endif
 
         std::ostringstream oss;
         oss << std::setfill('0') << std::setw(4) << (1900 + ltm.tm_year) << "-"

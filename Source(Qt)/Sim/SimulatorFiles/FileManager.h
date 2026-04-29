@@ -15,9 +15,8 @@ private:
         return std::filesystem::current_path();
     }
 
-    // Створити папку в поточній директорії з ім'ям dirName.
-    // Повертає true, якщо папка або вже існувала, або була
-    // успішно створена.
+    // Creating a folder in the present directory with the name dirName.
+    // Returns true if the folder exists, or was created successfully
     bool createDirIfNotExist(std::string dirName)
     {
         path resultPath = getProgramPath();
@@ -34,15 +33,15 @@ public:
 
     int getNextFileNumber(const std::string& prefix, const std::string& extension) {
         int maxNumber = 0;
-        // патерн prefix[number]extension
+        // Pattern prefix[number]extension
         std::regex filePattern(prefix + "(\\d+)" + extension);
 
-        // проходимо по файлам поточної директорії
+        // Passing through the files in the present directory
         for (const auto& entry : std::filesystem::directory_iterator(currentDir)) {
             const auto& filename = entry.path().filename().string();
             std::smatch match;
 
-            // шукаємо файли, які відповідають патерну
+            // Searching the files that followed a pattern
             if (std::regex_match(filename, match, filePattern)) {
                 int number = std::stoi(match[1].str());
                 maxNumber = std::max(maxNumber, number);
@@ -52,8 +51,8 @@ public:
         return maxNumber + 1;
     }
     
-    // Вибрати поточну папку для запису. Якщо dirName="",
-    // вибирається папка проекту.
+    // Choosing the present folder for writing. If dirNane="",
+    // it will choose the project's folder
     bool selectDir(std::string dirName="")
     {
         if (dirName == "")
@@ -79,7 +78,7 @@ public:
         path resultPath = currentDir;
         resultPath.append(fileName);
 
-        ofstream fileWriter(resultPath, ios::app);
+        std::ofstream fileWriter(resultPath, std::ios::app);
         if (!fileWriter.is_open())
             return false;
 

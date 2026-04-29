@@ -40,11 +40,11 @@ void SimulationEnvironment::initSimContext()
 
     taskAnalizer.analizeAllTasks();
 
-    // отримуємо результати аналізу задач, які не мають статусу CANCELLED
+    // Get the result of analysing tasks, which haven't CANCELLED status
     simContext.anResults =
         taskAnalizer.getAnalizeResultClear();
 
-    //simContext.assignedResource = nullptr;   
+    //simContext.assignedResource = nullptr;
     simContext.hasTask = true;                 
     simContext.subTasksRemain = 0;
     simContext.areSubTasksConnected = false;
@@ -68,7 +68,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
         {
             std::lock_guard<std::mutex> lock(dataBaseMutex);
             
-            // якщо це перша ітерація
+            // If there are first iteration
             if (isItFirstIteration)
             {
                 isItFirstIteration = false;
@@ -80,7 +80,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                         getResourceStagnationAv()
                     }
                 );
-                // виводимо завдання, які було скасовано
+                // To output task, which was cancelled
                 for (const Task& task : dataBase->tasks)
                 {
                     if (task.status == Task::TaskStatus::CANCELLED)
@@ -89,10 +89,11 @@ void SimulationEnvironment::runSimulation(const DM* dm)
             }
 
             simContext.actionTaken = false;
-            // якщо ще є задачі для відправки
+            // If there are have some task for sending
             if (simContext.subTasksRemain > 0)
             {
-                // використовуємо призначений ресурс, якщо він є, інакше шукаємо вільний
+                // Use intended resource, if it exists, otherwise
+                // searching for available
                 Resource* targetResource = dm->nextResource(simContext.anResult);
                 if (!targetResource)
                 {
@@ -103,7 +104,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                     );
                 }
 
-                // якщо ресурс знайдено, відправляємо завдання (або його частину)
+                // If a resource was found, then send the task (ot its part)
                 if (targetResource)
                 {
                     int sent = trySendTaskToResource(
@@ -118,14 +119,14 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                     }
                 }
             }
-            // якщо ж задач для відправки немає, завантажуємо нове завдання
+            // If it doesn't have any tasks, then load new task
             else if (simContext.hasTask)
             {
                 simContext.hasTask = dm->nextTask(
                     simContext.anResults,
                     simContext.anResult
                 );
-                // якщо завдання було отримано
+                // If task was got
                 if (simContext.hasTask)
                 {
                     simContext.subTasksRemain = simContext.anResult.task->count;
@@ -134,7 +135,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                     simContext.actionTaken = true;
                 }
             }
-            // перевіряємо, чи всі завдання виконано
+            // Check whether all tasks are performed
             if (simContext.subTasksRemain <= 0 && !simContext.hasTask)
             {
                 if (haveAllTasksPerformed())
@@ -143,7 +144,7 @@ void SimulationEnvironment::runSimulation(const DM* dm)
                 }
             }
         }
-        // якщо жодної дії не виконано, чекаємо
+        // If there aren't any actions performed, then waiting
         if (!simContext.actionTaken)
         {
             {
@@ -158,16 +159,15 @@ void SimulationEnvironment::runSimulation(const DM* dm)
 
 bool SimulationEnvironment::haveAllTasksPerformed()
 {
-    // Моделюємо нульове очікування, щоб задачі з нульовим часом надсилання
-    // та (або) нульовим часом виконання обробилися одразу. Причому порядок
-    // виклику відрізніється від того, який в методі modelWaiting.
+    // Simulate zero waiting, to tasks with 0 sending time and (or) 0 performing time
+    // are processed at once. And a calling order differs from modelWaiting in method.
     waitForSendingPool(0);
     waitForResources(0, dataBase->availableResources);
 
     for (const Task& task : dataBase->tasks)
     {
-        // якщо хоч одне завдання не має статус виконано або скасовано,
-        // значить ще є завдання, які будуть виконуватися
+        // If at least 1 task doesn't have performed or cancelled status,
+        // then there are the task, which will be performed
         if (task.status != Task::TaskStatus::PERFORMED &&
             task.status != Task::TaskStatus::CANCELLED)
         {
@@ -184,12 +184,12 @@ int SimulationEnvironment::trySendTaskToResource(
     bool areSubTasksConnected
 )
 {
-    // кількість задач, які було надіслано
+    // The number of tasks, which are sent
     int sentSubTasksCount = 0;
-    // Отримуємо копію завдання, але якщо завдання має статус DIVIDED,
-    // то враховуються його дочірні елементи, а саме від загальної суми задач
-    // поточного завдання віднімається сума задач дочірніх завдань.
-    // Інакше копія ніяк не змінюється.
+    // Get task copy, but if task has DIVIDED status, then includes its
+    // child elements, and it is from general sum of subtasks of current task
+    // subtract sum of child's tasks.
+    // Otherwise copy doesn't change.
     Task copyWithRemainingCount = getTaskCopyWithRemainingCount(task);
     bool canTaskBeSent = ResourceManager::canTaskBeSentToResource(
         copyWithRemainingCount, resource, areSubTasksConnected, &sentSubTasksCount
@@ -197,16 +197,17 @@ int SimulationEnvironment::trySendTaskToResource(
 
     if (canTaskBeSent)
     {
-        Task* taskToBeSent; // завдання, яке буде відправлятися
-        // Якщо надсилатися буде не все завдання, а якась частина
-        // або завдання вже є розділеним, то беремо його частину,
-        // створюємо на її основі нове завдання, яке стане дочірнім
+        // Task, which will be sent
+        Task* taskToBeSent;
+        // If the task will be sent particularly, and some part or task
+        // are distributed, then take his part, create on one part's base
+        // a new task, which will be a child
         if (sentSubTasksCount < task.count || task.status == Task::TaskStatus::DIVIDED)
         {
-            // створюємо копію головної задачі, яка стане дочірньою
+            // Create copy of main task, which will be child
             Task childTask = task;
             childTask.simulationInfo.childTasks = std::list<Task>();
-            // присвоюємо айді в форматі [parentId].[childId], наприклад 1.1
+            // Give id in followed format [parentId].[childId], for example 1.1
             childTask.id += "." + std::to_string(
                 task.simulationInfo.childTasks.size() + 1
             );
@@ -217,23 +218,24 @@ int SimulationEnvironment::trySendTaskToResource(
             task.simulationInfo.childTasks.push_back(childTask);
             taskToBeSent = &task.simulationInfo.childTasks.back();
 
-            // встановлюємо батьківському завданню статус DIVIDED або DIVIDED_RUNNING
+            // Set DIVIDED or DIVIDED_RUNNING status to the parent task
             setDividedTaskStatus(task);
         }
         else
         {
-            // інакше будемо відправляти все завдання повністю
+            // Otherwise will send full task
             taskToBeSent = &task;
         }
 
-        // хоча завдання ще не виконується, додаємо його до ресурсу,
-        // щоб відмітити, що ресурс вже зайнятий, хоча статус ще буде SENDING
+        // Although the task isn't performing yet, add it to the resource,
+        // to mark that the resource is already occupied, at least its status
+        // will be SENDING
         taskToBeSent->status = Task::TaskStatus::SENDING;
         resource.performingTasks.push_back(taskToBeSent);
 
         logger->logTaskSendingPool(*taskToBeSent);
 
-        // відправляємо задачу в пул задач на очікування
+        // Send task to the tasks' pool to the waiting
         SendingTask st {
             taskToBeSent,
             getNetworkDelay(*taskToBeSent, resource, sentSubTasksCount)
@@ -258,20 +260,19 @@ Task SimulationEnvironment::getTaskCopyWithRemainingCount(const Task& task)
 
 void SimulationEnvironment::setDividedTaskStatus(Task& parentTask)
 {
-    // скільки залишилося нерозподілених на ресурси задач, враховуючи
-    // задачі дочірніх завдань
+    // How many undistributed tasks are left, including child tasks
     int remainingCount = Task::getRemainingSubTasksCount(parentTask);
-    // якщо задач не залишилося
+    // If there are no tasks
     if (!remainingCount)
         parentTask.status = Task::TaskStatus::DIVIDED_RUNNING;
-    // інакше помічаємо батьківське завдання як просто розділене
+    // Otherwise parent task will be marked as DIVIDED
     else
         parentTask.status = Task::TaskStatus::DIVIDED;
 }
 
 void SimulationEnvironment::wait(int time)
 {
-    // моделюємо очікування
+    // Simulate the waiting
     std::this_thread::sleep_for(std::chrono::milliseconds(time));
 }
 
@@ -291,8 +292,8 @@ void SimulationEnvironment::modelWaiting(double time)
         }
     );
 
-    // спочатку моделюємо очікування на ресурсах, які вже виконуються,
-    // щоб завдання не могли надсіслатися і одразу виконатися на якусь частину
+    // Firstly simulate the waiting on the resources, which are running,
+    // to tasks cannot be sending and running at once on the some part
     waitForResources(time, dataBase->availableResources);
     waitForSendingPool(time);
 }
@@ -303,15 +304,15 @@ void SimulationEnvironment::modelWaitingForSubTasks(double time)
     {
         if (task.status == Task::TaskStatus::WAITING)
         {
-            // додаємо добуток часу виконання однієї задачі на кількість
-            // задач в одному завданні
+            // Add product of performing time for 1 task and number of subtasks
+            // on the one task
             task.simulationInfo.waitingTime += time *
                 task.count;
         }
         else if (task.status == Task::TaskStatus::DIVIDED)
         {
-            // додаємо добуток часу виконання однієї задачі на кількість
-            // задач, які ще залишилось виконати
+            // Add product of performing time of 1 task and number of
+            // tasks, which aren't performed yet
             task.simulationInfo.waitingTime += time *
                 Task::getRemainingSubTasksCount(task);
         }
@@ -340,21 +341,21 @@ void SimulationEnvironment::waitForSendingPool(double time)
     if (sendingPool.empty())
         return;
 
-    // обробляємо одночасно кількість завдань, що не перевищує channelCount
+    // Process number of tasks at once, that doesn't exceed channelCount
     int tasksToProcess = std::min(static_cast<int>(sendingPool.size()), channelCount);
 
-    // проходимо по задачах, які можемо обробити одночасно
+    // Itearte through tasks, which can be processed at once
     for (int i = 0; i < tasksToProcess; i++)
     {
         sendingPool[i].timeToSend -= time;
 
-        // якщо завдання було відправлено
+        // If task are sent
         if (sendingPool[i].timeToSend <= 0)
         {
-            // встановлюємо статус RUNNING
+            // Set RUNNING status
             sendingPool[i].task->status = Task::TaskStatus::RUNNING;
 
-            // логуємо, що задача відправлена на ресурс
+            // To log, that the task are snet on the resource
             const Resource* resToLog =
                 ResourceManager::findResourceTaskIsPerfOn(
                     sendingPool[i].task,
@@ -365,7 +366,7 @@ void SimulationEnvironment::waitForSendingPool(double time)
         }
     }
 
-    // видаляємо всі завершені задачі з початку пулу до tasksToProcess
+    // Delete all undone tasks from the beginning of pool into tasksToProcess
     sendingPool.erase(
         std::remove_if(sendingPool.begin(), sendingPool.begin() + tasksToProcess,
             [](const SendingTask& task) { return task.timeToSend <= 0; }),
@@ -378,33 +379,33 @@ void SimulationEnvironment::waitForResources(
     vector<Resource>& resources
 )
 {
-    // проходимо по кожному ресурсу
+    // Iterate through every resource
     for (Resource& res : resources)
     {
-        // проходимо по кожному завданню, що виконується на поточному ресурсі.
-        // Використовуємо ітератор, щоб видалять завдання, у яких час, що
-        // залишився до кінця їх виконання, менше або дорівнює нулю
+        // Iterate through each task, taht are performing on current resource.
+        // Use iterator, to delete task, which has remaning time to the end of
+        // performing, smaller or equal 0
         for (
             auto iter = res.performingTasks.begin();
             iter != res.performingTasks.end();
             )
         {
-            // якщо задача вже виконується
+            // If task are running
             if ((*iter)->status == Task::TaskStatus::RUNNING)
-                // додаємо час, який мав пройти
+                // Add time, which will be gone
                 (*iter)->simulationInfo.timePerformed += time;
 
-            // якщо завдання вже було виконано
+            // If task was performed
             if ((*iter)->performTime <= (*iter)->simulationInfo.timePerformed)
             {
-                // фактичне значення часу виконання могло перевищити загальний
-                // час виконання, тому гарантуємо, що вони дорівнюють
+                // Actual value of performing time can exceed the general
+                // time of performing, will guarantee that they are equal
                 (*iter)->simulationInfo.timePerformed = (*iter)->performTime;
-                // помічаємо завдання як виконане
+                // Mark task as performed
                 (*iter)->status = Task::TaskStatus::PERFORMED;
                 logger->logTaskPerformed(**iter);
                 finishDividedTaskIfNeed(**iter);
-                // видаляємо завдання з списку тих, які виконуються
+                // Delete task from the list, which are performing
                 iter = res.performingTasks.erase(iter);
             }
             else
@@ -416,23 +417,23 @@ void SimulationEnvironment::waitForResources(
 void SimulationEnvironment::finishDividedTaskIfNeed(Task& childTask)
 {
     Task* parentPtr = childTask.simulationInfo.parentTaskPtr;
-    // якщо parentPtr=nullptr, значить завдання не є дочірнім
+    // If parentPtr=nullptr, it is mean taht the task aren't child
     if (!parentPtr)
         return;
 
-    // якщо завдання не виконується (або виконується не повністю)
-    // в розділеному режимі, воно не може бути виконано
+    // If tasks aren't performing (or performing particularly)
+    // in divided mode, they cannot be performed
     if (parentPtr->status != Task::TaskStatus::DIVIDED_RUNNING)
         return;
 
     for (Task& child : parentPtr->simulationInfo.childTasks)
     {
-        // якщо хоча б одне дочірнє завдання не є виконаним,
-        // батьківське завдання не може вважатися виконаним
+        // If at least 1 child task isn't performed,
+        // parent task couldn't be performed
         if (child.status != Task::TaskStatus::PERFORMED)
             return;
     }
-    // якщо всі перевірки пройшли, бітьківське завдання було виконано
+    // If all tests are passed, parent task was performed
     parentPtr->status = Task::TaskStatus::PERFORMED;
     logger->logTaskPerformed(*parentPtr);
 }
@@ -444,8 +445,8 @@ double SimulationEnvironment::getNetworkDelay(
     int subTasksCount
 )
 {
-    // ділимо розмір задачі на пропускну здатність каналу size/(size/time)
-    // і отримуємо час, за який відправиться одна задача
+    // Divide size of task and channel's bandwidth size/(size/time)
+    // and get time, for which 1 task is sent
     double delayPerSubTask = task.subTaskSize / res.bandwidth;
     return delayPerSubTask * subTasksCount;
 }

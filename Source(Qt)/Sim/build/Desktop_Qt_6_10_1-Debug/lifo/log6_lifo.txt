@@ -1,0 +1,91 @@
+BEGIN Metadata
+Simulation started at: 2026-04-29 12:32:39
+Task set number: 1
+Resource set number: 1
+Distribution method: lifo
+Number of channels: 1
+END
+
+2026-04-29 12:32:39	[!] Clock: 0 minutes | Average waiting time: 0.00 minutes | Resource stagnation: 0.00%
+2026-04-29 12:32:39	[SEND] Task [5.1] has been added to the sending pool.
+2026-04-29 12:32:39	[SEND] Task [5.2] has been added to the sending pool.
+2026-04-29 12:32:39	[SEND] Task [5.3] has been added to the sending pool.
+2026-04-29 12:32:39	[SEND] Task [5.4] has been added to the sending pool.
+2026-04-29 12:32:39	[SEND] Task [5.5] has been added to the sending pool.
+2026-04-29 12:32:39	[!] Clock: 1 minutes | Average waiting time: 0.78 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:39	[!] Clock: 2 minutes | Average waiting time: 1.55 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:39	[RUN] Task [5.1] started running on resource B.
+2026-04-29 12:32:39	[!] Clock: 3 minutes | Average waiting time: 2.33 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:40	[!] Clock: 4 minutes | Average waiting time: 3.10 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:40	[!] Clock: 5 minutes | Average waiting time: 3.88 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:41	[!] Clock: 6 minutes | Average waiting time: 4.65 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:41	[!] Clock: 7 minutes | Average waiting time: 5.42 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:41	[!] Clock: 8 minutes | Average waiting time: 6.20 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:41	[RUN] Task [5.2] started running on resource C.
+2026-04-29 12:32:42	[!] Clock: 9 minutes | Average waiting time: 6.97 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:42	[!] Clock: 10 minutes | Average waiting time: 7.75 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:43	[!] Clock: 11 minutes | Average waiting time: 8.53 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:43	[RUN] Task [5.3] started running on resource E.
+2026-04-29 12:32:43	[!] Clock: 12 minutes | Average waiting time: 9.30 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:43	[!] Clock: 13 minutes | Average waiting time: 10.07 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:44	[!] Clock: 14 minutes | Average waiting time: 10.85 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:44	[!] Clock: 15 minutes | Average waiting time: 11.62 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:44	[RUN] Task [5.4] started running on resource G.
+2026-04-29 12:32:45	[!] Clock: 16 minutes | Average waiting time: 12.40 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:45	[PERFORMED] Task [5.1] has been performed.
+2026-04-29 12:32:45	[SEND] Task [5.6] has been added to the sending pool.
+2026-04-29 12:32:45	[!] Clock: 17 minutes | Average waiting time: 13.15 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:45	[!] Clock: 18 minutes | Average waiting time: 13.90 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:46	[!] Clock: 19 minutes | Average waiting time: 14.65 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:46	[!] Clock: 20 minutes | Average waiting time: 15.40 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:47	[!] Clock: 21 minutes | Average waiting time: 16.15 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:47	[!] Clock: 22 minutes | Average waiting time: 16.90 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:47	[PERFORMED] Task [5.2] has been performed.
+2026-04-29 12:32:47	[SEND] Task [5.7] has been added to the sending pool.
+2026-04-29 12:32:47	[!] Clock: 23 minutes | Average waiting time: 17.60 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:48	[!] Clock: 24 minutes | Average waiting time: 18.30 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:48	[!] Clock: 25 minutes | Average waiting time: 19.00 minutes | Resource stagnation: 71.98%
+2026-04-29 12:32:48	[PERFORMED] Task [5.3] has been performed.
+2026-04-29 12:32:49	[SEND] Task [5.8] has been added to the sending pool.
+2026-04-29 12:32:49	[SEND] Task [4.1] has been added to the sending pool.
+2026-04-29 12:32:49	[SEND] Task [4.2] has been added to the sending pool.
+2026-04-29 12:32:49	[SEND] Task [4.3] has been added to the sending pool.
+2026-04-29 12:32:49	[!] Clock: 26 minutes | Average waiting time: 19.57 minutes | Resource stagnation: 71.76%
+2026-04-29 12:32:49	[!] Clock: 27 minutes | Average waiting time: 20.15 minutes | Resource stagnation: 71.55%
+2026-04-29 12:32:49	[!] Clock: 28 minutes | Average waiting time: 20.73 minutes | Resource stagnation: 71.36%
+2026-04-29 12:32:50	[!] Clock: 29 minutes | Average waiting time: 21.30 minutes | Resource stagnation: 71.18%
+2026-04-29 12:32:50	[PERFORMED] Task [5.4] has been performed.
+2026-04-29 12:32:50	[SEND] Task [4.4] has been added to the sending pool.
+2026-04-29 12:32:50	[SEND] Task [3.1] has been added to the sending pool.
+2026-04-29 12:32:50	[SEND] Task [3.2] has been added to the sending pool.
+2026-04-29 12:32:50	[SEND] Task [2.1] has been added to the sending pool.
+2026-04-29 12:32:50	[SEND] Task [2.2] has been added to the sending pool.
+2026-04-29 12:32:50	[SEND] Task [2.3] has been added to the sending pool.
+2026-04-29 12:32:50	[!] Clock: 30 minutes | Average waiting time: 21.60 minutes | Resource stagnation: 70.58%
+2026-04-29 12:32:51	[!] Clock: 31 minutes | Average waiting time: 21.90 minutes | Resource stagnation: 70.03%
+2026-04-29 12:32:51	[!] Clock: 32 minutes | Average waiting time: 22.20 minutes | Resource stagnation: 69.50%
+2026-04-29 12:32:51	[!] Clock: 33 minutes | Average waiting time: 22.50 minutes | Resource stagnation: 69.01%
+2026-04-29 12:32:52	[!] Clock: 34 minutes | Average waiting time: 22.80 minutes | Resource stagnation: 68.55%
+2026-04-29 12:32:52	[!] Clock: 35 minutes | Average waiting time: 23.10 minutes | Resource stagnation: 68.12%
+2026-04-29 12:32:53	[!] Clock: 36 minutes | Average waiting time: 23.40 minutes | Resource stagnation: 67.70%
+2026-04-29 12:32:53	[!] Clock: 37 minutes | Average waiting time: 23.70 minutes | Resource stagnation: 67.32%
+2026-04-29 12:32:53	[!] Clock: 38 minutes | Average waiting time: 24.00 minutes | Resource stagnation: 66.95%
+2026-04-29 12:32:54	[!] Clock: 39 minutes | Average waiting time: 24.30 minutes | Resource stagnation: 66.60%
+2026-04-29 12:32:54	[RUN] Task [5.5] started running on resource J.
+2026-04-29 12:32:54	[!] Clock: 40 minutes | Average waiting time: 24.60 minutes | Resource stagnation: 66.26%
+2026-04-29 12:32:55	[!] Clock: 41 minutes | Average waiting time: 24.90 minutes | Resource stagnation: 65.95%
+2026-04-29 12:32:55	[RUN] Task [5.6] started running on resource B.
+2026-04-29 12:32:55	[!] Clock: 42 minutes | Average waiting time: 25.20 minutes | Resource stagnation: 65.65%
+2026-04-29 12:32:55	[!] Clock: 43 minutes | Average waiting time: 25.50 minutes | Resource stagnation: 65.36%
+2026-04-29 12:32:56	[!] Clock: 44 minutes | Average waiting time: 25.80 minutes | Resource stagnation: 65.09%
+2026-04-29 12:32:56	[!] Clock: 45 minutes | Average waiting time: 26.10 minutes | Resource stagnation: 64.82%
+2026-04-29 12:32:57	[!] Clock: 46 minutes | Average waiting time: 26.40 minutes | Resource stagnation: 64.57%
+2026-04-29 12:32:57	[!] Clock: 47 minutes | Average waiting time: 26.70 minutes | Resource stagnation: 64.33%
+2026-04-29 12:32:57	[RUN] Task [5.7] started running on resource C.
+2026-04-29 12:32:57	[!] Clock: 48 minutes | Average waiting time: 27.00 minutes | Resource stagnation: 64.11%
+2026-04-29 12:32:58	[!] Clock: 49 minutes | Average waiting time: 27.30 minutes | Resource stagnation: 63.88%
+2026-04-29 12:32:58	[!] Clock: 50 minutes | Average waiting time: 27.60 minutes | Resource stagnation: 63.67%
+2026-04-29 12:32:58	[RUN] Task [5.8] started running on resource E.
+2026-04-29 12:32:59	[!] Clock: 51 minutes | Average waiting time: 27.90 minutes | Resource stagnation: 63.47%
+2026-04-29 12:32:59	[!] Clock: 52 minutes | Average waiting time: 28.20 minutes | Resource stagnation: 63.27%
+2026-04-29 12:32:59	[RUN] Task [4.1] started running on resource B.

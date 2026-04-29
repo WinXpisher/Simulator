@@ -1,27 +1,27 @@
 #pragma once
 #include "SimulatorPrimitives.h"
 
-// ТЕСТ 1 - постійно зайнятий ресурс, простой ресурсів - 0%.
-// Також демонструє як завдання з низьким коефіцієнтом
-// зв'язності задач розділяється на менші завдання
+// TEST 1 - always busy resource, resources' stagnation - 0%.
+// Also, that shows how tasks with a low coefficient of connectivity
+// distributes on the small tasks
 void fillTasks1(DataBase& db)
 {
     Task t1 = {
         Task::generateId(),
         Task::WAITING,
-        10, // кількість задач
+        10, // the number of tasks
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.2,  // коефіцієнт зв'язності задач у завданні
-        5,    // пріоритет завдання
-        6,    // час виконання однієї задачі
-        20    // розмір задачі
+        0.2,  // tasks' connectivity coefficient
+        5,    // priority of task
+        6,    // finished time for 1 task
+        20    // size of task
     };
     db.tasks.push_back(t1);
 }
@@ -33,42 +33,42 @@ void fillResources1(DataBase& db)
         {
             "x86",
             "Windows 10",
-            2,  // кількість процесорів
-            10, // швидкодія процесорів
-            64,  // об'єм оперативної пам'яті
-            3000 // доступний обсяг вінчестера
+            2,  // the number of processors
+            10, // processors speed
+            64,  // RAM size
+            3000 // available size of HardDrive
         },
-        10, // пропускна здатність каналу
+        10, // channel's bandwith
     };
     db.availableResources.push_back(r1);
 }
 
-
-// ТЕСТ 2 - середній час очікування дорівнює 0.
-// Завдання відправляються одразу.
-// Також половина ресурсів буде простоювати, тому
-// простой ресурсів буде 50%.
-// !!! Опис тесту коректний, коли кількість каналів зв'язку дорівнює 2.
+// TEST 2 - avarage waiting time is 0.
+// Tasks are being sent immediately.
+// Also, half of resources will be stagnated,
+// for this reason, the resources' stagnation will be 50%.
+// !!! Description for the test is correct,
+// when the number of connectivity channels equals 2.
 void fillTasks2(DataBase& db)
 {
     Task t = {
         Task::generateId(),
         Task::WAITING,
-        1, // кількість задач
+        1, // the number of tasks
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.2,  // коефіцієнт зв'язності задач у завданні
-        5,    // пріоритет завдання
-        25,    // час виконання однієї задачі
-        50    // розмір задачі
+        0.2,  // tasks' connectivity coefficient
+        5,    // priority of task
+        25,   // finished time for 1 task
+        50    // size of task
     };
-    // додається 2 одинакових завдання з різними айді
+    // Adding 2 similar tasks with different ids
     db.tasks.push_back(t);
     t.id = Task::generateId();
     db.tasks.push_back(t);
@@ -81,14 +81,14 @@ void fillResources2(DataBase& db)
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            64,  // об'єм оперативної пам'яті
-            3000 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            64,  // RAM size
+            3000 // available size of HardDrive
         },
-        10, // пропускна здатність каналу
+        10, // channel's bandwith
     };
-    // додається 4 одинакових ресурса з різними айді
+    //  Adding 4 similar resources with different ids
     db.availableResources.push_back(r);
     r.id = Resource::generateId();
     db.availableResources.push_back(r);
@@ -98,144 +98,142 @@ void fillResources2(DataBase& db)
     db.availableResources.push_back(r);
 }
 
-
-
-// ТЕСТ 3 - багато задач і ресурсів.
-// Добре демонструє пул відправки і метод розподілу.
-// Також одне з завдань скасовується, через відсутність
-// підходящого ресурсу.
+// TEST 3 - many tasks and resources.
+// Good demonstration of the sending and distribution method.
+// Also, one of the tasks is declined, because
+// none of exist of neededresources is available
 void fillTasks3(DataBase& db)
 {
     Task t1 = {
         Task::generateId(),
         Task::WAITING,
-        6, // кількість задач
+        6, // the number of tasks
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.2,  // коефіцієнт зв'язності задач у завданні
-        5,    // пріоритет завдання
-        6,    // час виконання однієї задачі
-        20    // розмір задачі
+        0.2,  // tasks' connectivity coefficient
+        5,    // priority of task
+        6,    // finished time for 1 task
+        20    // size of task
     };
     db.tasks.push_back(t1);
 
     Task t2 = {
         Task::generateId(),
         Task::WAITING,
-        3, // кількість задач
+        3, // the number of tasks
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.4,  // коефіцієнт зв'язності задач у завданні
-        1,    // пріоритет завдання
-        6,    // час виконання однієї задачі
-        10    // розмір задачі
+        0.4,  // tasks' connectivity coefficient
+        1,    // priority of task
+        6,    // finished time for 1 task
+        10    // size of task
     };
     db.tasks.push_back(t2);
 
     Task t3 = {
         Task::generateId(),
         Task::WAITING,
-        6, // кількість задач
+        6, // the number of tasks
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.5,  // коефіцієнт зв'язності задач у завданні
-        3,    // пріоритет завдання
-        6,    // час виконання однієї задачі
-        10    // розмір задачі
+        0.5,  // tasks' connectivity coefficient
+        3,    // priority of task
+        6,    // finished time for 1 task
+        10    // size of task
     };
     db.tasks.push_back(t3);
 
     Task t4 = {
         Task::generateId(),
         Task::WAITING,
-        5, // кількість задач
+        5, // the number of tasks
         {
             "x86",
             "Windows 11",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.6,  // коефіцієнт зв'язності задач у завданні
-        7,    // пріоритет завдання
-        6,    // час виконання однієї задачі
-        20    // розмір задачі
+        0.6,  // tasks' connectivity coefficient
+        7,    // priority of task
+        6,    // finished time for 1 task
+        20    // size of task
     };
     db.tasks.push_back(t4);
 
     Task t5 = {
         Task::generateId(),
         Task::WAITING,
-        5, // кількість задач
+        5, // the number of tasks
         {
             "x86",
             "Windows 11",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.6,  // коефіцієнт зв'язності задач у завданні
-        4,    // пріоритет завдання
-        36,    // час виконання однієї задачі
-        20    // розмір задачі
+        0.6,  // tasks' connectivity coefficient
+        4,    // priority of task
+        36,    // finished time for 1 task
+        20    // size of task
     };
     db.tasks.push_back(t5);
 
     Task t6 = {
         Task::generateId(),
         Task::WAITING,
-        5, // кількість задач
+        5, // the number of tasks
         {
             "x86",
             "Windows 11",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.6,  // коефіцієнт зв'язності задач у завданні
-        9,    // пріоритет завдання
-        60,    // час виконання однієї задачі
-        20    // розмір задачі
+        0.6,  // tasks' connectivity coefficient
+        9,    // priority of task
+        60,    // finished time for 1 task
+        20    // size of task
     };
     db.tasks.push_back(t6);
 
     Task t7 = {
         Task::generateId(),
         Task::WAITING,
-        5, // кількість задач
+        5, // the number of tasks
         {
             "x86",
             "Windows 11",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            8,  // об'єм оперативної пам'яті
-            512 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            8,  // RAM size
+            512 // available size of HardDrive
         },
-        0.6,  // коефіцієнт зв'язності задач у завданні
-        5,    // пріоритет завдання
-        30,    // час виконання однієї задачі
-        20    // розмір задачі
+        0.6,  // tasks' connectivity coefficient
+        5,    // priority of task
+        30,   // finished time for 1 task
+        20    // size of task
     };
     db.tasks.push_back(t7);
 }
@@ -247,12 +245,12 @@ void fillResources3(DataBase& db)
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            64,  // об'єм оперативної пам'яті
-            3000 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            64,  // RAM size
+            3000 // available size of HardDrive
         },
-        10, // пропускна здатність каналу
+        10, // channel's bandwith
     };
     db.availableResources.push_back(r1);
 
@@ -261,12 +259,12 @@ void fillResources3(DataBase& db)
         {
             "x86",
             "Windows 10",
-            3,  // кількість процесорів
-            10, // швидкодія процесорів
-            300,  // об'єм оперативної пам'яті
-            2000 // доступний обсяг вінчестера
+            3,  // the number of processors
+            10, // processors' speed
+            300,  // RAM size
+            2000 // available size of HardDrive
         },
-        10, // пропускна здатність каналу
+        10, // channel's bandwith
     };
     db.availableResources.push_back(r2);
     
@@ -275,12 +273,12 @@ void fillResources3(DataBase& db)
         {
             "x86",
             "Windows 11",
-            10,  // кількість процесорів
-            10, // швидкодія процесорів
-            80,  // об'єм оперативної пам'яті
-            4000 // доступний обсяг вінчестера
+            10,  // the number of processors
+            10, // processors' speed
+            80,  // RAM size
+            4000 // available size of HardDrive
         },
-        5, // пропускна здатність каналу
+        5, // channel's bandwith
     };
     db.availableResources.push_back(r3);
 
@@ -289,12 +287,12 @@ void fillResources3(DataBase& db)
         {
             "x86",
             "Windows 10",
-            1,  // кількість процесорів
-            10, // швидкодія процесорів
-            64,  // об'єм оперативної пам'яті
-            3000 // доступний обсяг вінчестера
+            1,  // the number of processors
+            10, // processors' speed
+            64,  // RAM size
+            3000 // available size of HardDrive
         },
-        10, // пропускна здатність каналу
+        10, // channel's bandwith
     };
     db.availableResources.push_back(r4);
     
@@ -303,12 +301,12 @@ void fillResources3(DataBase& db)
         {
             "x86",
             "Windows 11",
-            10,  // кількість процесорів
-            10, // швидкодія процесорів
-            80,  // об'єм оперативної пам'яті
-            4000 // доступний обсяг вінчестера
+            10,  // the number of processors
+            10, // processors' speed
+            80,  // RAM size
+            4000 // available size of HardDrive
         },
-        5, // пропускна здатність каналу
+        5, // channel's bandwith
     };
     db.availableResources.push_back(r5);
     
@@ -317,12 +315,12 @@ void fillResources3(DataBase& db)
         {
             "x86",
             "Windows 11",
-            10,  // кількість процесорів
-            10, // швидкодія процесорів
-            80,  // об'єм оперативної пам'яті
-            4000 // доступний обсяг вінчестера
+            10,  // the number of processors
+            10, // processors' speed
+            80,  // RAM size
+            4000 // available size of HardDrive
         },
-        5, // пропускна здатність каналу
+        5, // channel's bandwith
     };
     db.availableResources.push_back(r6);
 }

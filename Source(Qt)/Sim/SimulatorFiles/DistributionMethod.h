@@ -19,15 +19,15 @@ public:
         MFQS,
         Penguin
     };
-    // масив доступних методів для їх перебору  
+    // The array of available methods for their searching
     static const DMethod dMethods[8];
 private:
     DMethod methodId;
 public:
     DistributionMethod(DMethod methodId) : methodId(methodId) {}
-    // метод витягує наступне завдання з вектору і записує його в зовнішню змінну, 
-    // враховуючи метод розподілу, та видаляє його з цього вектору 
-    // метод повертає false, якщо завдань більше немає, інакше - true 
+    // Method that pops the next task from the vector and records it into an outer variable,
+    // considering the method of distribution, and deletes it from this vector
+    // method returns false if we don't have any tasks, otherwise, true
     virtual bool nextTask(
         vector<TaskAnalizer::AnalizerResult>& tasks,
         TaskAnalizer::AnalizerResult& outAnResult
@@ -114,14 +114,14 @@ public:
 class MFQS : public DistributionMethod {
 private:
     using DM = DistributionMethod;
-    size_t levels; // Кількість рівнів черг
-    vector<size_t> timeQuanta; // Тайм-слоти для кожного рівня черги
+    size_t levels; // Amount of levels of queue
+    vector<size_t> timeQuanta; // Timeslots for each levels of queue
 
 public:
     MFQS(size_t levels = 3, vector<size_t> timeQuanta = { 10, 20, 40 })
         : DM(DM::DMethod::MFQS), levels(levels), timeQuanta(timeQuanta) {
         if (timeQuanta.size() != levels) {
-            throw invalid_argument("Кількість рівнів повинна відповідати кількості тайм-слотів.");
+            throw invalid_argument("The number of levels mut be equal to number of time slots.");
         }
     }
 

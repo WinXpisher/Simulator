@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Release/myApp_autogen",
+	"CMAKE_BINARY_DIR" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Release",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Release",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/winxp/Qt_proj/Sim",
+	"CMAKE_SOURCE_DIR" : "/home/winxp/Qt_proj/Sim",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Release/myApp_autogen/include",
+	"INPUTS" : [ "/home/winxp/Qt_proj/Sim/icon.jpg" ],
+	"LOCK_FILE" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Release/CMakeFiles/myApp_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resource" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resource.cpp",
+	"RCC_EXECUTABLE" : "/home/winxp/Qt/6.10.1/gcc_64/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Release/CMakeFiles/myApp_autogen.dir/AutoRcc_resource_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/winxp/Qt_proj/Sim/resource.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}

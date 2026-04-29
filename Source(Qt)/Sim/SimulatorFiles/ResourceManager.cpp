@@ -8,22 +8,22 @@ RM::ResourceRemaining RM::getResourceRemainingData(
 )
 {
     RM::ResourceRemaining resRem;
-    // спочатку присвоюємо загальні параметри ресурсу
-    // не враховуючи частину, яка є зайнятою
+    // Firstly, initialise the general resource parameters
+    // and doesn't include part that are occupied
     resRem.discSize = res.resDesc.discSize;
     resRem.memSize = res.resDesc.memSize;
     resRem.procCount = res.resDesc.procCount;
 
-    // віднімаємо від параметрів ресурсу параметри, 
-    // зайняті кожною задачею
+    // Subtracts from resource parameters the paramets
+    // that occupied by each task
     for (const auto& task : res.performingTasks)
     {
-        // якщо треба враховувати статус завдань і він не
-        // співпадає, пропускаємо ітерацію
+        // If it is need to include task status and
+        // he isn't coincide, the skip it
         if (considerStatus && task->status != tStatus)
             continue;
-        // множимо кожен параметр на кількість задач із
-        // завдання, які виконуються в даний момент
+        // Multiply each parameter with the number of tasks with
+        // subtasks, which are performing at the moment
         resRem.discSize -= task->resDesc.discSize * task->count;
         resRem.memSize -= task->resDesc.memSize * task->count;
         resRem.procCount -= task->resDesc.procCount * task->count;
@@ -35,22 +35,23 @@ RM::ResourceRemaining RM::getResourceRemainingData(
 int RM::howManyTasksCanBePerformed(const Task& task, const Resource& res)
 {
     int count = 0;
-    // отримуємо інформацію про вільні параметри ресурсу
+    // Get information about all available resource's parammeters
     RM::ResourceRemaining resRem = RM::getResourceRemainingData(res);
     while (true)
     {
-        // віднімаємо від параметрів ресурсу параметри, 
-        // які потрібні для виконання однієї задачі
+        // Subtracts from resource's parameters the parameters,
+        // which is nedded for performing 1 task
         resRem.discSize -= task.resDesc.discSize;
         resRem.memSize -= task.resDesc.memSize;
         resRem.procCount -= task.resDesc.procCount;
 
-        // якщо хоча б один з параметрів менше 0, це означає, що
-        // цього компоненту вже не вистачить для виконання задачі,
-        // тому виходимо з циклу і повертаємо результат
+        // If at least 1 of the parameters is smaller than 0, and
+        // it defines that there are a small number of components
+        // for performing this task, and for reason leave the loop
+        // and return result
         if (resRem.discSize < 0 || resRem.memSize < 0 || resRem.procCount < 0)
             break;
-        // якщо ж всіх параметрів вистачило, збільшуємо результуючу кількість
+        // If there is an enough number of components, increase the result's amount
         ++count;
     }
     return count;
@@ -58,10 +59,10 @@ int RM::howManyTasksCanBePerformed(const Task& task, const Resource& res)
 
 double RM::getMinTimeToFree(const Resource& res)
 {
-    // якщо задач в ресурсі і так немає, повертаємо 0
+    // If there are no tasks on the resource, return 0
     if (res.performingTasks.empty())
         return 0;
-    // шукаємо найменше поле performTime з усіх завдань
+    // Find the smallest performTime from all tasks
     double minTimeToFree = res.performingTasks[0]->performTime;
     for (const Task* task : res.performingTasks)
     {
@@ -79,13 +80,13 @@ Resource* RM::findAnyFreeResource(
 {
     for (Resource* resource : resources)
     {
-        // якщо задачі не зв'язані між собою і хоча б одна задача може
-        // виконатися,повертаємо цей ресурс
+        // If tasks aren't connected to each other and at least 1 task
+        // can be performed, then return the resource
         if (!areSubTasksConnected &&
             ResourceManager::howManyTasksCanBePerformed(task, *resource) > 0
             ) return resource;
-        // якщо задачі зв'язані між собою ресурс повинен мати
-        // змогу виконати їх всі одразу
+        // If tasks are connected to each other, the resource should be
+        // able to perform all tasks at once
         else if (areSubTasksConnected &&
             ResourceManager::howManyTasksCanBePerformed(task, *resource) >= task.count
             ) return resource;
@@ -103,25 +104,25 @@ bool RM::canTaskBeSentToResource(
     bool canTaskBeSent = false;
     int count = ResourceManager::howManyTasksCanBePerformed(task, res);
 
-    // якщо задачі пов'язані, то ресурс треба звільнити так,
-    // щоб завдання могло повністю виконатися за один раз
+    // If tasks are connected, the resource needs to be free,
+    // to tasks can fully be performed at once
     if (areSubTasksConnected)
     {
         if (count >= task.count)
             canTaskBeSent = true;
     }
-    // інакше достатньо можливості виконання будь-якої кількості
-    // задач на ресурсі
+    // Otherwise for perform, it is enough any number of tasks on the
+    // resource
     else
     {
         if (count > 0)
             canTaskBeSent = true;
     }
-    // якщо count більше ніж загальна кількість задач, то
-    // встановлюємо для count значення кількості задач
+    // If the count increases, than general number of tasks, then
+    // will set for count the value of the number of tasks
     count = (count > task.count) ? task.count : count;
 
-    // перевірка на nullptr
+    // Check for nullptr
     if (outSubTasksCount)
         *outSubTasksCount = count;
 

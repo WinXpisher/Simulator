@@ -2,54 +2,54 @@
 #include <vector>
 #include "SimulatorPrimitives.h"
 using namespace std;
-// класс аналізує задачі, та допомагає визначити ресурси на яких
-// може виконатися кожна задача
+
+// Class analyses tasks and helps to define resources
+// on which each task can be run
 class TaskAnalizer
 {
 public:
     struct AnalizerResult
     {
-        Task* task; // саме завдання
-        vector<Resource*> resources; // ресурси, на яких завдання може бути виконано
+        Task* task; // task itself
+        vector<Resource*> resources; // resources on which each task can be run
     };
 private:
     struct ConnectivityResult
     {
-        Task* task; // саме завдання
-        bool areConnected; // чи є задачі в завданні зв'язаними
+        Task* task; // task itself
+        bool areConnected; // whether is tasks have a connectivity coefficient
     };
-    // результат відрацювання методу analizeConnectivity
+    // Result of working out method analizeConnectivity
     vector<ConnectivityResult> conResult;
-    // результат відрацювання методу analizeAllTasks
+    // Result of working out method analizeAllTasks
     vector<AnalizerResult> anResult;
-    // те саме що anResult, але без завдань зі статусом Cancelled
-    // буде передаватися методам розподілу
+    // The same as anResult, but without tasks with Cancelled status
+    // will be transferred by distribution methods
     vector<AnalizerResult> anResultClear;
-    DataBase* dataBase; // база даних з доступними ресурсами та завданнями
-    // метод аналізує звязність задач в кожному завданні
-    // та заповнює вектор conResult
+    DataBase* dataBase; // database whith available resources and tasks
+    // Method analyses tasks' connectivity and fills the vector conResult
     void analizeConnectivity();
-    // метод аналізує завдання
+    // Method analyses tasks
     void analizeTask(Task& task, bool isConnected);
-    // чи може завдання з НЕ зв'язаними задачами бути виконано на конкретному ресурсі
-    // метод не враховує кількість процесорів, тому що не пов'язані задачі
-    // можуть бути розподілені на декілька кластерів
+    // Whether the task with NO connectivity can be finished on the specific resource.
+    // Method doesn't include the number of processors, because non-connectivity tasks
+    // can be distributed on the few clusters
     bool canBePerformedSimple(const Task& task, Resource& res);
-    // чи може завдання з зв'язаними задачами бути виконано на конкретному ресурсі
-    // метод враховує кількість процесорів, тому що пов'язані задачі
-    // НЕ можуть бути розподілені на декілька кластерів
+    // Whether the task with connectivity can be finished on the specific resource.
+    // Method includes the number of processors, because tasks with
+    // connectivity CANNOT BE distributed on the few clusters
     bool canBePerformedConnected(const Task& task, Resource& res);
-    // очищує результат від завдань зі статусом Cancelled
-    // результат записується в anResultClear
-    // метод викликається автоматично в методі analizeAllTasks
+    // Clean result from tasks with Cancelled status and
+    // result will record into anResultClear.
+    // Method is called automatically in analizeAllTasks method
     void clearFromCancelled();
 public:
     TaskAnalizer(DataBase* dataBase) : dataBase(dataBase) {}
-    // метод визначає всі ресурси, на яких завдання може виконатися
-    // та встановлює статус Waiting, якщо таких ресурсів немає
-    // метод встановлює статус Cancelled
+    // Method defines all resources, on which task can be run and
+    // sets Waiting status, if there are no resources,
+    // then method sets Cancelled status
     void analizeAllTasks();
-    // чи пов'язані задачі в завданні
+    // Whether tasks are connected
     bool areSubTasksConnected(const Task& task);
     vector<AnalizerResult>& getAnalizeResult() { return anResult; }
     vector<AnalizerResult>& getAnalizeResultClear() { return anResultClear; }

@@ -2,14 +2,14 @@
 
 void TaskAnalizer::analizeAllTasks()
 {
-    // викликаємо метод, щоб отримати результати для кожного завдання
-    // причому результати будуть записані в поле conResult
+    // Call method to get results for each task,
+    // and results will be recorded in conResult
     analizeConnectivity();
     for (ConnectivityResult& cr : conResult)
     {
         analizeTask(*cr.task, cr.areConnected);
     }
-    // заповнюємо також вектор, де результат очищений від скасованих завдань
+    // Fill vector, where result are cleaned from cancelled tasks
     clearFromCancelled();
 }
 
@@ -18,7 +18,7 @@ void TaskAnalizer::clearFromCancelled()
     anResultClear.clear();
     for (auto& anRes : anResult)
     {
-        // пропускаємо завдання
+        // Skip tasks
         if (anRes.task->status == Task::TaskStatus::CANCELLED)
             continue;
         anResultClear.push_back(anRes);
@@ -33,87 +33,89 @@ void TaskAnalizer::analizeConnectivity()
         if (areSubTasksConnected(task))
             isConnected = true;
         else isConnected = false;
-        // формуємо результуючий вектор
+        // To form the resulting vector
         conResult.push_back({ &task, isConnected });
     }
 }
 
 bool TaskAnalizer::areSubTasksConnected(const Task& task)
 {
-    // якщо коефіцієнт зв'язності більше 0.3, задачі вважаються зв'язаними
+    // If connectivity coefficient more than 0.3, then tasks are connected
     return task.connectivity > 0.3;
 }
 
 void TaskAnalizer::analizeTask(Task& task, bool isConnected)
 {
-    bool wasFound = false; // чи був знайдений хоча б один ресурс
+    // If there are found at least 1 resource
+    bool wasFound = false;
     AnalizerResult anRes;
     anRes.task = &task;
     for (Resource& res : dataBase->availableResources)
     {
-        // якщо завдання не може бути виконано, пропускаємо ітерацію
-        // в залежності чи є задачі пов'язані чи ні викликаються різні методи перевірки 
+        // If tasks can be performed, then skip them by iteration
+        // in dependencies, whether tasks are connected or aren't called other
+        // methods for testing
         if (isConnected && !canBePerformedConnected(*anRes.task, res))
             continue;
         if (!isConnected && !canBePerformedSimple(*anRes.task, res))
             continue;
 
         wasFound = true;
-        // додаємо покажчик на ресурс, на якому завдання може бути виконане
+        // Add pointer on the resource, on which task can be performed
         anRes.resources.push_back(&res);
     }
-    // якщо для завдання існує хоч один ресурс, на якому воно може виконатися
-    // встановлюємо статус WAITING
+    // If for tasks exists at least 1 resource, on which it can be performed,
+    // then set WAITING status
     if (wasFound)
         anRes.task->status = Task::TaskStatus::WAITING;
-    // інакше встановлюємо статус CANCELLED
+    // Otherwise set CANCELLED status
     else
         anRes.task->status = Task::TaskStatus::CANCELLED;
-    // додаємо результат до загального вектору результатів
+    // Add result to general vector of results
     anResult.push_back(anRes);
 }
 
 bool TaskAnalizer::canBePerformedSimple(const Task& task, Resource& res)
 {
-    // якщо процесорів не достатньо, завдання виконатися не може
+    // If there aren't enough processors then task cannot be performed
     if (task.resDesc.procCount > res.resDesc.procCount)
         return false;
 
-    // перевіряємо сумісність архітектур процесора
+    // Check compatibility of processor's architecture
     if (task.resDesc.procArch != res.resDesc.procArch)
         return false;
 
-    // перевіряємо сумісність операційних систем
+    // Check compatibility of operating systems
     if (task.resDesc.os != res.resDesc.os)
         return false;
 
-    // якщо швидкість процесора не достатня, завдання виконатися не може
+    // If processors' speed is not enough, task cannot be performed
     if (task.resDesc.procSpeed > res.resDesc.procSpeed)
         return false;
 
-    // якщо оперативної пам'яті не достатньо, завдання виконатися не може
+    // If RAM is not enough, task cannot be performed
     if (task.resDesc.memSize > res.resDesc.memSize)
         return false;
 
-    // якщо місця на диску не достатньо, завдання виконатися не може
+    // If there aren't available space on Hard Drive, task cannot be performed
     if (task.resDesc.discSize > res.resDesc.discSize)
         return false;
 
-    // якщо всі перевірки пройшли успішно, завдання може бути виконано
+    // If all test are passed, task can be performed
     return true;
 }
 
 bool TaskAnalizer::canBePerformedConnected(const Task& task, Resource& res)
 {
-    // якщо процесорів не достатньо, завдання виконатися не може
+    // If processors not enough, task cannot be performed
     if ((task.count * task.resDesc.procCount) > res.resDesc.procCount)
         return false;
-   
-    // якщо оперативної пам'яті не достатньо, завдання виконатися не може
+
+    // If RAM is not enough, task cannot be performed
     if (task.count * task.resDesc.memSize > res.resDesc.memSize)
         return false;
 
-    // якщо місця на диску не достатньо, завдання виконатися не може
+    // If there aren't available space on Hard Drive, task cannot be performed
     if (task.count * task.resDesc.discSize > res.resDesc.discSize)
         return false;
 
