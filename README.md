@@ -16,23 +16,36 @@
 
 ## **Зміст**
 
-- [Початок роботи](#початок-роботи)
+- [Початок роботи на Windows](#початок-роботи-на-windows)
+- [Початок роботи на Linux](#початок-роботи-на-linux)
 - [Інструкція](#інструкція)
 - [Ліцензія](#ліцензія)
 
 ---
 
-## **Початок роботи**
+## **Початок роботи на Windows**
 
-1. Клонувати репозиторій:
+1. Скачати готову програму:
+   [Перейти на сайт релізів](https://github.com/WinXpisher/Simulator/releases)
+3. Розархівувати архів та перейти в каталог:
    ```bash
-   git clone https://github.com/WinXpisher/Simulator.git
-2. Перейти в каталог(з готовою програмою):
-   ```bash
-   cd Simulator/App
-3. Запустіть готову програму:
+   cd Розархівований_архів/App
+4. Запустіть готову програму:
    ```bash
    Core.exe
+
+---
+
+## **Початок роботи на Linux**
+
+1. Скачати готову програму:
+   [Перейти на сайт релізів](https://github.com/WinXpisher/Simulator/releases)
+3. Розархівувати архів та перейти в каталог:
+   ```bash
+   cd Розархівований_архів/App(Linux)
+4. Запустіть готову програму:
+   ```bash
+   Core.AppImage
 
 ---
 
@@ -140,23 +153,36 @@ This program was developed by students of KhNURE: Vasylenko D.O., Birka E.M., Lu
 
 ## **Content**
 
-- [Getting started](#getting-started)
+- [Getting started on Windows](#getting-started-on-windows)
+- [Getting started on Linux](#getting-started-on-linux)
 - [Instruction](#instruction)
 - [License](#license)
 
 ---
 
-## **Getting started**
+## **Getting started on Windows**
 
-1. Clone repository:
+1. Download ready-to-use program:
+   [Go to releases website](https://github.com/WinXpisher/Simulator/releases)
+3. Unzip archive and go to the catalog:
    ```bash
-   git clone https://github.com/WinXpisher/Simulator.git
-2. Go to the catalog (with the finished program):
-   ```bash
-   cd Simulator/App
-3. Run the finished program:
+   cd Unzipped_archive/App
+4. Run the program:
    ```bash
    Core.exe
+
+---
+
+## **Getting started on Linux**
+
+1. Download ready-to-use program:
+   [Go to releases website](https://github.com/WinXpisher/Simulator/releases)
+3. Unzip archive and go to the catalog:
+   ```bash
+   cd Unzipped_archive/App(Linux)
+4. Run the program:
+   ```bash
+   Core.AppImage
 
 ---
 
