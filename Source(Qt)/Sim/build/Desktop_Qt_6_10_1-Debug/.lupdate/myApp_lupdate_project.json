@@ -1,0 +1,14 @@
+{
+  "projectFile": "/home/winxp/Qt_proj/Sim/CMakeLists.txt",
+  "includePaths": [  ],
+  "sources": [  ],
+  "translations": [ "/home/winxp/Qt_proj/Sim/ukr_transl.ts" ],
+  "subProjects": [
+    {
+      "projectFile": "/home/winxp/Qt_proj/Sim/CMakeLists.txt",
+      "includePaths": [ "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/myApp_autogen/include", "/home/winxp/Qt/6.10.1/gcc_64/include/QtCore", "/home/winxp/Qt/6.10.1/gcc_64/include", "/home/winxp/Qt/6.10.1/gcc_64/mkspecs/linux-g++", "/home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets", "/home/winxp/Qt/6.10.1/gcc_64/include/QtGui", "/usr/include" ],
+      "sources": [ "/home/winxp/Qt_proj/Sim/main.cpp", "/home/winxp/Qt_proj/Sim/mainwindow.cpp", "/home/winxp/Qt_proj/Sim/mainwindow.h", "/home/winxp/Qt_proj/Sim/mainwindow.ui", "/home/winxp/Qt_proj/Sim/SelectModePanel.h", "/home/winxp/Qt_proj/Sim/SelectModePanel.cpp", "/home/winxp/Qt_proj/Sim/GenerateOptionsPanel.h", "/home/winxp/Qt_proj/Sim/GenerateOptionsPanel.cpp", "/home/winxp/Qt_proj/Sim/ChooseOptionsPanel.h", "/home/winxp/Qt_proj/Sim/ChooseOptionsPanel.cpp", "/home/winxp/Qt_proj/Sim/SimulatorFiles/DataSetManager.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/DistributionMethod.cpp", "/home/winxp/Qt_proj/Sim/SimulatorFiles/DistributionMethod.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/FileManager.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/Log.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/ResourceManager.cpp", "/home/winxp/Qt_proj/Sim/SimulatorFiles/ResourceManager.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SetGenerator.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SimulationData.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SimulationEnvironment.cpp", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SimulationEnvironment.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SimulationTests.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SimulatorPrimitives.cpp", "/home/winxp/Qt_proj/Sim/SimulatorFiles/SimulatorPrimitives.h", "/home/winxp/Qt_proj/Sim/SimulatorFiles/TaskAnalizer.cpp", "/home/winxp/Qt_proj/Sim/SimulatorFiles/TaskAnalizer.h", "/home/winxp/Qt_proj/Sim/SimulationSettingsPanel.h", "/home/winxp/Qt_proj/Sim/SimulationSettingsPanel.cpp", "/home/winxp/Qt_proj/Sim/SimulationMainWidget.h", "/home/winxp/Qt_proj/Sim/SimulationMainWidget.cpp", "/home/winxp/Qt_proj/Sim/GetTaskStatusStr.h", "/home/winxp/Qt_proj/Sim/TaskTable.h", "/home/winxp/Qt_proj/Sim/TaskTable.cpp", "/home/winxp/Qt_proj/Sim/ResourcesDockWidget.h", "/home/winxp/Qt_proj/Sim/ResourcesDockWidget.cpp", "/home/winxp/Qt_proj/Sim/GetTaskStatusStr.cpp", "/home/winxp/Qt_proj/Sim/SimulationDispatcher.h", "/home/winxp/Qt_proj/Sim/SimulationDispatcher.cpp", "/home/winxp/Qt_proj/Sim/resource.qrc", "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/.qt/rcc/myApp_translations.qrc", "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/.qt/rcc/qrc_myApp_translations.cpp" ],
+      "excluded": [  ]
+    }
+  ]
+}

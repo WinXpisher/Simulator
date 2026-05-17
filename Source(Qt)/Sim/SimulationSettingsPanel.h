@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QString>
 #include <QLineEdit>
+#include <QLabel>
 
 class SimulationSettingsPanel : public QWidget
 {
@@ -20,6 +21,9 @@ public:
     QString getTimeUnitToSkip() { return timeUnitToSkipInput->text(); }
     QString getWaitMilliSec() { return waitMilliSecInput->text(); }
     QString getUpdatePeriod() { return updatePeriodInput->text(); }
+    QPushButton* getBackButton() { return backButton; }
+
+    void retranslateui();
 private:
     QWidget *simulationSettingsPanel;
     QPushButton *confirmButton;
@@ -29,6 +33,13 @@ private:
     QLineEdit *timeUnitToSkipInput;
     QLineEdit *waitMilliSecInput;
     QLineEdit *updatePeriodInput;
+
+    QLabel *channelCountLabel;
+    QLabel *timeUnitLabel;
+    QLabel *timeUnitToSkipLabel;
+    QLabel *waitMilliSecLabel;
+    QLabel *updatePeriodLabel;
+    QPushButton* backButton;
 };
 
 #endif // SIMULATIONSETTINGSPANEL_H

@@ -32,6 +32,10 @@
 #include <QProcess>
 #include <QStringList>
 #include <QtGlobal>
+#include <QTranslator>
+#include <QEvent>
+#include <QStack>
+#include <QDir>
 
 #include <atomic>
 #include <thread>
@@ -54,11 +58,17 @@ public:
         this->setWindowTitle("Select mode");
         this->resize(300, 350);
         stackedWidget = new QStackedWidget(this);
+        writeTranslFile("en");
 
         connect(selectModePanel.getConfirmButton(), &QPushButton::clicked, this, &MainWindow::onSelModePanelConfirmButtonClicked);
         connect(generateOptionsPanel.getConfirmButton(), &QPushButton::clicked, this, &MainWindow::onGenerateOptPanelConfirmButtonClicked);
         connect(chooseOptionsPanel.getConfirmButton(), &QPushButton::clicked, this, &MainWindow::onChooseOptPanelConfirmButtonClicked);
         connect(simulationSettingsPanel.getConfirmButton(), &QPushButton::clicked, this, &MainWindow::onSimulationSettingsConfirmButtonClicked);
+        connect(selectModePanel.langComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::on_langComboBox_currentIndexChanged);
+
+        connect(generateOptionsPanel.getBackButton(), &QPushButton::clicked, this, &MainWindow::onBackRequested);
+        connect(chooseOptionsPanel.getBackButton(), &QPushButton::clicked, this, &MainWindow::onBackRequested);
+        connect(simulationSettingsPanel.getBackButton(), &QPushButton::clicked, this, &MainWindow::onBackRequested);
 
         stackedWidget->addWidget(simulationMainWidget.getPanel());
         stackedWidget->addWidget(selectModePanel.getPanel());
@@ -73,20 +83,59 @@ public:
         setCentralWidget(centralWidget);
 
         stackedWidget->setCurrentWidget(selectModePanel.getPanel());
+
     }
 
 private slots:
+
+    void on_langComboBox_currentIndexChanged(int index) {
+        QString lang = selectModePanel.langComboBox->currentData().toString();;
+
+        qApp->removeTranslator(&m_translator);
+
+        if (lang == "ukr") {
+            if (m_translator.load(":/translations/ukr_transl.qm")) {
+                qApp->installTranslator(&m_translator);
+            }
+            writeTranslFile("ukr");
+        }
+        else writeTranslFile("en");
+    }
+
+    void onBackRequested()
+    {
+        if (!m_history.isEmpty())
+        {
+            QWidget* prevPanel = m_history.pop();
+            stackedWidget->setCurrentWidget(prevPanel);
+
+            if (prevPanel == selectModePanel.getPanel()) {
+                this->resize(300, 350);
+            } else if (prevPanel == generateOptionsPanel.getPanel() || prevPanel == chooseOptionsPanel.getPanel()) {
+                this->resize(300, 350);
+            } else if (prevPanel == simulationSettingsPanel.getPanel()) {
+                this->resize(400, 450);
+            }
+
+            retranslateui();
+        }
+    }
+
     void onSelModePanelConfirmButtonClicked()
     {
         QString selectedMode = selectModePanel.getSelectedMode();
-        if (selectedMode == "Generate")
+        if (selectedMode == "generate_key")
         {
+            m_history.push(stackedWidget->currentWidget());
             this->setWindowTitle("Generate set");
             stackedWidget->setCurrentWidget(generateOptionsPanel.getPanel());
-        } else if (selectedMode == "Choose")
+            retranslateui();
+        } else if (selectedMode == "choose_key")
         {
+            m_history.push(stackedWidget->currentWidget());
             this->setWindowTitle("Choose set");
             stackedWidget->setCurrentWidget(chooseOptionsPanel.getPanel());
+            retranslateui();
         }
     }
     void onGenerateOptPanelConfirmButtonClicked()
@@ -177,12 +226,14 @@ private slots:
         });
         startMainthr.detach();
 
+        m_history.clear();
         this->resize(900, 500);
 
         addDockWidget(Qt::BottomDockWidgetArea, resourcesDockWidget.getDock());
         stackedWidget->setCurrentWidget(simulationMainWidget.getPanel());
 
         addMenuToSimulationWindow();
+        retranslateui();
     }
 
     void toggleResDockVisibility(bool visible)
@@ -214,12 +265,78 @@ private slots:
         QProcess *startGraphProc = new QProcess();
         startGraphProc->start(program, arguments);
     }
+
+protected:
+    void changeEvent(QEvent *event)
+    {
+
+        if (event->type() == QEvent::LanguageChange) {
+            retranslateui();
+        }
+        QMainWindow::changeEvent(event);
+    }
+
 private:
+
+    void retranslateui() {
+        QWidget* current = stackedWidget->currentWidget();
+        selectModePanel.retranslateui();
+        generateOptionsPanel.retranslateui();
+        chooseOptionsPanel.retranslateui();
+        simulationSettingsPanel.retranslateui();
+        if (current == simulationMainWidget.getPanel()) {
+            viewMenu->setTitle(tr("View"));
+            toggleResPanel->setText(tr("Show resources"));
+            actionsMenu->setTitle(tr("Actions"));
+            showOneGraphAction->setText(tr("Show graph"));
+            showManyGraphsAction->setText(tr("Show graphs"));
+        }
+        updateWindowTitle();
+    }
+
+    void updateWindowTitle() {
+        QWidget* current = stackedWidget->currentWidget();
+
+        if (current == selectModePanel.getPanel()) {
+            this->setWindowTitle(tr("Select mode"));
+        } else if (current == generateOptionsPanel.getPanel()) {
+            this->setWindowTitle(tr("Generate set"));
+        } else if (current == chooseOptionsPanel.getPanel()) {
+            this->setWindowTitle(tr("Choose set"));
+        } else if (current == simulationSettingsPanel.getPanel()) {
+            this->setWindowTitle(tr("Simulation settings"));
+        } else if (current == simulationMainWidget.getPanel()) {
+            this->setWindowTitle(tr("Simulation"));
+        }
+    }
+
+    void writeTranslFile(const QString &lang)
+    {
+        QString workingDir = QDir::currentPath();
+        QString distPath = workingDir + "/dist";
+
+        QDir dir;
+        if (!dir.exists(distPath)) {
+            if (!dir.mkpath(distPath)) {
+                return;
+            }
+        }
+
+        QString filePath = distPath + "/lang.conf";
+        QFile file(filePath);
+
+        if (file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+            QTextStream out(&file);
+            out << lang.trimmed().toLower();
+            file.close();
+        }
+    }
+
     void addMenuToSimulationWindow()
     {
-        QMenuBar *mBar = QMainWindow::menuBar();
+        mBar = QMainWindow::menuBar();
         // --- VIEW ---
-        QMenu *viewMenu = new QMenu("View", mBar);
+        viewMenu = new QMenu("View", mBar);
         mBar->addMenu(viewMenu);
 
         toggleResPanel = new QAction("Show resources", viewMenu);
@@ -232,14 +349,14 @@ private:
         connect(toggleResPanel, &QAction::triggered, this, &MainWindow::toggleResDockVisibility);
 
         // --- ACTIONS ---
-        QMenu *actionsMenu = new QMenu("Actions", mBar);
+        actionsMenu = new QMenu("Actions", mBar);
         mBar->addMenu(actionsMenu);
 
-        QAction *showOneGraphAction = new QAction("Show graph", actionsMenu);
+        showOneGraphAction = new QAction("Show graph", actionsMenu);
         actionsMenu->addAction(showOneGraphAction);
         connect(showOneGraphAction, &QAction::triggered, this, &MainWindow::showGraphAction);
 
-        QAction *showManyGraphsAction = new QAction("Show graphs", actionsMenu);
+        showManyGraphsAction = new QAction("Show graphs", actionsMenu);
         actionsMenu->addAction(showManyGraphsAction);
         connect(showManyGraphsAction, &QAction::triggered, this, &MainWindow::showGraphsAction);
     }
@@ -290,9 +407,11 @@ private:
     }
     void switchToSimulationSettingsPanel()
     {
+        m_history.push(stackedWidget->currentWidget());
         this->resize(400, 450);
         this->setWindowTitle("Simulation settings");
         stackedWidget->setCurrentWidget(simulationSettingsPanel.getPanel());
+        retranslateui();
     }
     int parsePositiveNumber(const QString& numberToConvert, const QString& fieldName)
     {
@@ -305,8 +424,10 @@ private:
         }
         return number;
     }
+
 private:
     QStackedWidget *stackedWidget;
+    QStack<QWidget*> m_history;
 
     SelectModePanel selectModePanel;
     GenerateOptionsPanel generateOptionsPanel;
@@ -334,6 +455,14 @@ private:
 
     // --- MENU ITEMS ---
     QAction *toggleResPanel;
+
+    // --- TRANSLATION ---
+    QTranslator m_translator;
+    QMenuBar *mBar;
+    QMenu *viewMenu;
+    QMenu *actionsMenu;
+    QAction *showOneGraphAction;
+    QAction *showManyGraphsAction;
 };
 
 

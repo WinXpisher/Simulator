@@ -1,9 +1,13 @@
 /home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/myApp_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/winxp/Qt_proj/Sim/mainwindow.h \
   /home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/myApp_autogen/moc_predefs.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QDir \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QEvent \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QObject \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QProcess \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QStack \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QString \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QStringList \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QTranslator \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/QtGlobal \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/q17memory.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/q20functional.h \
@@ -31,6 +35,7 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qbytearrayalgorithms.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qbytearraylist.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qbytearrayview.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qcalendar.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qchar.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qcheckedint_impl.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qcompare.h \
@@ -48,11 +53,17 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qcoreevent.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdarwinhelpers.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdatastream.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdatetime.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdeadlinetimer.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdebug.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdir.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qdirlisting.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qendian.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qeventloop.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qexceptionhandling.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qfile.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qfiledevice.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qfileinfo.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qflags.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qfloat16.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qforeach.h \
@@ -104,6 +115,7 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qsize.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qspan.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qstack.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qstdlibdetection.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qstring.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qstringalgorithms.h \
@@ -130,9 +142,11 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtenvironmentvariables.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtextstream.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtformat_impl.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtimezone.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtmetamacros.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtnoop.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtranslator.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtresource.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qttranslation.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qttypetraits.h \

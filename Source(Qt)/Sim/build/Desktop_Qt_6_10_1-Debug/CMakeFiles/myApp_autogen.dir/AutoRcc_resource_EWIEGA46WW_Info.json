@@ -7,7 +7,11 @@
 	"CROSS_CONFIG" : false,
 	"GENERATOR" : "Ninja",
 	"INCLUDE_DIR" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/myApp_autogen/include",
-	"INPUTS" : [ "/home/winxp/Qt_proj/Sim/icon.jpg" ],
+	"INPUTS" : 
+	[
+		"/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/ukr_transl.qm",
+		"/home/winxp/Qt_proj/Sim/icon.jpg"
+	],
 	"LOCK_FILE" : "/home/winxp/Qt_proj/Sim/build/Desktop_Qt_6_10_1-Debug/CMakeFiles/myApp_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
 	"OPTIONS" : [ "-name", "resource" ],

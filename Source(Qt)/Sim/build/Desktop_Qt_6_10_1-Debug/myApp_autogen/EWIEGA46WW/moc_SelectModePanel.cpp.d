@@ -52,6 +52,7 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qglobalstatic.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qhash.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qhashfunctions.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qiodevice.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qiodevicebase.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qiterable.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qiterator.h \
@@ -125,6 +126,7 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtversionchecks.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtypeinfo.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qtypes.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qurl.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qutf8stringview.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qvariant.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtCore/qvarlengtharray.h \
@@ -145,12 +147,14 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qkeysequence.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qpaintdevice.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qpalette.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qpicture.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qpixelformat.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qpixmap.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qpolygon.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qregion.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qrgb.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qrgba64.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qtextdocument.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qtgui-config.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qtguiexports.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qtguiglobal.h \
@@ -158,6 +162,7 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qvalidator.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtGui/qwindowdefs.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/QComboBox \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/QLabel \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/QPushButton \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/QWidget \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
@@ -166,6 +171,7 @@
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qcombobox.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qframe.h \
+  /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qlabel.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qrubberband.h \
   /home/winxp/Qt/6.10.1/gcc_64/include/QtWidgets/qsizepolicy.h \

@@ -5,6 +5,7 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QString>
+#include <QLabel>
 
 class SelectModePanel : public QWidget
 {
@@ -13,11 +14,18 @@ public:
     SelectModePanel();
     QWidget* getPanel() { return selectModePanel; }
     QPushButton* getConfirmButton() { return confirmButton; }
-    QString getSelectedMode() { return comboBox->currentText(); }
+    QString getSelectedMode() { return comboBox->currentData().toString(); }
+
+    QComboBox *langComboBox;
+
+    void retranslateui();
 private:
     QWidget *selectModePanel;
     QPushButton *confirmButton;
     QComboBox *comboBox;
+    QLabel *label;
+    QLabel *genlabel;
+    QLabel *chlabel;
 };
 
 #endif // SELECTMODEPANEL_H

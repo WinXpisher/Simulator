@@ -1,0 +1,12 @@
+id: 1
+count: 4
+procArch: x86
+os: Linux
+procCount: 1
+procSpeed: 2
+memSize: 15
+discSize: 405
+connectivity: 0.3
+priority: 5
+performTime: 48
+subTaskSize: 72

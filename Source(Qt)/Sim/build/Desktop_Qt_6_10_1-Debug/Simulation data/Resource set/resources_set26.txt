@@ -1,0 +1,8 @@
+id: A
+procArch: x86
+os: Linux
+procCount: 12
+procSpeed: 26
+memSize: 318
+discSize: 2412
+bandwidth: 15

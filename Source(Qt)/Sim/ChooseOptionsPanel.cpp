@@ -15,7 +15,7 @@ ChooseOptionsPanel::ChooseOptionsPanel()
     QWidget *container = new QWidget();
     QVBoxLayout *vertLayout = new QVBoxLayout();
 
-    QLabel *methodLabel = new QLabel("Method:");
+    methodLabel = new QLabel("Method:");
 
     chooseMethod = new QComboBox();
     chooseMethod->addItem("LIFO");
@@ -28,11 +28,12 @@ ChooseOptionsPanel::ChooseOptionsPanel()
     chooseMethod->addItem("Penguin");
     chooseMethod->setCurrentIndex(0);
 
-    QLabel *setNumberLabel = new QLabel("Set number:");
+    setNumberLabel = new QLabel("Set number:");
 
     setNumber = new QLineEdit();
 
     confirmButton = new QPushButton("Ok");
+    backButton = new QPushButton("<- Back");
 
     vertLayout->addStretch(2);
     vertLayout->addWidget(methodLabel);
@@ -42,6 +43,7 @@ ChooseOptionsPanel::ChooseOptionsPanel()
     vertLayout->addSpacing(10);
     vertLayout->addWidget(confirmButton);
     vertLayout->addStretch(3);
+    vertLayout->addWidget(backButton);
 
     container->setLayout(vertLayout);
 
@@ -50,3 +52,9 @@ ChooseOptionsPanel::ChooseOptionsPanel()
     mainLayout->addStretch();
 }
 
+void ChooseOptionsPanel::retranslateui() {
+    methodLabel->setText(tr("Method"));
+    setNumberLabel->setText(tr("Set number:"));
+    confirmButton->setText(tr("Ok"));
+    backButton->setText(tr("<- Back"));
+}

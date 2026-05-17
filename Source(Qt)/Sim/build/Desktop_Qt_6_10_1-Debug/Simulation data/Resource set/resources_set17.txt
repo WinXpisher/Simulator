@@ -1,0 +1,8 @@
+id: A
+procArch: x86
+os: Windows
+procCount: 15
+procSpeed: 9
+memSize: 37
+discSize: 344
+bandwidth: 14
