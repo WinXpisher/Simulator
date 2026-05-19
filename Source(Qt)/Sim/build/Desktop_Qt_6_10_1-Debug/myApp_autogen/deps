@@ -300,7 +300,6 @@ myApp_autogen/timestamp: \
 	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake \
 	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake \
 	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake \
-	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in \
 	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake \
 	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake \
 	/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake \

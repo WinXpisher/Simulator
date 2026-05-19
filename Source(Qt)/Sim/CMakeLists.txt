@@ -96,10 +96,6 @@ set_target_properties(myApp PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-qt_add_translations(myApp
-    TS_FILES ukr_transl.ts
-)
-
 include(GNUInstallDirs)
 install(TARGETS myApp
     BUNDLE DESTINATION .
@@ -110,3 +106,23 @@ install(TARGETS myApp
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(myApp)
 endif()
+
+set(TS_FILES
+    ukr_transl.ts
+)
+
+target_sources(myApp PRIVATE
+    ${TS_FILES}
+)
+
+source_group("translations" FILES
+    ${TS_FILES}
+)
+
+qt_add_lupdate(myApp
+    TS_FILES ${TS_FILES}
+)
+
+qt_add_lrelease(myApp
+    TS_FILES ${TS_FILES}
+)

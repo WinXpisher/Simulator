@@ -23,13 +23,10 @@
 			"find_dependency",
 			"_qt_internal_find_third_party_dependencies",
 			"_qt_internal_find_qt_dependencies",
-			"target_sources",
-			"_qt_internal_expose_deferred_files_to_ide",
-			"_qt_internal_expose_source_file_to_ide",
-			"qt6_add_translations",
-			"_qt_internal_process_resource",
-			"qt6_add_resources",
-			"__qt_propagate_generated_resource"
+			"add_dependencies",
+			"qt6_add_lrelease",
+			"qt_add_lrelease",
+			"target_sources"
 		],
 		"files" : 
 		[
@@ -45,8 +42,7 @@
 			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
 			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
 			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
-			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake",
-			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:855:EVAL"
+			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake"
 		],
 		"nodes" : 
 		[
@@ -80,7 +76,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 104,
+				"line" : 100,
 				"parent" : 0
 			},
 			{
@@ -232,93 +228,28 @@
 				"parent" : 2
 			},
 			{
+				"command" : 15,
 				"file" : 1,
-				"line" : -1,
+				"line" : 126,
 				"parent" : 0
 			},
 			{
-				"command" : 16,
-				"file" : 13,
-				"line" : 1,
+				"command" : 14,
+				"file" : 12,
+				"line" : 983,
 				"parent" : 33
 			},
 			{
-				"command" : 15,
+				"command" : 13,
 				"file" : 12,
-				"line" : 900,
+				"line" : 629,
 				"parent" : 34
 			},
 			{
-				"command" : 14,
-				"file" : 0,
-				"line" : 2213,
-				"parent" : 35
-			},
-			{
-				"command" : 13,
-				"file" : 0,
-				"line" : 2288,
-				"parent" : 36
-			},
-			{
-				"command" : 18,
-				"file" : 12,
-				"line" : 933,
-				"parent" : 34
-			},
-			{
-				"command" : 17,
-				"file" : 0,
-				"line" : 405,
-				"parent" : 38
-			},
-			{
-				"command" : 15,
-				"file" : 0,
-				"line" : 2428,
-				"parent" : 39
-			},
-			{
-				"command" : 14,
-				"file" : 0,
-				"line" : 2213,
-				"parent" : 40
-			},
-			{
-				"command" : 13,
-				"file" : 0,
-				"line" : 2288,
-				"parent" : 41
-			},
-			{
-				"command" : 15,
-				"file" : 0,
-				"line" : 2497,
-				"parent" : 39
-			},
-			{
-				"command" : 14,
-				"file" : 0,
-				"line" : 2213,
-				"parent" : 43
-			},
-			{
-				"command" : 13,
-				"file" : 0,
-				"line" : 2288,
-				"parent" : 44
-			},
-			{
-				"command" : 19,
-				"file" : 0,
-				"line" : 2623,
-				"parent" : 39
-			},
-			{
-				"command" : 13,
-				"file" : 0,
-				"line" : 2163,
-				"parent" : 46
+				"command" : 16,
+				"file" : 1,
+				"line" : 114,
+				"parent" : 0
 			}
 		]
 	},
@@ -411,13 +342,16 @@
 				35,
 				36,
 				38,
-				43,
-				46
+				43
 			]
 		}
 	],
 	"dependencies" : 
 	[
+		{
+			"backtrace" : 35,
+			"id" : "myApp_lrelease::@6890427a1f51a3e7e1df"
+		},
 		{
 			"id" : "myApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
@@ -519,8 +453,7 @@
 				35,
 				36,
 				38,
-				43,
-				46
+				43
 			]
 		},
 		{
@@ -548,7 +481,7 @@
 				32,
 				34,
 				37,
-				44
+				41
 			]
 		},
 		{
@@ -562,27 +495,30 @@
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-				39,
-				41
+				39
+			]
+		},
+		{
+			"name" : "translations",
+			"sourceIndexes" : 
+			[
+				40
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				40,
-				42,
-				45
+				42
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				47,
-				48,
-				49,
-				50
+				44,
+				45,
+				46
 			]
 		}
 	],
@@ -807,28 +743,9 @@
 			"sourceGroupIndex" : 3
 		},
 		{
-			"backtrace" : 37,
+			"backtrace" : 36,
 			"path" : "ukr_transl.ts",
 			"sourceGroupIndex" : 4
-		},
-		{
-			"backtrace" : 42,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_10_1-Debug/.qt/rcc/myApp_translations.qrc",
-			"sourceGroupIndex" : 3
-		},
-		{
-			"backtrace" : 45,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_10_1-Debug/ukr_transl.qm",
-			"sourceGroupIndex" : 4
-		},
-		{
-			"backtrace" : 47,
-			"compileGroupIndex" : 0,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_10_1-Debug/.qt/rcc/qrc_myApp_translations.cpp",
-			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
@@ -840,7 +757,7 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_10_1-Debug/myApp_autogen/timestamp",
-			"sourceGroupIndex" : 4
+			"sourceGroupIndex" : 5
 		},
 		{
 			"backtrace" : 0,
@@ -852,26 +769,20 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_10_1-Debug/ukr_transl.qm.rule",
-			"sourceGroupIndex" : 5
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_10_1-Debug/.qt/rcc/qrc_myApp_translations.cpp.rule",
-			"sourceGroupIndex" : 5
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_10_1-Debug/myApp_autogen/timestamp.rule",
-			"sourceGroupIndex" : 5
+			"sourceGroupIndex" : 6
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_10_1-Debug/myApp_autogen/EWIEGA46WW/qrc_resource.cpp.rule",
-			"sourceGroupIndex" : 5
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_10_1-Debug/ukr_transl.qm.rule",
+			"sourceGroupIndex" : 6
 		}
 	],
 	"type" : "EXECUTABLE"

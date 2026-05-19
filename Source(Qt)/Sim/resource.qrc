@@ -3,6 +3,6 @@
         <file>icon.jpg</file>
     </qresource>
     <qresource prefix="/translations">
-        <file alias="ukr_transl.qm">build/Desktop_Qt_6_10_1-Debug/ukr_transl.qm</file>
+        <file alias="ukr_transl.qm">ukr_transl.qm</file>
     </qresource>
 </RCC>

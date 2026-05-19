@@ -1,46 +1,40 @@
 {
-	"backtrace" : 4,
+	"backtrace" : 3,
 	"backtraceGraph" : 
 	{
 		"commands" : 
 		[
 			"add_custom_target",
 			"qt6_add_lrelease",
-			"qt6_add_translations"
+			"qt_add_lrelease"
 		],
 		"files" : 
 		[
 			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake",
-			"/home/winxp/Qt/6.10.1/gcc_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:855:EVAL",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
 			{
-				"file" : 2
-			},
-			{
-				"file" : 2,
-				"line" : -1,
-				"parent" : 0
+				"file" : 1
 			},
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 1,
-				"parent" : 1
+				"line" : 126,
+				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 886,
-				"parent" : 2
+				"line" : 983,
+				"parent" : 1
 			},
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 636,
-				"parent" : 3
+				"line" : 627,
+				"parent" : 2
 			}
 		]
 	},
@@ -72,7 +66,7 @@
 	"sources" : 
 	[
 		{
-			"backtrace" : 4,
+			"backtrace" : 3,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_10_1-Debug/CMakeFiles/myApp_lrelease",
 			"sourceGroupIndex" : 0
