@@ -155,8 +155,13 @@ private slots:
         DataSetManager dsm;
         SetGenerator sg(procArchs, osTypes);
 
-        sg.fillRandomTasks(db.tasks, taskCount);
         sg.fillRandomResources(db.availableResources, resCount);
+        sg.fillRandomTasks(
+            db.tasks,
+            taskCount,
+            db.availableResources,
+            0.1
+            );
 
         setInfo.taskSetNumber = dsm.writeTasks(db.tasks);
         setInfo.resSetNumber = dsm.writeResources(db.availableResources);
