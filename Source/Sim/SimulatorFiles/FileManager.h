@@ -108,4 +108,9 @@ public:
                 std::filesystem::remove_all(entry.path());
         }
     }
+
+    path getPath()
+    {
+        return currentDir;
+    }
 };
