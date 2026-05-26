@@ -63,35 +63,36 @@ bool HPF::nextTask(
 bool BACKFILL::nextTask(
     vector<TaskAnalizer::AnalizerResult>& tasks,
     TaskAnalizer::AnalizerResult& outAnResult
-) const
+    ) const
 {
     if (tasks.empty())
         return false;
 
-    DataBase db; // initialization for database
+    DataBase db; // Database initialization
     TaskAnalizer analyzer(&db);
-    Resource* resToSelect = nullptr;
-    // Iteration through tasks for finding that task,
-    // which can be performed with available resources
+
+    // Iterate through tasks to find a task that can be executed
+    // with currently available resources
     for (auto it = tasks.begin(); it != tasks.end(); ++it)
     {
-        // Check, whether task can be performed on the resource at the moment
-        if (resToSelect = ResourceManager::findAnyFreeResource(
-            *(*it).task,
-            (*it).resources,
-            analyzer.areSubTasksConnected(*(*it).task)))
+        // Check if the task can be performed on any free resource at the moment
+        if (ResourceManager::findAnyFreeResource(
+                *(*it).task,
+                (*it).resources,
+                analyzer.areSubTasksConnected(*(*it).task)))
         {
-            // Select current task
+            // If task found select it, remove from the queue, and return
             outAnResult = *it;
             tasks.erase(it);
             return true;
         }
     }
-    // Get last task
-    outAnResult = tasks.back();
 
-    // Pop the task from list
-    tasks.pop_back();
+    // Fallback logic if no task matches the available resources:
+    // Selects the oldest task in the queue to prevent starvation
+    outAnResult = tasks.front();
+    tasks.erase(tasks.begin());
+
     return true;
 }
 
