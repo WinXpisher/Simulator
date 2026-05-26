@@ -20,6 +20,7 @@
 - [Початок роботи на Linux](#початок-роботи-на-linux)
 - [Інструкція](#інструкція)
 - [Ліцензія](#ліцензія)
+- [Подяки](#contributors)
 
 ---
 
@@ -157,6 +158,7 @@ This program was developed by students of KhNURE: Vasylenko D.O., Birka E.M., Lu
 - [Getting started on Linux](#getting-started-on-linux)
 - [Instruction](#instruction)
 - [License](#license)
+- [Contributors](#contributors)
 
 ---
 
@@ -280,3 +282,9 @@ This project is distributed under the license **GPLv2**.
 [View license](LICENSE)
 
 ---
+
+## Contributors
+
+Thanks to the people who helped to improve this project:
+* [@shenzi-lee](https://github.com/shenzi-lee) - add and refactor features.
+
