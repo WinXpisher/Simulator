@@ -126,3 +126,15 @@ qt_add_lupdate(myApp
 qt_add_lrelease(myApp
     TS_FILES ${TS_FILES}
 )
+
+# Copying dist folder to the build folder
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/dist"
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/dist"
+)
+
+# Copying dist folder to the release folder
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/dist"
+        DESTINATION "."
+)
